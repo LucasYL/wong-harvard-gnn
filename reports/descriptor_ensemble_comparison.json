@@ -1,0 +1,833 @@
+{
+  "complete": true,
+  "completed_descriptor_models": 10,
+  "planned_descriptor_models": 10,
+  "protocol_sha256": "ea07b42898ed7f4813be509965699f39028caa28db23ac6630a925cfda5faa3a",
+  "evaluation_partition": "validation",
+  "final_test_evaluated": false,
+  "n": 3821,
+  "hits": 60,
+  "records": [
+    {
+      "name": "chemprop-descriptors-v1-seed17",
+      "seed": 17,
+      "kind": "descriptor_single",
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.39506169910268135,
+        "roc_auc": 0.9334906496499158,
+        "brier_score": 0.011939761299613657,
+        "top_k": {
+          "20": {
+            "hits": 13,
+            "precision": 0.65,
+            "enrichment": 41.39416666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.65,
+            "tie_averaged_enrichment": 41.39416666666667
+          },
+          "50": {
+            "hits": 20,
+            "precision": 0.4,
+            "enrichment": 25.473333333333336,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.4,
+            "tie_averaged_enrichment": 25.473333333333336
+          },
+          "100": {
+            "hits": 36,
+            "precision": 0.36,
+            "enrichment": 22.926,
+            "cutoff_tie_size": 2,
+            "tie_averaged_precision": 0.365,
+            "tie_averaged_enrichment": 23.244416666666666
+          }
+        },
+        "trapezoidal_pr_auc": 0.3875565414752033
+      }
+    },
+    {
+      "name": "chemprop-descriptors-v1-seed29",
+      "seed": 29,
+      "kind": "descriptor_single",
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.39141437951590596,
+        "roc_auc": 0.9271558982540105,
+        "brier_score": 0.012136096322552817,
+        "top_k": {
+          "20": {
+            "hits": 13,
+            "precision": 0.65,
+            "enrichment": 41.39416666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.65,
+            "tie_averaged_enrichment": 41.39416666666667
+          },
+          "50": {
+            "hits": 21,
+            "precision": 0.42,
+            "enrichment": 26.747,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.42,
+            "tie_averaged_enrichment": 26.747
+          },
+          "100": {
+            "hits": 31,
+            "precision": 0.31,
+            "enrichment": 19.741833333333332,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.31,
+            "tie_averaged_enrichment": 19.741833333333332
+          }
+        },
+        "trapezoidal_pr_auc": 0.3861626756993694
+      }
+    },
+    {
+      "name": "chemprop-descriptors-v1-seed43",
+      "seed": 43,
+      "kind": "descriptor_single",
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.4137231834356594,
+        "roc_auc": 0.9239010015066915,
+        "brier_score": 0.012024277888668538,
+        "top_k": {
+          "20": {
+            "hits": 14,
+            "precision": 0.7,
+            "enrichment": 44.57833333333333,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.7,
+            "tie_averaged_enrichment": 44.57833333333333
+          },
+          "50": {
+            "hits": 22,
+            "precision": 0.44,
+            "enrichment": 28.020666666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.44,
+            "tie_averaged_enrichment": 28.020666666666667
+          },
+          "100": {
+            "hits": 33,
+            "precision": 0.33,
+            "enrichment": 21.015500000000003,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.33,
+            "tie_averaged_enrichment": 21.015500000000003
+          }
+        },
+        "trapezoidal_pr_auc": 0.4094694821499697
+      }
+    },
+    {
+      "name": "chemprop-descriptors-v1-seed59",
+      "seed": 59,
+      "kind": "descriptor_single",
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.3987783815777541,
+        "roc_auc": 0.928330231321457,
+        "brier_score": 0.011940764182798276,
+        "top_k": {
+          "20": {
+            "hits": 13,
+            "precision": 0.65,
+            "enrichment": 41.39416666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.65,
+            "tie_averaged_enrichment": 41.39416666666667
+          },
+          "50": {
+            "hits": 20,
+            "precision": 0.4,
+            "enrichment": 25.473333333333336,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.4,
+            "tie_averaged_enrichment": 25.473333333333336
+          },
+          "100": {
+            "hits": 32,
+            "precision": 0.32,
+            "enrichment": 20.378666666666668,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.32,
+            "tie_averaged_enrichment": 20.378666666666668
+          }
+        },
+        "trapezoidal_pr_auc": 0.394144766298683
+      }
+    },
+    {
+      "name": "chemprop-descriptors-v1-seed71",
+      "seed": 71,
+      "kind": "descriptor_single",
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.40610338196417656,
+        "roc_auc": 0.9081272711158379,
+        "brier_score": 0.011931263183165022,
+        "top_k": {
+          "20": {
+            "hits": 12,
+            "precision": 0.6,
+            "enrichment": 38.21,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.6,
+            "tie_averaged_enrichment": 38.21
+          },
+          "50": {
+            "hits": 23,
+            "precision": 0.46,
+            "enrichment": 29.294333333333334,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.46,
+            "tie_averaged_enrichment": 29.294333333333334
+          },
+          "100": {
+            "hits": 36,
+            "precision": 0.36,
+            "enrichment": 22.926,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.36,
+            "tie_averaged_enrichment": 22.926
+          }
+        },
+        "trapezoidal_pr_auc": 0.4003709562531203
+      }
+    },
+    {
+      "name": "chemprop-descriptors-v1-seed89",
+      "seed": 89,
+      "kind": "descriptor_single",
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.4191867320411215,
+        "roc_auc": 0.9387618541168129,
+        "brier_score": 0.011753673472865494,
+        "top_k": {
+          "20": {
+            "hits": 13,
+            "precision": 0.65,
+            "enrichment": 41.39416666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.65,
+            "tie_averaged_enrichment": 41.39416666666667
+          },
+          "50": {
+            "hits": 21,
+            "precision": 0.42,
+            "enrichment": 26.747,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.42,
+            "tie_averaged_enrichment": 26.747
+          },
+          "100": {
+            "hits": 35,
+            "precision": 0.35,
+            "enrichment": 22.289166666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.35,
+            "tie_averaged_enrichment": 22.289166666666667
+          }
+        },
+        "trapezoidal_pr_auc": 0.41437697992243683
+      }
+    },
+    {
+      "name": "chemprop-descriptors-v1-seed101",
+      "seed": 101,
+      "kind": "descriptor_single",
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.36803749437985045,
+        "roc_auc": 0.924552424000709,
+        "brier_score": 0.01242922657519831,
+        "top_k": {
+          "20": {
+            "hits": 12,
+            "precision": 0.6,
+            "enrichment": 38.21,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.6,
+            "tie_averaged_enrichment": 38.21
+          },
+          "50": {
+            "hits": 20,
+            "precision": 0.4,
+            "enrichment": 25.473333333333336,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.4,
+            "tie_averaged_enrichment": 25.473333333333336
+          },
+          "100": {
+            "hits": 29,
+            "precision": 0.29,
+            "enrichment": 18.468166666666665,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.29,
+            "tie_averaged_enrichment": 18.468166666666665
+          }
+        },
+        "trapezoidal_pr_auc": 0.3636370934397639
+      }
+    },
+    {
+      "name": "chemprop-descriptors-v1-seed113",
+      "seed": 113,
+      "kind": "descriptor_single",
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.40566152319336907,
+        "roc_auc": 0.9125276965346096,
+        "brier_score": 0.011889223192309813,
+        "top_k": {
+          "20": {
+            "hits": 13,
+            "precision": 0.65,
+            "enrichment": 41.39416666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.65,
+            "tie_averaged_enrichment": 41.39416666666667
+          },
+          "50": {
+            "hits": 21,
+            "precision": 0.42,
+            "enrichment": 26.747,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.42,
+            "tie_averaged_enrichment": 26.747
+          },
+          "100": {
+            "hits": 33,
+            "precision": 0.33,
+            "enrichment": 21.015500000000003,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.33,
+            "tie_averaged_enrichment": 21.015500000000003
+          }
+        },
+        "trapezoidal_pr_auc": 0.40064130002903464
+      }
+    },
+    {
+      "name": "chemprop-descriptors-v1-seed127",
+      "seed": 127,
+      "kind": "descriptor_single",
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.3977693014278223,
+        "roc_auc": 0.9064876362669503,
+        "brier_score": 0.012159404363365598,
+        "top_k": {
+          "20": {
+            "hits": 13,
+            "precision": 0.65,
+            "enrichment": 41.39416666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.65,
+            "tie_averaged_enrichment": 41.39416666666667
+          },
+          "50": {
+            "hits": 21,
+            "precision": 0.42,
+            "enrichment": 26.747,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.42,
+            "tie_averaged_enrichment": 26.747
+          },
+          "100": {
+            "hits": 32,
+            "precision": 0.32,
+            "enrichment": 20.378666666666668,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.32,
+            "tie_averaged_enrichment": 20.378666666666668
+          }
+        },
+        "trapezoidal_pr_auc": 0.39276136004222323
+      }
+    },
+    {
+      "name": "chemprop-descriptors-v1-seed139",
+      "seed": 139,
+      "kind": "descriptor_single",
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.43217504489358033,
+        "roc_auc": 0.9297704511211556,
+        "brier_score": 0.011589378645833315,
+        "top_k": {
+          "20": {
+            "hits": 13,
+            "precision": 0.65,
+            "enrichment": 41.39416666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.65,
+            "tie_averaged_enrichment": 41.39416666666667
+          },
+          "50": {
+            "hits": 24,
+            "precision": 0.48,
+            "enrichment": 30.568,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.48,
+            "tie_averaged_enrichment": 30.568
+          },
+          "100": {
+            "hits": 33,
+            "precision": 0.33,
+            "enrichment": 21.015500000000003,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.33,
+            "tie_averaged_enrichment": 21.015500000000003
+          }
+        },
+        "trapezoidal_pr_auc": 0.42653277762842956
+      }
+    },
+    {
+      "name": "chemprop-seed17-20260909",
+      "seed": 17,
+      "kind": "no_descriptor_single",
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.33473897868187463,
+        "roc_auc": 0.8967406718071435,
+        "brier_score": 0.013047841309458172,
+        "top_k": {
+          "20": {
+            "hits": 13,
+            "precision": 0.65,
+            "enrichment": 41.39416666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.65,
+            "tie_averaged_enrichment": 41.39416666666667
+          },
+          "50": {
+            "hits": 18,
+            "precision": 0.36,
+            "enrichment": 22.926,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.36,
+            "tie_averaged_enrichment": 22.926
+          },
+          "100": {
+            "hits": 26,
+            "precision": 0.26,
+            "enrichment": 16.557666666666666,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.26,
+            "tie_averaged_enrichment": 16.557666666666666
+          }
+        },
+        "trapezoidal_pr_auc": 0.33099680239847384
+      }
+    },
+    {
+      "name": "chemprop-seed29-20260909",
+      "seed": 29,
+      "kind": "no_descriptor_single",
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.3655755852462938,
+        "roc_auc": 0.9115394841797395,
+        "brier_score": 0.012245550907392017,
+        "top_k": {
+          "20": {
+            "hits": 13,
+            "precision": 0.65,
+            "enrichment": 41.39416666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.65,
+            "tie_averaged_enrichment": 41.39416666666667
+          },
+          "50": {
+            "hits": 20,
+            "precision": 0.4,
+            "enrichment": 25.473333333333336,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.4,
+            "tie_averaged_enrichment": 25.473333333333336
+          },
+          "100": {
+            "hits": 30,
+            "precision": 0.3,
+            "enrichment": 19.105,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.3,
+            "tie_averaged_enrichment": 19.105
+          }
+        },
+        "trapezoidal_pr_auc": 0.3614772153392495
+      }
+    },
+    {
+      "name": "chemprop-seed43-20260909",
+      "seed": 43,
+      "kind": "no_descriptor_single",
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.3667031915659561,
+        "roc_auc": 0.9025569440751573,
+        "brier_score": 0.011996745689595304,
+        "top_k": {
+          "20": {
+            "hits": 13,
+            "precision": 0.65,
+            "enrichment": 41.39416666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.65,
+            "tie_averaged_enrichment": 41.39416666666667
+          },
+          "50": {
+            "hits": 21,
+            "precision": 0.42,
+            "enrichment": 26.747,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.42,
+            "tie_averaged_enrichment": 26.747
+          },
+          "100": {
+            "hits": 32,
+            "precision": 0.32,
+            "enrichment": 20.378666666666668,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.32,
+            "tie_averaged_enrichment": 20.378666666666668
+          }
+        },
+        "trapezoidal_pr_auc": 0.36222868828651866
+      }
+    },
+    {
+      "name": "no_descriptors_3",
+      "kind": "equal_weight_prediction_ensemble",
+      "seeds": [
+        17,
+        29,
+        43
+      ],
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.37134698393166865,
+        "roc_auc": 0.909297172737747,
+        "brier_score": 0.012152819139244443,
+        "top_k": {
+          "20": {
+            "hits": 14,
+            "precision": 0.7,
+            "enrichment": 44.57833333333333,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.7,
+            "tie_averaged_enrichment": 44.57833333333333
+          },
+          "50": {
+            "hits": 22,
+            "precision": 0.44,
+            "enrichment": 28.020666666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.44,
+            "tie_averaged_enrichment": 28.020666666666667
+          },
+          "100": {
+            "hits": 30,
+            "precision": 0.3,
+            "enrichment": 19.105,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.3,
+            "tie_averaged_enrichment": 19.105
+          }
+        },
+        "trapezoidal_pr_auc": 0.3678354646657725
+      }
+    },
+    {
+      "name": "descriptors_3",
+      "kind": "equal_weight_prediction_ensemble",
+      "seeds": [
+        17,
+        29,
+        43
+      ],
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.41246681222276804,
+        "roc_auc": 0.9306500930603563,
+        "brier_score": 0.011794934326138274,
+        "top_k": {
+          "20": {
+            "hits": 13,
+            "precision": 0.65,
+            "enrichment": 41.39416666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.65,
+            "tie_averaged_enrichment": 41.39416666666667
+          },
+          "50": {
+            "hits": 22,
+            "precision": 0.44,
+            "enrichment": 28.020666666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.44,
+            "tie_averaged_enrichment": 28.020666666666667
+          },
+          "100": {
+            "hits": 33,
+            "precision": 0.33,
+            "enrichment": 21.015500000000003,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.33,
+            "tie_averaged_enrichment": 21.015500000000003
+          }
+        },
+        "trapezoidal_pr_auc": 0.4068845473203652
+      }
+    },
+    {
+      "name": "descriptors_10",
+      "kind": "equal_weight_prediction_ensemble",
+      "seeds": [
+        17,
+        29,
+        43,
+        59,
+        71,
+        89,
+        101,
+        113,
+        127,
+        139
+      ],
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.4150319422078715,
+        "roc_auc": 0.9314610475937252,
+        "brier_score": 0.01171536184564249,
+        "top_k": {
+          "20": {
+            "hits": 13,
+            "precision": 0.65,
+            "enrichment": 41.39416666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.65,
+            "tie_averaged_enrichment": 41.39416666666667
+          },
+          "50": {
+            "hits": 20,
+            "precision": 0.4,
+            "enrichment": 25.473333333333336,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.4,
+            "tie_averaged_enrichment": 25.473333333333336
+          },
+          "100": {
+            "hits": 33,
+            "precision": 0.33,
+            "enrichment": 21.015500000000003,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.33,
+            "tie_averaged_enrichment": 21.015500000000003
+          }
+        },
+        "trapezoidal_pr_auc": 0.4094225921954067
+      }
+    },
+    {
+      "name": "nearest_neighbour_validation",
+      "kind": "fingerprint_baseline",
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.3210233919673089,
+        "roc_auc": 0.7584662766994593,
+        "brier_score": 0.01230563708153402,
+        "top_k": {
+          "20": {
+            "hits": 13,
+            "precision": 0.65,
+            "enrichment": 41.39416666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.65,
+            "tie_averaged_enrichment": 41.39416666666667
+          },
+          "50": {
+            "hits": 22,
+            "precision": 0.44,
+            "enrichment": 28.020666666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.44,
+            "tie_averaged_enrichment": 28.020666666666667
+          },
+          "100": {
+            "hits": 30,
+            "precision": 0.3,
+            "enrichment": 19.105,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.3,
+            "tie_averaged_enrichment": 19.105
+          }
+        },
+        "trapezoidal_pr_auc": 0.3848772197858977
+      }
+    },
+    {
+      "name": "random_forest_seed17_validation",
+      "kind": "fingerprint_baseline",
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.30816221780618247,
+        "roc_auc": 0.872059735885846,
+        "brier_score": 0.04872148088725509,
+        "top_k": {
+          "20": {
+            "hits": 15,
+            "precision": 0.75,
+            "enrichment": 47.7625,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.75,
+            "tie_averaged_enrichment": 47.7625
+          },
+          "50": {
+            "hits": 19,
+            "precision": 0.38,
+            "enrichment": 24.19966666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.38,
+            "tie_averaged_enrichment": 24.19966666666667
+          },
+          "100": {
+            "hits": 23,
+            "precision": 0.23,
+            "enrichment": 14.647166666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.23,
+            "tie_averaged_enrichment": 14.647166666666667
+          }
+        },
+        "trapezoidal_pr_auc": 0.30223525220520464
+      }
+    },
+    {
+      "name": "random_forest_seed29_validation",
+      "kind": "fingerprint_baseline",
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.2997706551203712,
+        "roc_auc": 0.8731232828148542,
+        "brier_score": 0.04711831309879896,
+        "top_k": {
+          "20": {
+            "hits": 13,
+            "precision": 0.65,
+            "enrichment": 41.39416666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.65,
+            "tie_averaged_enrichment": 41.39416666666667
+          },
+          "50": {
+            "hits": 20,
+            "precision": 0.4,
+            "enrichment": 25.473333333333336,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.4,
+            "tie_averaged_enrichment": 25.473333333333336
+          },
+          "100": {
+            "hits": 24,
+            "precision": 0.24,
+            "enrichment": 15.284,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.24,
+            "tie_averaged_enrichment": 15.284
+          }
+        },
+        "trapezoidal_pr_auc": 0.2950345457373978
+      }
+    },
+    {
+      "name": "random_forest_seed43_validation",
+      "kind": "fingerprint_baseline",
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.30105895617793654,
+        "roc_auc": 0.8808428609412391,
+        "brier_score": 0.04890611871905545,
+        "top_k": {
+          "20": {
+            "hits": 12,
+            "precision": 0.6,
+            "enrichment": 38.21,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.6,
+            "tie_averaged_enrichment": 38.21
+          },
+          "50": {
+            "hits": 19,
+            "precision": 0.38,
+            "enrichment": 24.19966666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.38,
+            "tie_averaged_enrichment": 24.19966666666667
+          },
+          "100": {
+            "hits": 28,
+            "precision": 0.28,
+            "enrichment": 17.831333333333337,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.28,
+            "tie_averaged_enrichment": 17.831333333333337
+          }
+        },
+        "trapezoidal_pr_auc": 0.2966487423129379
+      }
+    }
+  ],
+  "limitations": [
+    "Development results after earlier V0 test exposure; no new independent test claim.",
+    "Three-seed matched comparison isolates descriptor addition under the fixed light configuration.",
+    "Ten-member ensemble is an additional size comparison, not a ten-versus-ten descriptor ablation.",
+    "No new wet-lab, natural-product or actinomycete validation."
+  ]
+}

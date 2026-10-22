@@ -1,0 +1,9 @@
+{
+  "scope": "Frozen dataset roles; no new training or evaluation predictions",
+  "sha256": {
+    "data/processed/synthemol_dataset_v1/manifest.json": "7ac57b671953906e662a972c6174d5c6bf24bfceca3cd7fed2493ca6254a977d",
+    "configs/synthemol_dataset_v1.json": "407e92a02f7e85723ea8facbbf68ec9e76ab52da1ba6fb7cfd95aa05cc3c3678",
+    "scripts/prepare_synthemol_dataset_v1.py": "8374d8e324e2aa6c1f9c47bac31a3f9528ddfade90a34fe74dc66d4f76a28320",
+    "scripts/verify_synthemol_dataset_v1.py": "921cced7c70ed040e34db358513b0940803e0c7ddf440e91994aed0f5f3884b4"
+  }
+}

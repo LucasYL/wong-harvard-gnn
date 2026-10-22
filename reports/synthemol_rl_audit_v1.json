@@ -1,0 +1,92 @@
+{
+  "source_manifest_sha256": "aa68a7e89c82c9deb5fdf602ef6ca06a24392d4ed2849083ac8343ca204ade57",
+  "raw_rows": 10716,
+  "processed_author_rows": 10658,
+  "author_hits": 1137,
+  "structure_eligible_rows": 10519,
+  "unique_eligible_identities": 10413,
+  "duplicate_identity_groups": 103,
+  "duplicate_identity_rows": 209,
+  "duplicate_identity_conflicting_author_labels": 5,
+  "conservative_singleton_identities": 10310,
+  "structure_flags": {
+    "multiple_organic_fragments": 109,
+    "no_organic_fragment": 9,
+    "missing_inchikey": 1,
+    "invalid_smiles": 20
+  },
+  "singleton_overlap_counts": {
+    "train": {
+      "compound_key": 626,
+      "parent_smiles": 600,
+      "connectivity_smiles": 1045,
+      "scaffold": 3579
+    },
+    "validation": {
+      "compound_key": 56,
+      "parent_smiles": 54,
+      "connectivity_smiles": 84,
+      "scaffold": 304
+    },
+    "test": {
+      "compound_key": 68,
+      "parent_smiles": 65,
+      "connectivity_smiles": 102,
+      "scaffold": 274
+    }
+  },
+  "role_neutral_candidate_pools": {
+    "no_wong_validation_or_test_overlap": {
+      "compounds": 9728,
+      "author_hits": 987,
+      "scaffolds": 5914,
+      "unmapped_raw_records": 1,
+      "raw_traceable_compounds": 9727,
+      "raw_traceable_author_hits": 987
+    },
+    "no_overlap_with_any_wong_split": {
+      "compounds": 6137,
+      "author_hits": 699,
+      "scaffolds": 5067,
+      "unmapped_raw_records": 1,
+      "raw_traceable_compounds": 6136,
+      "raw_traceable_author_hits": 699
+    }
+  },
+  "raw16h_mean_summary": {
+    "mean": 0.8938596024636059,
+    "sd_population": 0.3028107500370331,
+    "min": 0.0345,
+    "max": 2.0592
+  },
+  "author_label_reconciliation": {
+    "ddof_0": {
+      "threshold": 0.2882381023895396,
+      "mapped_binary_rows": 10637,
+      "all_raw_rows_agree_with_author_label": 10637,
+      "any_disagreement_rows": 0
+    },
+    "ddof_1": {
+      "threshold": 0.2882098425962355,
+      "mapped_binary_rows": 10637,
+      "all_raw_rows_agree_with_author_label": 10637,
+      "any_disagreement_rows": 0
+    }
+  },
+  "no_raw_canonical_match": 21,
+  "normalization": "16h IQM-normalized OD600, not assumed equivalent to Wong control-normalized growth.",
+  "measurement_fields": "Raw and normalized R1/R2/mean at both16h and20h, plate and well metadata present.",
+  "condition_source": "Article reports RN4220,50uM,LB,16h,37C; workbook columns alone do not encode all these conditions.",
+  "roles_frozen": false,
+  "training_started": false,
+  "wong_activity_labels_read": false,
+  "limits": [
+    "Different author hit rule and IQM normalization; do not pool binary labels or apply Wong 0.2 directly.",
+    "Overlap inventories include ACYCLIC scaffold and are conservative.",
+    "Metadata dates in plate identifiers may be Excel type conversions, not experimental dates.",
+    "No predictions made on new data; no external performance claimed; source origin unknown."
+  ],
+  "records_sha256": "2cdcc2fbce047d1d107d5d2e8144bfbec9f7d8a40340721c617ea687575a9043",
+  "script_sha256": "5f8ca1e9a46840bebe777bdd97093149b093dc5dbc80200b95f0f60168c47dd4",
+  "seconds": 21.007226290996186
+}

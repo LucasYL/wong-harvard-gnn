@@ -1,0 +1,21 @@
+{
+  "source_rows": 39312,
+  "author_csv_rows": 39312,
+  "source_hits": 512,
+  "author_csv_hits": 512,
+  "multiset_matches_author_csv": true,
+  "measurement_flags": {
+    "replicates_cross_hit_cutoff": 134,
+    "near_cutoff_descriptive_only": 248
+  },
+  "workbook_sheet": "S. aureus growth inhibition",
+  "cutoff": 0.2,
+  "comparison": "mean_relative_growth < cutoff",
+  "near_cutoff_band": "0.18 through 0.22, descriptive only; does not change labels or eligibility",
+  "source_id_duplicates": 88,
+  "openpyxl_version": "3.1.5",
+  "python_version": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "seconds": 1.0381562499678694,
+  "peak_rss_mib": 141.9375,
+  "records_sha256": "ceddb42266e349fff4424951cd6f41c4016e0249c0e7fe8596a78f846c06fa87"
+}

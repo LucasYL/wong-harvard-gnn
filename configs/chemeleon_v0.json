@@ -1,0 +1,17 @@
+{
+  "encoder": "CheMeleon base message-passing encoder",
+  "checkpoint_sha256": "c376624d3407204e780a0ed13a9ac097cc9bb1c13ef89cdbc633c1715c183651",
+  "frozen": true,
+  "aggregation": "mean",
+  "batch_size": 8,
+  "cpu_threads": 2,
+  "accelerator": "cpu",
+  "embedding_dtype": "float32",
+  "process_memory_budget_mib": 3072,
+  "pilot_train_n": 256,
+  "pilot_validation_n": 64,
+  "pilot_sample_seed": 20260909,
+  "classifier": "RandomForest; exact parameters and seeds from configs/v0.json",
+  "overlap_report": "reports/chemeleon-audit-full-v1.json",
+  "final_test_evaluation": false
+}

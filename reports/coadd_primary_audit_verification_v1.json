@@ -1,0 +1,11 @@
+{
+  "row_reconciliation_passed": true,
+  "fixed_experiment_hashes_unchanged": true,
+  "counts": {
+    "rows": 76887,
+    "structure_pass": 76535,
+    "core_pass": 76172
+  },
+  "unique_initially_eligible_identities": 75950,
+  "final_training_set_created": false
+}

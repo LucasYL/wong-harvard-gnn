@@ -1,0 +1,23 @@
+{
+  "protocol_sha256": "3429fcf06f2da2c25fd3d88c3c25b29e191f7abc935e77e2663a00b2025b5314",
+  "all_10_csvs_match_sealed_label_free_scores": true,
+  "all_identifiers_structures_labels_provenance_match": true,
+  "independent_sklearn_metrics_and_top_k_match": true,
+  "all_pinned_inputs_and_source_unchanged": true,
+  "n": 3944,
+  "hits": 42,
+  "models": [
+    "nearest_neighbour",
+    "random_forest_seed17",
+    "random_forest_seed29",
+    "random_forest_seed43",
+    "chemeleon_frozen_rf_seed17",
+    "chemeleon_frozen_rf_seed29",
+    "chemeleon_frozen_rf_seed43",
+    "chemprop_scratch_seed17",
+    "chemprop_scratch_seed29",
+    "chemprop_scratch_seed43"
+  ],
+  "seconds": 87.98770699999295,
+  "peak_rss_mib": 808.953125
+}

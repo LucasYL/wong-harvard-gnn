@@ -1,0 +1,168 @@
+{
+  "frozen_at_utc": "2026-09-09T19:24:14.230912+00:00",
+  "validation_smoke_sha256": "053f4a50bbb1c174474a6b18f4ff7a3a593514fa47ae40b807cfe1b44ebf6bb3",
+  "specification": {
+    "version": "V0-final-v1",
+    "models": [
+      {
+        "name": "nearest_neighbour",
+        "family": "nearest_neighbour",
+        "seed": null,
+        "validation_predictions": "outputs/development-20260909-numeric-fix/nearest_neighbour_validation.csv"
+      },
+      {
+        "name": "random_forest_seed17",
+        "family": "random_forest",
+        "seed": 17,
+        "model": "outputs/development-20260909-numeric-fix/random_forest_seed17.joblib",
+        "validation_predictions": "outputs/development-20260909-numeric-fix/random_forest_seed17_validation.csv"
+      },
+      {
+        "name": "random_forest_seed29",
+        "family": "random_forest",
+        "seed": 29,
+        "model": "outputs/development-20260909-numeric-fix/random_forest_seed29.joblib",
+        "validation_predictions": "outputs/development-20260909-numeric-fix/random_forest_seed29_validation.csv"
+      },
+      {
+        "name": "random_forest_seed43",
+        "family": "random_forest",
+        "seed": 43,
+        "model": "outputs/development-20260909-numeric-fix/random_forest_seed43.joblib",
+        "validation_predictions": "outputs/development-20260909-numeric-fix/random_forest_seed43_validation.csv"
+      },
+      {
+        "name": "chemeleon_frozen_rf_seed17",
+        "family": "chemeleon_frozen_rf",
+        "seed": 17,
+        "model": "outputs/chemeleon-rf-v1/frozen_rf_seed17.joblib",
+        "validation_predictions": "outputs/chemeleon-rf-v1/frozen_rf_seed17_validation.csv"
+      },
+      {
+        "name": "chemeleon_frozen_rf_seed29",
+        "family": "chemeleon_frozen_rf",
+        "seed": 29,
+        "model": "outputs/chemeleon-rf-v1/frozen_rf_seed29.joblib",
+        "validation_predictions": "outputs/chemeleon-rf-v1/frozen_rf_seed29_validation.csv"
+      },
+      {
+        "name": "chemeleon_frozen_rf_seed43",
+        "family": "chemeleon_frozen_rf",
+        "seed": 43,
+        "model": "outputs/chemeleon-rf-v1/frozen_rf_seed43.joblib",
+        "validation_predictions": "outputs/chemeleon-rf-v1/frozen_rf_seed43_validation.csv"
+      },
+      {
+        "name": "chemprop_scratch_seed17",
+        "family": "chemprop_scratch",
+        "seed": 17,
+        "model": "outputs/chemprop-seed17-20260909/checkpoints/best-epoch=10.ckpt",
+        "selected_epoch": 11,
+        "validation_predictions": "outputs/chemprop-seed17-20260909/chemprop_validation.csv"
+      },
+      {
+        "name": "chemprop_scratch_seed29",
+        "family": "chemprop_scratch",
+        "seed": 29,
+        "model": "outputs/chemprop-seed29-20260909/checkpoints/best-epoch=09.ckpt",
+        "selected_epoch": 10,
+        "validation_predictions": "outputs/chemprop-seed29-20260909/chemprop_validation.csv"
+      },
+      {
+        "name": "chemprop_scratch_seed43",
+        "family": "chemprop_scratch",
+        "seed": 43,
+        "model": "outputs/chemprop-seed43-20260909/checkpoints/best-epoch=12.ckpt",
+        "selected_epoch": 13,
+        "validation_predictions": "outputs/chemprop-seed43-20260909/chemprop_validation.csv"
+      }
+    ],
+    "primary_metric": "average_precision",
+    "top_k": [
+      20,
+      50,
+      100
+    ],
+    "primary_practical_k": 50,
+    "validation_selected_family": "chemeleon_frozen_rf",
+    "reference_family": "nearest_neighbour",
+    "model_selection": "All predefined seeds; family mean AP. No best-test-seed selection or ensemble.",
+    "training_policy": "Use saved train-only models; no refitting, tuning, calibration or test-based changes.",
+    "tie_policy": "Descending score, ascending compound key; also report cutoff-tie-averaged precision.",
+    "subgroups": {
+      "similarity_bins": [
+        0.3,
+        0.5
+      ],
+      "pretraining_identity": "Confirmed full parent InChIKey match vs no confirmed match; descriptive only."
+    },
+    "uncertainty_policy": "Show all seeds and sample SD, not confidence intervals or significance claims; one fixed split.",
+    "future_use": "After scoring, this test is a historical V0 benchmark, not an untouched holdout for adaptive V1 development.",
+    "source_hashes": {
+      "src/antibacterial/__init__.py": "2749552b0ec457b104b3f180ba42ed19289cd422e43f2e4601c57199b7631d44",
+      "src/antibacterial/baseline.py": "6210fbc76051c6551bd00ee9d264d2f2bfdaa85b4792ecebc0962768d893483b",
+      "src/antibacterial/chemistry.py": "69a29e4da064427cef0531b5ee5268e1153c7187bf2d76a53d2baa0cd5602517",
+      "src/antibacterial/common.py": "a1fe0fb0a8beda8d45e168742af41dc593761417d7fb9063e529306b0c9f854d",
+      "src/antibacterial/compare.py": "5ce5e3c56e78f0b557e89b62c8aff7eb5f485f807da5dfab64afa2980b06db3c",
+      "src/antibacterial/final_evaluation.py": "710aecb39a0d66109a3655d4dfa46ffd9350d2eae14aa70231c290087dc29ea3",
+      "src/antibacterial/frozen_encoder.py": "9340bc2f528ba5e9bd9c47f4a74b898d41e1df756df88050b55339758c715923",
+      "src/antibacterial/frozen_rf.py": "a14d81d76af356c5ae64b729afe471b781e7c122e28c86cb383dd87d744fdceb",
+      "src/antibacterial/neural.py": "da583cb4db78bed8e7be07a311b286406505b5cfef768f55962b640d6f136700",
+      "src/antibacterial/neural_metrics.py": "8ee0632d465c7dee0cf45671f08ba979973cb2de304e7c631b356f51de664776",
+      "src/antibacterial/prepare.py": "143aa3e61604618ee0c9876f4e4d63767fa7763bdb9859bb2ec60b1ddf0b35f6",
+      "src/antibacterial/pretraining_audit.py": "b7684cd15119303ade5e196a92658fde38485cc2de9839a6860052a964795d53",
+      "src/antibacterial/splitting.py": "4a9b490baeb7b42cbe8a337875b410a78e44c486d9702d6b2c7f6e52780bf23f"
+    },
+    "input_hashes": {
+      "configs/chemeleon_v0.json": "067b9ba7a241f4d204e09e86d7aafd3f495b9265c435bed11ab0ea6dd08709b7",
+      "configs/chemprop_v0.json": "b2ee10ef1b0a1e24700fe1cbf7af906a16f96105d12e8c82e7c09b53638af01e",
+      "configs/v0.json": "9c35479c1e365d1c3c9b449209142daee9052b5a914d8448926d091a15fa882c",
+      "data/processed/wong_v0/manifest.json": "fdd7bf1b26a245a8c11bffc8bcda1c39c94883875d2df223cfcb5e97074b3ee0",
+      "data/processed/wong_v0/measurements.parquet": "00b68d1abfbd92ba5b131c3aea4a379f56a5c06fd3ca814a4263d59d0bbc150f",
+      "data/processed/wong_v0/review_records.jsonl": "2bd1fcd2d1390e20029f678023399ec7ae89d7b3475d801d4604253681e490e2",
+      "data/processed/wong_v0/split_assignments.jsonl": "39effac298a03f8d85dc098e851982a8189cd9ca33b991c3be17c4723ee187b9",
+      "data/processed/wong_v0/test.parquet": "8c301dcfde383311db8ff7b0e63ab9eae1cb800dc16733797fb9a1ed4a9513de",
+      "data/processed/wong_v0/train.parquet": "a24dbccfc87296411e8fc826baceda9be1a4a66d7a7100d642a3d4c1e2ebcad1",
+      "data/processed/wong_v0/validation.parquet": "7933d35d070cc4d7847699cc66896e847bba8cf04cc984bd66f955c434645bda",
+      "data/raw/chemeleon/chemeleon_mp.pt": "c376624d3407204e780a0ed13a9ac097cc9bb1c13ef89cdbc633c1715c183651",
+      "outputs/chemeleon-rf-v1/frozen_rf_seed17.joblib": "017c7c5fef60ca7dcde5e6482c7644adad7e630e2b932fc1862b411b52ef7419",
+      "outputs/chemeleon-rf-v1/frozen_rf_seed17_validation.csv": "cb7a24851920968863fa462bed9781378bec4d281667ae48bcb987d7ce3c7852",
+      "outputs/chemeleon-rf-v1/frozen_rf_seed29.joblib": "b5998f53cc875ad26590356fdce999be5048eadae0c7052fd880c1f0ae458209",
+      "outputs/chemeleon-rf-v1/frozen_rf_seed29_validation.csv": "e31e59ad6a9d501faba383b060f478b66b60bcfa2b46d129d13b1c34b42e617d",
+      "outputs/chemeleon-rf-v1/frozen_rf_seed43.joblib": "e74a6a4de10eeceeb6749161574ab3151e7398fbf514b8a9c6cdf5d5fb4ee6e0",
+      "outputs/chemeleon-rf-v1/frozen_rf_seed43_validation.csv": "0faa2f247314878ed90a27ad67c7a8c086ebfd83e72aab707090f566ecee7f64",
+      "outputs/chemeleon-rf-v1/results.json": "383a46913d81b515818ce2885a7b00820a8ac0cf9c09d566ac13fc386992b079",
+      "outputs/chemprop-seed17-20260909/checkpoints/best-epoch=10.ckpt": "10c30266e55960c2c828b8ab2d19800614521e7b9d01854eaba4a5141e8cde77",
+      "outputs/chemprop-seed17-20260909/chemprop_validation.csv": "94125b2eb0594e9e79d7d461c7a9a66cccae3f27e73cdb2a0f1bb3b23899e83c",
+      "outputs/chemprop-seed17-20260909/results.json": "177eae96722abb9400dabca1bd52212c05e625cf6a0d04c64b83b98bea4b7332",
+      "outputs/chemprop-seed29-20260909/checkpoints/best-epoch=09.ckpt": "6b7c60afc2df42de9d79659106f250db6c26b57666fc38b1443ec4eeac2ef4c6",
+      "outputs/chemprop-seed29-20260909/chemprop_validation.csv": "e7667db08bd9e16dc00f987f1c1d4bb9854a356bdb414dc3f710f9e27f112c3c",
+      "outputs/chemprop-seed29-20260909/results.json": "f532d1ef0118d0d89fcb0e78a1072af73eb467ed49e2d4050fb95381b61fc707",
+      "outputs/chemprop-seed43-20260909/checkpoints/best-epoch=12.ckpt": "1044c2b7dc0cda2d5191bcfe29a22174fd0b04c87cc9943919019577a4c05884",
+      "outputs/chemprop-seed43-20260909/chemprop_validation.csv": "f613c089ac2530ee8094354b80555c396519606dffc36a765b5156456fe36bb5",
+      "outputs/chemprop-seed43-20260909/results.json": "c938c137b33f39a6338e075137bffad89735d99068a7daf270530542628a2608",
+      "outputs/development-20260909-numeric-fix/nearest_neighbour_validation.csv": "9174420a4b103eae831621f4a294d254f1bde99b0cafe20c71e4debed1f09063",
+      "outputs/development-20260909-numeric-fix/random_forest_seed17.joblib": "8d8206e3e4b3cd2666ac10cb09b39e4626d9bc3d11c0ac5781a0c6c08e3aee31",
+      "outputs/development-20260909-numeric-fix/random_forest_seed17_validation.csv": "55d123e70501338cf2e438569c08ec0e63cee91240de1aae5a1454f887bd1993",
+      "outputs/development-20260909-numeric-fix/random_forest_seed29.joblib": "64846cfe823394307705b35c5b5c7bc53f40b8bad388b1ac84d4a02e460c9baa",
+      "outputs/development-20260909-numeric-fix/random_forest_seed29_validation.csv": "9039344aa606eb016ceb3954f792b2c48678b60ad5facf88c5f8fd3124a13455",
+      "outputs/development-20260909-numeric-fix/random_forest_seed43.joblib": "2047de5c154a6bc801de904210f958ca095f2543481db288da2a724ed9157f90",
+      "outputs/development-20260909-numeric-fix/random_forest_seed43_validation.csv": "fc0ca2d0029f9df953ad04b8d7da737f5e4804166e59f17f205269571d5e43f0",
+      "outputs/development-20260909-numeric-fix/results.json": "1742090f83396343c2b1e58e67ae905d9d142e71908ac1190f846d140aae9291",
+      "reports/chemeleon-audit-full-v1.json": "17c2d7aaae341c37ba56f2a8b39c38fc5aed88d0889e1978da20092a12ae8044",
+      "reports/pretrained_comparison.json": "7d5e439d28fa2de499456e676a4a518f3a5ead59e4bb2453d5e0dd73b1dc5115",
+      "requirements-neural.lock.txt": "cb6ee72359b3b99763da91b8e692f730eaa4e8ffa76411b07c78bf5f07f63f63"
+    },
+    "packages": {
+      "rdkit": "2025.9.6",
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "scikit-learn": "1.6.1",
+      "pyarrow": "19.0.1",
+      "torch": "2.14.0",
+      "chemprop": "2.2.1",
+      "lightning": "2.6.5",
+      "torchmetrics": "1.9.0"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "coadd_auxiliary_v1",
+  "source_audit": "data/processed/coadd_primary_audit_v1/gp020_32ugml_records.jsonl.gz",
+  "assay_id": "GP_020",
+  "strain": "ATCC 43300; MRSA",
+  "concentration": "32 ug/mL",
+  "target": "reported_mean_inhibition_percent",
+  "duplicate_policy": "exclude_all_repeated_eligible_parent_inchikey_groups_keep_in_review",
+  "ambiguous_identity_policy": "exclude_same_inchikey_multiple_parent_smiles",
+  "measurement_policy": "finite_mean_nonnegative_finite_sd_at_least_two_integer_replicates",
+  "out_of_range_policy": "retain_without_clipping_or_log_transform",
+  "wong_excluded_partitions": ["validation", "test"],
+  "excluded_overlap_keys": ["compound_key", "parent_smiles", "connectivity_smiles", "scaffold"],
+  "acyclic_policy": "treat_ACYCLIC_as_a_scaffold_group_including_exclusion_checks",
+  "auxiliary_split_seed": 20260910,
+  "auxiliary_validation_hash_fraction": 0.05,
+  "auxiliary_split_method": "sha256(seed:scaffold)_first_64_bits_fraction",
+  "wong_target_labels_unchanged": true,
+  "no_new_binary_hit_labels": true,
+  "model_training_started": false
+}

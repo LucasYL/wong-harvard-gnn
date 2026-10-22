@@ -1,0 +1,59 @@
+{
+  "source_archive": "CO-ADD_InhibitionData_r03_01-02-2020_CSV.zip",
+  "archive_sha256": "bd57000d373e1176940bfe9462bdaa21982612de776945dec167fa9ddcf864d2",
+  "filter": {
+    "organism": "Staphylococcus aureus",
+    "assay": "GP_020",
+    "strain": "ATCC 43300; MRSA",
+    "concentration": "32 ug/mL"
+  },
+  "counts": {
+    "rows": 76887,
+    "structure_eligible_rows": 76535,
+    "structure_and_summary_qc_pass_rows": 76172,
+    "out_of_range_retained": 12636,
+    "fewer_than_two_or_invalid_replicate_count": 313,
+    "missing_nonfinite_inhibition": 52,
+    "missing_or_invalid_standard_deviation": 52
+  },
+  "distinct_source_ids": 76887,
+  "structure_flags": {
+    "multiple_organic_fragments": 346,
+    "invalid_smiles": 6
+  },
+  "unique_eligible_inchikeys": 75950,
+  "duplicate_identity_groups": 571,
+  "duplicate_identity_groups_with_different_inhibition": 571,
+  "same_inchikey_multiple_parent_smiles_groups": 57,
+  "wong_overlap_rows": {
+    "train": {
+      "inchikey": 180,
+      "connectivity": 206,
+      "scaffold": 8972
+    },
+    "validation": {
+      "inchikey": 17,
+      "connectivity": 22,
+      "scaffold": 877
+    },
+    "test": {
+      "inchikey": 16,
+      "connectivity": 19,
+      "scaffold": 1674
+    }
+  },
+  "new_training_labels_created": false,
+  "wong_activity_labels_read": false,
+  "source_standardizer_sha256": "69a29e4da064427cef0531b5ee5268e1153c7187bf2d76a53d2baa0cd5602517",
+  "script_sha256": "07c91ed2b27f1e78acdc1189be0d01eb1a282f51ffbf7f935350dc9170947d65",
+  "output_bytes": 9224474,
+  "seconds": 104.23431854200317,
+  "peak_rss_mib": 184.78125,
+  "limitations": [
+    "Summary QC is not equivalent to author-defined hit status or plate-level QC.",
+    "Duplicate identity groups and different parent forms require adjudication before modeling.",
+    "Overlap counts are source rows including structures requiring review, not final eligible unique molecules.",
+    "Negative and above-100 inhibition retained without clipping.",
+    "No new independent test, standardized target labels, license clearance, or origin annotations established."
+  ]
+}

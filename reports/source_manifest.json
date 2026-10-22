@@ -1,0 +1,31 @@
+{
+  "doi": "10.1038/s41586-023-06887-8",
+  "repository_commit": "83403d483def9aa6a90df850b3d0454b3030cf47",
+  "retrieved_at_utc": "2026-09-08T20:43:13.269774+00:00",
+  "files": [
+    {
+      "name": "author_train.csv",
+      "url": "https://raw.githubusercontent.com/felixjwong/antibioticsai/83403d483def9aa6a90df850b3d0454b3030cf47/working_example/train.csv",
+      "bytes": 3155144,
+      "sha256": "4fcfc9ccc4d8b2ad4bb3b0612e40eedfb886258cb394878ef7d2a0b06a8c13a1"
+    },
+    {
+      "name": "author_README.md",
+      "url": "https://raw.githubusercontent.com/felixjwong/antibioticsai/83403d483def9aa6a90df850b3d0454b3030cf47/README.md",
+      "bytes": 11357,
+      "sha256": "ce88eddfbb5f2d019f44cfe6ab624cd1652970f3b80b07cc1f32b13ed85dc5c1"
+    },
+    {
+      "name": "author_LICENSE",
+      "url": "https://raw.githubusercontent.com/felixjwong/antibioticsai/83403d483def9aa6a90df850b3d0454b3030cf47/LICENSE",
+      "bytes": 1067,
+      "sha256": "ea87ea1a638a24fe902974585c1e8a209cf358410f0adbe263384b2e1774a716"
+    },
+    {
+      "name": "supplementary_data_1.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06887-8/MediaObjects/41586_2023_6887_MOESM3_ESM.xlsx",
+      "bytes": 8837872,
+      "sha256": "f84179d70b44ffdf5189a55bc5347d13d3e1724a015c135e15e3dec0f901135e"
+    }
+  ]
+}

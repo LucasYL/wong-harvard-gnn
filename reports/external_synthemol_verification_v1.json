@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "n": 1107,
+  "hits": 127,
+  "models_verified": 13,
+  "top_k_checks": 39,
+  "ensembles_verified": 3,
+  "prediction_seals_matched": true,
+  "results_sha256": "eadeb184ea95e941467303e733a064822bb1ad5ee4aff6cb936f3a3cb1b0879d",
+  "script_sha256": "ce73cd69c47b78c7fbb624bcdd711a9e8abe16a58a635c4e9a5e0106f967a2e9"
+}

@@ -1,0 +1,482 @@
+{
+  "verified": true,
+  "dataset_manifest_sha256": "7ac57b671953906e662a972c6174d5c6bf24bfceca3cd7fed2493ca6254a977d",
+  "zero_overlap_checks": [
+    {
+      "partition": "train",
+      "against": "new_validation",
+      "field": "compound_key",
+      "overlap": 0
+    },
+    {
+      "partition": "train",
+      "against": "new_validation",
+      "field": "parent_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "train",
+      "against": "new_validation",
+      "field": "connectivity_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "train",
+      "against": "new_validation",
+      "field": "scaffold",
+      "overlap": 0
+    },
+    {
+      "partition": "train",
+      "against": "new_external",
+      "field": "compound_key",
+      "overlap": 0
+    },
+    {
+      "partition": "train",
+      "against": "new_external",
+      "field": "parent_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "train",
+      "against": "new_external",
+      "field": "connectivity_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "train",
+      "against": "new_external",
+      "field": "scaffold",
+      "overlap": 0
+    },
+    {
+      "partition": "train",
+      "against": "wong_validation",
+      "field": "compound_key",
+      "overlap": 0
+    },
+    {
+      "partition": "train",
+      "against": "wong_validation",
+      "field": "parent_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "train",
+      "against": "wong_validation",
+      "field": "connectivity_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "train",
+      "against": "wong_validation",
+      "field": "scaffold",
+      "overlap": 0
+    },
+    {
+      "partition": "train",
+      "against": "wong_test",
+      "field": "compound_key",
+      "overlap": 0
+    },
+    {
+      "partition": "train",
+      "against": "wong_test",
+      "field": "parent_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "train",
+      "against": "wong_test",
+      "field": "connectivity_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "train",
+      "against": "wong_test",
+      "field": "scaffold",
+      "overlap": 0
+    },
+    {
+      "partition": "train",
+      "against": "coadd_validation",
+      "field": "compound_key",
+      "overlap": 0
+    },
+    {
+      "partition": "train",
+      "against": "coadd_validation",
+      "field": "parent_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "train",
+      "against": "coadd_validation",
+      "field": "connectivity_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "train",
+      "against": "coadd_validation",
+      "field": "scaffold",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "new_train",
+      "field": "compound_key",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "new_train",
+      "field": "parent_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "new_train",
+      "field": "connectivity_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "new_train",
+      "field": "scaffold",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "new_external",
+      "field": "compound_key",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "new_external",
+      "field": "parent_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "new_external",
+      "field": "connectivity_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "new_external",
+      "field": "scaffold",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "wong_train",
+      "field": "compound_key",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "wong_train",
+      "field": "parent_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "wong_train",
+      "field": "connectivity_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "wong_train",
+      "field": "scaffold",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "wong_validation",
+      "field": "compound_key",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "wong_validation",
+      "field": "parent_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "wong_validation",
+      "field": "connectivity_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "wong_validation",
+      "field": "scaffold",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "wong_test",
+      "field": "compound_key",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "wong_test",
+      "field": "parent_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "wong_test",
+      "field": "connectivity_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "wong_test",
+      "field": "scaffold",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "coadd_train",
+      "field": "compound_key",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "coadd_train",
+      "field": "parent_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "coadd_train",
+      "field": "connectivity_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "coadd_train",
+      "field": "scaffold",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "coadd_validation",
+      "field": "compound_key",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "coadd_validation",
+      "field": "parent_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "coadd_validation",
+      "field": "connectivity_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "validation",
+      "against": "coadd_validation",
+      "field": "scaffold",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "new_train",
+      "field": "compound_key",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "new_train",
+      "field": "parent_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "new_train",
+      "field": "connectivity_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "new_train",
+      "field": "scaffold",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "new_validation",
+      "field": "compound_key",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "new_validation",
+      "field": "parent_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "new_validation",
+      "field": "connectivity_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "new_validation",
+      "field": "scaffold",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "wong_train",
+      "field": "compound_key",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "wong_train",
+      "field": "parent_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "wong_train",
+      "field": "connectivity_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "wong_train",
+      "field": "scaffold",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "wong_validation",
+      "field": "compound_key",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "wong_validation",
+      "field": "parent_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "wong_validation",
+      "field": "connectivity_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "wong_validation",
+      "field": "scaffold",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "wong_test",
+      "field": "compound_key",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "wong_test",
+      "field": "parent_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "wong_test",
+      "field": "connectivity_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "wong_test",
+      "field": "scaffold",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "coadd_train",
+      "field": "compound_key",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "coadd_train",
+      "field": "parent_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "coadd_train",
+      "field": "connectivity_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "coadd_train",
+      "field": "scaffold",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "coadd_validation",
+      "field": "compound_key",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "coadd_validation",
+      "field": "parent_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "coadd_validation",
+      "field": "connectivity_smiles",
+      "overlap": 0
+    },
+    {
+      "partition": "external",
+      "against": "coadd_validation",
+      "field": "scaffold",
+      "overlap": 0
+    }
+  ],
+  "training_inventory": {
+    "wong_plus_coadd": {
+      "compound_assay_records": 100425,
+      "unique_parent_inchikeys": 100269
+    },
+    "wong_plus_synthemol": {
+      "compound_assay_records": 38955,
+      "unique_parent_inchikeys": 38338
+    },
+    "wong_plus_coadd_plus_synthemol": {
+      "compound_assay_records": 108322,
+      "unique_parent_inchikeys": 107506
+    }
+  },
+  "source_accounting": {
+    "assigned": 9589,
+    "excluded": 1069
+  },
+  "external_predictions_created": false,
+  "old_wong_activity_labels_read": false
+}

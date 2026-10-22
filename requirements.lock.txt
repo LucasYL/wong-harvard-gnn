@@ -1,0 +1,15 @@
+cloudpickle==3.1.2
+et_xmlfile==2.0.0
+iniconfig==2.3.0
+joblib==1.6.0
+numpy==2.2.6
+openpyxl==3.1.5
+packaging==26.3
+pillow==12.3.0
+pluggy==1.6.0
+pyarrow==19.0.1
+pytest==8.3.5
+rdkit==2025.9.6
+scikit-learn==1.6.1
+scipy==1.15.3
+threadpoolctl==3.6.0

@@ -1,0 +1,9 @@
+# Separate environment; retain the data-processing chemistry and metrics versions.
+# 2.3.1's cuik_molmaker_pin currently requires an incompatible RDKit upgrade.
+chemprop==2.2.1
+numpy==2.2.6
+scipy==1.15.3
+scikit-learn==1.6.1
+rdkit==2025.9.6
+pyarrow==19.0.1
+pytest==8.3.5

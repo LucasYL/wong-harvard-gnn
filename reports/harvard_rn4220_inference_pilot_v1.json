@@ -1,0 +1,87 @@
+{
+  "created_at_utc": "2026-09-11T16:17:03.352035+00:00",
+  "n": 512,
+  "source": "old Wong validation, selected by key hash; no Harvard predictions",
+  "seconds": 13.247540000011213,
+  "stage_seconds": {
+    "descriptors": 7.352883165993262,
+    "nearest_neighbour": 2.885241208015941,
+    "nine_neural_members": 2.928590083029121
+  },
+  "reproduction_errors": {
+    "nearest_neighbour": 0.0,
+    "scratch_descriptors_3_seed17": 2.9802322387695312e-08,
+    "scratch_descriptors_3_seed29": 5.960464477539063e-08,
+    "scratch_descriptors_3_seed43": 2.9802322387695312e-08,
+    "coadd_transfer_3_seed17": 2.2351741790771484e-08,
+    "coadd_transfer_3_seed29": 5.960464477539063e-08,
+    "coadd_transfer_3_seed43": 4.470348358154297e-08,
+    "synthemol_transfer_3_seed17": 5.960464477539063e-08,
+    "synthemol_transfer_3_seed29": 5.960464477539063e-08,
+    "synthemol_transfer_3_seed43": 5.960464477539063e-08
+  },
+  "weighted_ap_check": "passed including score ties and zero sample weights",
+  "estimated_prediction_minutes": 96.79120960672226,
+  "runtime": {
+    "python": "3.12.1 (v3.12.1:2305ca5144, Dec  7 2023, 17:23:38) [Clang 13.0.0 (clang-1300.0.29.30)]",
+    "platform": "macOS-26.5-arm64-arm-64bit",
+    "architecture": "arm64",
+    "packages": {
+      "rdkit": "2025.9.6",
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "scikit-learn": "1.6.1",
+      "pyarrow": "19.0.1",
+      "torch": "2.14.0",
+      "chemprop": "2.2.1",
+      "lightning": "2.6.5",
+      "torchmetrics": "1.9.0"
+    },
+    "peak_rss_mib": 465.984375,
+    "torch_threads": 2,
+    "mps_available": true,
+    "accelerator_used": "cpu"
+  },
+  "runner_sha256": "977fd2cc84ec4d4ad5a63c5da5a7d31df8b8d6fd4ca3bd87a41dcad90c4840eb",
+  "config": {
+    "n": 225829,
+    "hits": 601,
+    "chunk_size": 1024,
+    "batch_size": 32,
+    "cpu_threads": 2,
+    "memory_budget_mib": 3072,
+    "top_k": [
+      20,
+      50,
+      100
+    ],
+    "primary_metric": "average_precision",
+    "secondary": "Top-K hits, precision, enrichment; trapezoidal PR-AUC descriptive",
+    "model_groups": [
+      "nearest_neighbour",
+      "scratch_descriptors_3",
+      "coadd_transfer_3",
+      "synthemol_transfer_3"
+    ],
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "ensemble": "equal mean of the three fixed members",
+    "tie_policy": "descending score then ascending compound_key; also report cutoff-tie-averaged precision",
+    "bootstrap": {
+      "iterations": 2000,
+      "seed": 20260911,
+      "unit": "Murcko scaffold",
+      "comparison": "paired AP differences relative to scratch_descriptors_3"
+    },
+    "target": "AID1259311 deposited binary growth-screen labels, NOT Wong labels or MIC",
+    "claim_boundary": "Cross-assay retrospective ranking; concentration unknown; not actinomycete-specific or discovery validation",
+    "no_training_tuning_calibration": true,
+    "metrics_only_after_all_predictions_sealed": true,
+    "subsets": "Only the scaffold-unseen inventory; wider identity inventory is not evaluated",
+    "failure_policy": "Stop on invalid features or inference; do not silently drop compounds",
+    "post_evaluation": "Becomes historical evaluation; cannot be reused as untouched test for adaptive changes"
+  }
+}

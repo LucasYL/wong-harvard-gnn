@@ -1,0 +1,123 @@
+{
+  "aid": 1259311,
+  "date": "2026-09-11",
+  "status": "candidate_audited_not_scored",
+  "source_counts": {
+    "source_records": 329176,
+    "author_Inactive": 328105,
+    "author_Active": 1071,
+    "multiple_organic_fragments": 3556,
+    "missing_or_nonfinite_measurements": 352
+  },
+  "unique_pubchem_cids": 327980,
+  "conflicting_cids": [
+    "11834461",
+    "2884325",
+    "73307599",
+    "73319646",
+    "73757548",
+    "73758114"
+  ],
+  "parent_label_conflicts": 7,
+  "parent_graph_ambiguities": 21,
+  "blocked_parents_with_any_qc_flag": 3835,
+  "inventories": {
+    "identity_unseen": {
+      "compounds": 314118,
+      "active": 922,
+      "inactive": 313196
+    },
+    "scaffold_unseen": {
+      "compounds": 225829,
+      "active": 601,
+      "inactive": 225228
+    }
+  },
+  "overlap_record_counts": {
+    "wong_v0/train": {
+      "scaffold": 32634,
+      "compound_key": 1512,
+      "parent_smiles": 1440,
+      "connectivity_smiles": 2159
+    },
+    "wong_v0/validation": {
+      "scaffold": 3915,
+      "connectivity_smiles": 252,
+      "compound_key": 162,
+      "parent_smiles": 157
+    },
+    "wong_v0/test": {
+      "scaffold": 4249,
+      "compound_key": 161,
+      "parent_smiles": 151,
+      "connectivity_smiles": 229
+    },
+    "coadd_auxiliary_v1/train": {
+      "scaffold": 78997,
+      "compound_key": 5705,
+      "parent_smiles": 5374,
+      "connectivity_smiles": 6398
+    },
+    "coadd_auxiliary_v1/validation": {
+      "scaffold": 4039,
+      "compound_key": 322,
+      "parent_smiles": 304,
+      "connectivity_smiles": 345
+    },
+    "synthemol_dataset_v1/train": {
+      "scaffold": 33036,
+      "compound_key": 380,
+      "parent_smiles": 366,
+      "connectivity_smiles": 745
+    },
+    "synthemol_dataset_v1/validation": {
+      "scaffold": 385,
+      "connectivity_smiles": 20,
+      "compound_key": 14,
+      "parent_smiles": 12
+    },
+    "synthemol_dataset_v1/external": {
+      "scaffold": 629,
+      "compound_key": 31,
+      "parent_smiles": 31,
+      "connectivity_smiles": 43
+    }
+  },
+  "assay": {
+    "strain": "S. aureus RN4220 (WT)",
+    "medium": "TSB",
+    "temperature_C": 30,
+    "duration_h": "approximately 16 (description: 16-18)",
+    "readout": "OD600",
+    "replicates": 2,
+    "compound_transfer_nL": 100,
+    "final_well_uL": 80,
+    "final_compound_concentration": "unknown; stock concentration not stated",
+    "hit_rule": "both OD600 <=0.18 and both plate Z-score <=-3",
+    "limitations": [
+      "OD growth assay does not establish bactericidal action",
+      "not the Wong 50uM assay; not MIC",
+      "natural-product/actinomycete origin unknown",
+      "no plate IDs or stock concentrations in downloaded table",
+      "does not establish absence from external pretraining corpora"
+    ]
+  },
+  "input_hashes": {
+    "data/processed/wong_v0/train.parquet": "a24dbccfc87296411e8fc826baceda9be1a4a66d7a7100d642a3d4c1e2ebcad1",
+    "data/processed/wong_v0/validation.parquet": "7933d35d070cc4d7847699cc66896e847bba8cf04cc984bd66f955c434645bda",
+    "data/processed/wong_v0/test.parquet": "8c301dcfde383311db8ff7b0e63ab9eae1cb800dc16733797fb9a1ed4a9513de",
+    "data/processed/coadd_auxiliary_v1/train.jsonl.gz": "5439eca533ddcf64f1523bb4c242d34897b092e2b5f8fd41ed648f10a43fe44d",
+    "data/processed/coadd_auxiliary_v1/validation.jsonl.gz": "cf3e03d843ad4500b9f28220928c0c8cd1e568749d79cfcba1b78e7e8ed98d41",
+    "data/processed/synthemol_dataset_v1/train.jsonl.gz": "ee9c76480b54733a68c8862e3b27b1715bbf79e3be8d4ce61f17a59580637fad",
+    "data/processed/synthemol_dataset_v1/validation.jsonl.gz": "73141b19b7b6f1a2368ce6080c071a4831bc67af149da52f5d9ff6ace0aa5a09",
+    "data/processed/synthemol_dataset_v1/external.jsonl.gz": "ed886c3d9f072c1cea40ad202cf0f1897779de3f5e666edae5c4bba4e6624a6b",
+    "data/raw/test_dataset_search_v1/aid1259311_download_manifest.json": "c13362944f5134de91081ae80223ac1acd695338e1a1a63553d7bb89c209c8e1"
+  },
+  "output_hashes": {
+    "scaffold_unseen.jsonl.gz": "417e77dd8cc0ef69e0cfb57e1f42223806d99d89abdf309db4e0e6a9f6f1e547",
+    "identity_unseen.jsonl.gz": "60e5346edff9f12ed85eccd1e9dd2b3e24defdc21df9934e02ece06e4b4da269",
+    "record_audit.jsonl.gz": "773e3d791172b63d99dadc94ddea98bf4de5846a21a1ac37f9434133ed928d6f"
+  },
+  "seconds": 406.039869249973,
+  "peak_rss_MiB": 437.765625
+}

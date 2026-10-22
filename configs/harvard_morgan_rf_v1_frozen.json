@@ -1,0 +1,68 @@
+{
+  "frozen_at_utc": "2026-09-11T18:06:19.929405+00:00",
+  "entries": [
+    {
+      "name": "random_forest_seed17",
+      "family": "random_forest",
+      "seed": 17,
+      "model": "outputs/development-20260909-numeric-fix/random_forest_seed17.joblib",
+      "validation_predictions": "outputs/development-20260909-numeric-fix/random_forest_seed17_validation.csv"
+    },
+    {
+      "name": "random_forest_seed29",
+      "family": "random_forest",
+      "seed": 29,
+      "model": "outputs/development-20260909-numeric-fix/random_forest_seed29.joblib",
+      "validation_predictions": "outputs/development-20260909-numeric-fix/random_forest_seed29_validation.csv"
+    },
+    {
+      "name": "random_forest_seed43",
+      "family": "random_forest",
+      "seed": 43,
+      "model": "outputs/development-20260909-numeric-fix/random_forest_seed43.joblib",
+      "validation_predictions": "outputs/development-20260909-numeric-fix/random_forest_seed43_validation.csv"
+    }
+  ],
+  "input_hashes": {
+    "scripts/evaluate_harvard_morgan_rf_v1.py": "efa8614bbd9076fee8ac7841dde8acc007a9d646e43646275183c94cd988f916",
+    "data/processed/harvard_rn4220_external_v1/scaffold_unseen.jsonl.gz": "417e77dd8cc0ef69e0cfb57e1f42223806d99d89abdf309db4e0e6a9f6f1e547",
+    "reports/harvard_morgan_rf_pilot_v1.json": "75348cd7950014b1a925b16f7f84b55b99fcfb7ed3cbb12fad1c2dbd43d245ad",
+    "configs/v0.json": "9c35479c1e365d1c3c9b449209142daee9052b5a914d8448926d091a15fa882c",
+    "configs/final_evaluation_v1.json": "3429fcf06f2da2c25fd3d88c3c25b29e191f7abc935e77e2663a00b2025b5314",
+    "src/antibacterial/baseline.py": "6210fbc76051c6551bd00ee9d264d2f2bfdaa85b4792ecebc0962768d893483b",
+    "src/antibacterial/common.py": "a1fe0fb0a8beda8d45e168742af41dc593761417d7fb9063e529306b0c9f854d",
+    "outputs/harvard-rn4220-evaluation-v1/predictions.csv": "9a2d549f0cd4e75d664559adde52fb87687b55eb7e96b828afde867506c52f26",
+    "outputs/harvard-rn4220-evaluation-v1/results.json": "9b775e355d82c88fcfaf39a80a3f8522fdf63a5e30a079de7841c71dbcc3754b",
+    "outputs/harvard-rn4220-evaluation-v1/verification.json": "5dcfd103443edecbcab97dc3e40be49c649a9b2f2408a7439ed02d9391e7a3d3",
+    "data/processed/wong_v0/train.parquet": "a24dbccfc87296411e8fc826baceda9be1a4a66d7a7100d642a3d4c1e2ebcad1",
+    "outputs/development-20260909-numeric-fix/random_forest_seed17.joblib": "8d8206e3e4b3cd2666ac10cb09b39e4626d9bc3d11c0ac5781a0c6c08e3aee31",
+    "outputs/development-20260909-numeric-fix/random_forest_seed29.joblib": "64846cfe823394307705b35c5b5c7bc53f40b8bad388b1ac84d4a02e460c9baa",
+    "outputs/development-20260909-numeric-fix/random_forest_seed43.joblib": "2047de5c154a6bc801de904210f958ca095f2543481db288da2a724ed9157f90"
+  },
+  "n": 225829,
+  "hits": 601,
+  "chunk_size": 4096,
+  "seeds": [
+    17,
+    29,
+    43
+  ],
+  "rf_summary": "three saved members plus equal-mean ensemble; no best-test-seed selection",
+  "top_k": [
+    20,
+    50,
+    100
+  ],
+  "primary": "AP",
+  "tie_policy": "score descending, ID ascending; also cutoff-tie expectation",
+  "bootstrap": {
+    "seed": 20260911,
+    "iterations": 2000,
+    "unit": "Murcko scaffold",
+    "comparison": "RF ensemble minus each original comparator"
+  },
+  "design": "Post-hoc additional baseline after original Harvard outcomes were reviewed. RF weights were trained and saved before that evaluation.",
+  "no_training_tuning": true,
+  "do_not_overwrite_original_evaluation": true,
+  "scope": "Same Harvard cohort and own trained models; not a reproduction of Wong RF hyperparameter search."
+}

@@ -1,0 +1,59 @@
+{
+  "complete": true,
+  "source_rows": 76887,
+  "accepted_compounds": 72495,
+  "excluded_rows_by_first_reason": {
+    "wong_evaluation_structure_overlap": 2523,
+    "duplicate_identity_quarantined": 1041,
+    "ambiguous_identity": 115,
+    "structure_review": 352,
+    "measurement_summary_qc": 361
+  },
+  "split_counts": {
+    "train": 69367,
+    "validation": 3128
+  },
+  "retained_out_of_range_rows": 12001,
+  "response_range": {
+    "train": [
+      -199.08,
+      112.89
+    ],
+    "validation": [
+      -45.57,
+      101.16
+    ]
+  },
+  "protected_wong_partitions": [
+    "validation",
+    "test"
+  ],
+  "structure_overlap_checks_passed": true,
+  "wong_activity_columns_read": false,
+  "continuous_auxiliary_targets_prepared": true,
+  "author_binary_labels_reconstructed": false,
+  "model_training_started": false,
+  "seconds": 3.0703155839582905,
+  "peak_rss_mib": 556.265625,
+  "config_sha256": "5149237cf1b3d8f64195a344ac6b6ecda84516f6f141791f0596b01471935527",
+  "source_audit_sha256": "e386877b84d464edb5474f298769376d306180c16d19ac4405924936ec219842",
+  "source_archive_sha256": "bd57000d373e1176940bfe9462bdaa21982612de776945dec167fa9ddcf864d2",
+  "protected_files_sha256": {
+    "data/processed/wong_v0/validation.parquet": "7933d35d070cc4d7847699cc66896e847bba8cf04cc984bd66f955c434645bda",
+    "data/processed/wong_v0/test.parquet": "8c301dcfde383311db8ff7b0e63ab9eae1cb800dc16733797fb9a1ed4a9513de"
+  },
+  "script_sha256": "5f62b0c9aa9ca3d88733d78519dd42482bba80f48e1f554372391456c8f94ab3",
+  "output_sha256": {
+    "config.json": "5149237cf1b3d8f64195a344ac6b6ecda84516f6f141791f0596b01471935527",
+    "validation.jsonl.gz": "cf3e03d843ad4500b9f28220928c0c8cd1e568749d79cfcba1b78e7e8ed98d41",
+    "review_records.jsonl.gz": "249f39929cd7999e6a7af36a28f1c52558033f862839b27574457f10060e1242",
+    "train.jsonl.gz": "5439eca533ddcf64f1523bb4c242d34897b092e2b5f8fd41ed648f10a43fe44d"
+  },
+  "limitations": [
+    "Conservative duplicate exclusion loses some valid repeated measurements; review records retained.",
+    "Auxiliary response is continuous inhibition, not MIC or an author-defined hit label.",
+    "Out-of-range responses retained; robust loss and scaling must be specified before training.",
+    "No plate-level QC reconstruction, independent generalization evidence or actinomycete-specific validation.",
+    "Publication or redistribution terms remain to be confirmed; raw data remain local."
+  ]
+}

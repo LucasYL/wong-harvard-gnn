@@ -1,0 +1,452 @@
+{
+  "evaluation_partition": "validation",
+  "final_test_evaluated": false,
+  "dataset_manifest_sha256": "fdd7bf1b26a245a8c11bffc8bcda1c39c94883875d2df223cfcb5e97074b3ee0",
+  "validation_compounds": 3821,
+  "validation_hits": 60,
+  "all_predictions_verified": true,
+  "all_planned_neural_seeds_complete": true,
+  "aggregates": {
+    "nearest_neighbour": {
+      "n_runs": 1,
+      "ap_mean": 0.3210233919673089,
+      "ap_sample_std": null,
+      "ap_min": 0.3210233919673089,
+      "ap_max": 0.3210233919673089,
+      "top50_hits": [
+        22
+      ]
+    },
+    "random_forest": {
+      "n_runs": 3,
+      "ap_mean": 0.30299727636816337,
+      "ap_sample_std": 0.004519114398569238,
+      "ap_min": 0.2997706551203712,
+      "ap_max": 0.30816221780618247,
+      "top50_hits": [
+        19,
+        20,
+        19
+      ]
+    },
+    "chemprop_scratch": {
+      "n_runs": 3,
+      "ap_mean": 0.3556725851647082,
+      "ap_sample_std": 0.018137799874478534,
+      "ap_min": 0.33473897868187463,
+      "ap_max": 0.3667031915659561,
+      "top50_hits": [
+        18,
+        20,
+        21
+      ]
+    }
+  },
+  "runs": [
+    {
+      "family": "nearest_neighbour",
+      "seed": null,
+      "run_id": "development-20260909-numeric-fix",
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.3210233919673089,
+        "roc_auc": 0.7584662766994593,
+        "brier_score": 0.01230563708153402,
+        "top_k": {
+          "20": {
+            "hits": 13,
+            "precision": 0.65,
+            "enrichment": 41.39416666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.65,
+            "tie_averaged_enrichment": 41.39416666666667
+          },
+          "50": {
+            "hits": 22,
+            "precision": 0.44,
+            "enrichment": 28.020666666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.44,
+            "tie_averaged_enrichment": 28.020666666666667
+          },
+          "100": {
+            "hits": 30,
+            "precision": 0.3,
+            "enrichment": 19.105,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.3,
+            "tie_averaged_enrichment": 19.105
+          }
+        }
+      },
+      "distance_subgroups": {
+        "less_than_0.3": {
+          "n": 81,
+          "hits": 4,
+          "average_precision": 0.07275132275132275
+        },
+        "0.3_to_0.5": {
+          "n": 468,
+          "hits": 7,
+          "average_precision": 0.2942612942612942
+        },
+        "at_least_0.5": {
+          "n": 3272,
+          "hits": 49,
+          "average_precision": 0.37329640444904916
+        }
+      },
+      "predictions_sha256": "9174420a4b103eae831621f4a294d254f1bde99b0cafe20c71e4debed1f09063"
+    },
+    {
+      "family": "random_forest",
+      "seed": 17,
+      "run_id": "development-20260909-numeric-fix",
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.30816221780618247,
+        "roc_auc": 0.872059735885846,
+        "brier_score": 0.04872148088725509,
+        "top_k": {
+          "20": {
+            "hits": 15,
+            "precision": 0.75,
+            "enrichment": 47.7625,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.75,
+            "tie_averaged_enrichment": 47.7625
+          },
+          "50": {
+            "hits": 19,
+            "precision": 0.38,
+            "enrichment": 24.19966666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.38,
+            "tie_averaged_enrichment": 24.19966666666667
+          },
+          "100": {
+            "hits": 23,
+            "precision": 0.23,
+            "enrichment": 14.647166666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.23,
+            "tie_averaged_enrichment": 14.647166666666667
+          }
+        }
+      },
+      "distance_subgroups": {
+        "less_than_0.3": {
+          "n": 81,
+          "hits": 4,
+          "average_precision": 0.03586870838734892
+        },
+        "0.3_to_0.5": {
+          "n": 468,
+          "hits": 7,
+          "average_precision": 0.043720471476288846
+        },
+        "at_least_0.5": {
+          "n": 3272,
+          "hits": 49,
+          "average_precision": 0.4042732094543131
+        }
+      },
+      "predictions_sha256": "55d123e70501338cf2e438569c08ec0e63cee91240de1aae5a1454f887bd1993"
+    },
+    {
+      "family": "random_forest",
+      "seed": 29,
+      "run_id": "development-20260909-numeric-fix",
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.2997706551203712,
+        "roc_auc": 0.8731232828148542,
+        "brier_score": 0.04711831309879896,
+        "top_k": {
+          "20": {
+            "hits": 13,
+            "precision": 0.65,
+            "enrichment": 41.39416666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.65,
+            "tie_averaged_enrichment": 41.39416666666667
+          },
+          "50": {
+            "hits": 20,
+            "precision": 0.4,
+            "enrichment": 25.473333333333336,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.4,
+            "tie_averaged_enrichment": 25.473333333333336
+          },
+          "100": {
+            "hits": 24,
+            "precision": 0.24,
+            "enrichment": 15.284,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.24,
+            "tie_averaged_enrichment": 15.284
+          }
+        }
+      },
+      "distance_subgroups": {
+        "less_than_0.3": {
+          "n": 81,
+          "hits": 4,
+          "average_precision": 0.04122325887618648
+        },
+        "0.3_to_0.5": {
+          "n": 468,
+          "hits": 7,
+          "average_precision": 0.04740607308908586
+        },
+        "at_least_0.5": {
+          "n": 3272,
+          "hits": 49,
+          "average_precision": 0.3986133923450574
+        }
+      },
+      "predictions_sha256": "9039344aa606eb016ceb3954f792b2c48678b60ad5facf88c5f8fd3124a13455"
+    },
+    {
+      "family": "random_forest",
+      "seed": 43,
+      "run_id": "development-20260909-numeric-fix",
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.30105895617793654,
+        "roc_auc": 0.8808428609412391,
+        "brier_score": 0.04890611871905545,
+        "top_k": {
+          "20": {
+            "hits": 12,
+            "precision": 0.6,
+            "enrichment": 38.21,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.6,
+            "tie_averaged_enrichment": 38.21
+          },
+          "50": {
+            "hits": 19,
+            "precision": 0.38,
+            "enrichment": 24.19966666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.38,
+            "tie_averaged_enrichment": 24.19966666666667
+          },
+          "100": {
+            "hits": 28,
+            "precision": 0.28,
+            "enrichment": 17.831333333333337,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.28,
+            "tie_averaged_enrichment": 17.831333333333337
+          }
+        }
+      },
+      "distance_subgroups": {
+        "less_than_0.3": {
+          "n": 81,
+          "hits": 4,
+          "average_precision": 0.03641363910351252
+        },
+        "0.3_to_0.5": {
+          "n": 468,
+          "hits": 7,
+          "average_precision": 0.05172820742555819
+        },
+        "at_least_0.5": {
+          "n": 3272,
+          "hits": 49,
+          "average_precision": 0.41817488055936064
+        }
+      },
+      "predictions_sha256": "fc0ca2d0029f9df953ad04b8d7da737f5e4804166e59f17f205269571d5e43f0"
+    },
+    {
+      "family": "chemprop_scratch",
+      "seed": 17,
+      "run_id": "chemprop-seed17-20260909",
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.33473897868187463,
+        "roc_auc": 0.8967406718071435,
+        "brier_score": 0.013047841309458172,
+        "top_k": {
+          "20": {
+            "hits": 13,
+            "precision": 0.65,
+            "enrichment": 41.39416666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.65,
+            "tie_averaged_enrichment": 41.39416666666667
+          },
+          "50": {
+            "hits": 18,
+            "precision": 0.36,
+            "enrichment": 22.926,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.36,
+            "tie_averaged_enrichment": 22.926
+          },
+          "100": {
+            "hits": 26,
+            "precision": 0.26,
+            "enrichment": 16.557666666666666,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.26,
+            "tie_averaged_enrichment": 16.557666666666666
+          }
+        }
+      },
+      "distance_subgroups": {
+        "less_than_0.3": {
+          "n": 81,
+          "hits": 4,
+          "average_precision": 0.05143649610862726
+        },
+        "0.3_to_0.5": {
+          "n": 468,
+          "hits": 7,
+          "average_precision": 0.09900892467527499
+        },
+        "at_least_0.5": {
+          "n": 3272,
+          "hits": 49,
+          "average_precision": 0.40453052503828457
+        }
+      },
+      "predictions_sha256": "94125b2eb0594e9e79d7d461c7a9a66cccae3f27e73cdb2a0f1bb3b23899e83c"
+    },
+    {
+      "family": "chemprop_scratch",
+      "seed": 29,
+      "run_id": "chemprop-seed29-20260909",
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.3655755852462938,
+        "roc_auc": 0.9115394841797395,
+        "brier_score": 0.012245550907392017,
+        "top_k": {
+          "20": {
+            "hits": 13,
+            "precision": 0.65,
+            "enrichment": 41.39416666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.65,
+            "tie_averaged_enrichment": 41.39416666666667
+          },
+          "50": {
+            "hits": 20,
+            "precision": 0.4,
+            "enrichment": 25.473333333333336,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.4,
+            "tie_averaged_enrichment": 25.473333333333336
+          },
+          "100": {
+            "hits": 30,
+            "precision": 0.3,
+            "enrichment": 19.105,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.3,
+            "tie_averaged_enrichment": 19.105
+          }
+        }
+      },
+      "distance_subgroups": {
+        "less_than_0.3": {
+          "n": 81,
+          "hits": 4,
+          "average_precision": 0.05730380730380731
+        },
+        "0.3_to_0.5": {
+          "n": 468,
+          "hits": 7,
+          "average_precision": 0.09134188515699458
+        },
+        "at_least_0.5": {
+          "n": 3272,
+          "hits": 49,
+          "average_precision": 0.45945443061653674
+        }
+      },
+      "predictions_sha256": "e7667db08bd9e16dc00f987f1c1d4bb9854a356bdb414dc3f710f9e27f112c3c"
+    },
+    {
+      "family": "chemprop_scratch",
+      "seed": 43,
+      "run_id": "chemprop-seed43-20260909",
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.3667031915659561,
+        "roc_auc": 0.9025569440751573,
+        "brier_score": 0.011996745689595304,
+        "top_k": {
+          "20": {
+            "hits": 13,
+            "precision": 0.65,
+            "enrichment": 41.39416666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.65,
+            "tie_averaged_enrichment": 41.39416666666667
+          },
+          "50": {
+            "hits": 21,
+            "precision": 0.42,
+            "enrichment": 26.747,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.42,
+            "tie_averaged_enrichment": 26.747
+          },
+          "100": {
+            "hits": 32,
+            "precision": 0.32,
+            "enrichment": 20.378666666666668,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.32,
+            "tie_averaged_enrichment": 20.378666666666668
+          }
+        }
+      },
+      "distance_subgroups": {
+        "less_than_0.3": {
+          "n": 81,
+          "hits": 4,
+          "average_precision": 0.06331699346405228
+        },
+        "0.3_to_0.5": {
+          "n": 468,
+          "hits": 7,
+          "average_precision": 0.13062133944486887
+        },
+        "at_least_0.5": {
+          "n": 3272,
+          "hits": 49,
+          "average_precision": 0.43869755421139844
+        }
+      },
+      "predictions_sha256": "f613c089ac2530ee8094354b80555c396519606dffc36a765b5156456fe36bb5"
+    }
+  ],
+  "limitations": [
+    "Validation was used for neural checkpoint selection; these are development comparisons, not final-test estimates.",
+    "Seed variation measures training randomness on one split, not cross-dataset uncertainty.",
+    "The predefined nearest-neighbour similarity bins are descriptive and have few positive examples.",
+    "No experimental discovery, natural-product-domain or actinomycete-origin validation has been performed."
+  ]
+}

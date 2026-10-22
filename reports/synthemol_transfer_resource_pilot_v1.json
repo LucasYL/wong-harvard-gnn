@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "source_seconds": 2.9955210409825668,
+  "source_peak_rss_mib": 698.9375,
+  "largest_heavy_atoms": 454,
+  "target_seconds": 4.269785583019257,
+  "target_peak_rss_mib": 687.71875,
+  "full_queue_estimate_minutes": [
+    60,
+    90
+  ],
+  "pilot_scores_are_not_performance_evidence": true
+}

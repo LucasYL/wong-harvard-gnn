@@ -1,0 +1,23 @@
+{
+  "name": "coadd-transfer-v1",
+  "seeds": [17, 29, 43],
+  "auxiliary_dataset": "data/processed/coadd_auxiliary_v1",
+  "source_epochs": 5,
+  "source_lr": 0.0001,
+  "source_loss": "smooth_l1_beta_1_on_inhibition_divided_by_100",
+  "source_checkpoint_metric": "auxiliary_validation_smooth_l1",
+  "source_descriptors": false,
+  "transferred_parameters": "message_passing_encoder_only",
+  "target_config": "configs/chemprop_descriptors_v1.json",
+  "target_head": "fresh_same_seed_initialization",
+  "target_encoder_finetuning": true,
+  "target_optimizer": "fresh_Adam_and_original_schedule",
+  "ensemble": "equal_mean_of_all_three_declared_target_predictions",
+  "evaluation": "Wong_validation_only_after_prior_test_exposure",
+  "primary_metric": "average_precision",
+  "secondary_metrics": ["trapezoidal_pr_auc", "top20", "top50", "top100"],
+  "comparison": "same-seed_scratch_descriptors_and_three_member_ensemble",
+  "cpu_threads": 2,
+  "memory_budget_mib": 3072,
+  "full_training_estimate_minutes": [60, 90]
+}

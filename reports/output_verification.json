@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "checks": {
+    "nearest_neighbour_validation.csv": {
+      "rows": 3821,
+      "top50_hits": 22
+    },
+    "random_forest_seed17_validation.csv": {
+      "rows": 3821,
+      "top50_hits": 19
+    },
+    "random_forest_seed43_validation.csv": {
+      "rows": 3821,
+      "top50_hits": 19
+    },
+    "random_forest_seed29_validation.csv": {
+      "rows": 3821,
+      "top50_hits": 20
+    }
+  },
+  "processed_hashes_unchanged": true,
+  "final_test_evaluated": false
+}

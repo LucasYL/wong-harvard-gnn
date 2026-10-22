@@ -1,0 +1,519 @@
+{
+  "complete": true,
+  "finished_at_utc": "2026-09-11T17:39:31.057520+00:00",
+  "protocol_sha256": "a8d8db459698dafff1f4f30bc3d4d623a3476da4bdf7a7f025a7b925ff09f775",
+  "n": 225829,
+  "hits": 601,
+  "scaffold_groups": 81219,
+  "groups": {
+    "nearest_neighbour": {
+      "n": 225829,
+      "hits": 601,
+      "hit_rate": 0.0026613056781901352,
+      "average_precision": 0.037751890932430913,
+      "roc_auc": 0.619394476713957,
+      "brier_score": 0.006255913774007678,
+      "top_k": {
+        "20": {
+          "hits": 11,
+          "precision": 0.55,
+          "enrichment": 206.6654742096506,
+          "cutoff_tie_size": 23,
+          "tie_averaged_precision": 0.5217391304347826,
+          "tie_averaged_enrichment": 196.04629964551833
+        },
+        "50": {
+          "hits": 17,
+          "precision": 0.34,
+          "enrichment": 127.75683860232945,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.34,
+          "tie_averaged_enrichment": 127.75683860232945
+        },
+        "100": {
+          "hits": 34,
+          "precision": 0.34,
+          "enrichment": 127.75683860232945,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.34,
+          "tie_averaged_enrichment": 127.75683860232945
+        }
+      },
+      "trapezoidal_pr_auc": 0.04530890694546286
+    },
+    "scratch_descriptors_3": {
+      "n": 225829,
+      "hits": 601,
+      "hit_rate": 0.0026613056781901352,
+      "average_precision": 0.08705437484772506,
+      "roc_auc": 0.7555513278805192,
+      "brier_score": 0.005220038343742154,
+      "top_k": {
+        "20": {
+          "hits": 20,
+          "precision": 1.0,
+          "enrichment": 375.75540765391014,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 1.0,
+          "tie_averaged_enrichment": 375.75540765391014
+        },
+        "50": {
+          "hits": 38,
+          "precision": 0.76,
+          "enrichment": 285.5741098169717,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.76,
+          "tie_averaged_enrichment": 285.5741098169717
+        },
+        "100": {
+          "hits": 44,
+          "precision": 0.44,
+          "enrichment": 165.33237936772045,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.44,
+          "tie_averaged_enrichment": 165.33237936772045
+        }
+      },
+      "trapezoidal_pr_auc": 0.08689694480670569
+    },
+    "coadd_transfer_3": {
+      "n": 225829,
+      "hits": 601,
+      "hit_rate": 0.0026613056781901352,
+      "average_precision": 0.08405500428489494,
+      "roc_auc": 0.7617608462544606,
+      "brier_score": 0.006281378417140026,
+      "top_k": {
+        "20": {
+          "hits": 17,
+          "precision": 0.85,
+          "enrichment": 319.3920965058236,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.85,
+          "tie_averaged_enrichment": 319.3920965058236
+        },
+        "50": {
+          "hits": 37,
+          "precision": 0.74,
+          "enrichment": 278.05900166389347,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.74,
+          "tie_averaged_enrichment": 278.05900166389347
+        },
+        "100": {
+          "hits": 45,
+          "precision": 0.45,
+          "enrichment": 169.08993344425957,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.45,
+          "tie_averaged_enrichment": 169.08993344425957
+        }
+      },
+      "trapezoidal_pr_auc": 0.0836428415189773
+    },
+    "synthemol_transfer_3": {
+      "n": 225829,
+      "hits": 601,
+      "hit_rate": 0.0026613056781901352,
+      "average_precision": 0.08209494581217272,
+      "roc_auc": 0.7625201951022779,
+      "brier_score": 0.006239268866813613,
+      "top_k": {
+        "20": {
+          "hits": 18,
+          "precision": 0.9,
+          "enrichment": 338.17986688851914,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.9,
+          "tie_averaged_enrichment": 338.17986688851914
+        },
+        "50": {
+          "hits": 38,
+          "precision": 0.76,
+          "enrichment": 285.5741098169717,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.76,
+          "tie_averaged_enrichment": 285.5741098169717
+        },
+        "100": {
+          "hits": 44,
+          "precision": 0.44,
+          "enrichment": 165.33237936772045,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.44,
+          "tie_averaged_enrichment": 165.33237936772045
+        }
+      },
+      "trapezoidal_pr_auc": 0.08188987002824855
+    }
+  },
+  "members": {
+    "scratch_descriptors_3_seed17": {
+      "n": 225829,
+      "hits": 601,
+      "hit_rate": 0.0026613056781901352,
+      "average_precision": 0.07573148743740857,
+      "roc_auc": 0.7525560159308488,
+      "brier_score": 0.0043339244188794175,
+      "top_k": {
+        "20": {
+          "hits": 17,
+          "precision": 0.85,
+          "enrichment": 319.3920965058236,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.85,
+          "tie_averaged_enrichment": 319.3920965058236
+        },
+        "50": {
+          "hits": 37,
+          "precision": 0.74,
+          "enrichment": 278.05900166389347,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.74,
+          "tie_averaged_enrichment": 278.05900166389347
+        },
+        "100": {
+          "hits": 46,
+          "precision": 0.46,
+          "enrichment": 172.84748752079867,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.46,
+          "tie_averaged_enrichment": 172.84748752079867
+        }
+      },
+      "trapezoidal_pr_auc": 0.07516033792723123
+    },
+    "scratch_descriptors_3_seed29": {
+      "n": 225829,
+      "hits": 601,
+      "hit_rate": 0.0026613056781901352,
+      "average_precision": 0.07897796961849148,
+      "roc_auc": 0.7478648332603292,
+      "brier_score": 0.0072421828695515425,
+      "top_k": {
+        "20": {
+          "hits": 19,
+          "precision": 0.95,
+          "enrichment": 356.9676372712146,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.95,
+          "tie_averaged_enrichment": 356.9676372712146
+        },
+        "50": {
+          "hits": 34,
+          "precision": 0.68,
+          "enrichment": 255.5136772046589,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.68,
+          "tie_averaged_enrichment": 255.5136772046589
+        },
+        "100": {
+          "hits": 43,
+          "precision": 0.43,
+          "enrichment": 161.57482529118136,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.43,
+          "tie_averaged_enrichment": 161.57482529118136
+        }
+      },
+      "trapezoidal_pr_auc": 0.07878539466061754
+    },
+    "scratch_descriptors_3_seed43": {
+      "n": 225829,
+      "hits": 601,
+      "hit_rate": 0.0026613056781901352,
+      "average_precision": 0.08967156994782163,
+      "roc_auc": 0.7508030427853815,
+      "brier_score": 0.005188112873560837,
+      "top_k": {
+        "20": {
+          "hits": 20,
+          "precision": 1.0,
+          "enrichment": 375.75540765391014,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 1.0,
+          "tie_averaged_enrichment": 375.75540765391014
+        },
+        "50": {
+          "hits": 38,
+          "precision": 0.76,
+          "enrichment": 285.5741098169717,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.76,
+          "tie_averaged_enrichment": 285.5741098169717
+        },
+        "100": {
+          "hits": 44,
+          "precision": 0.44,
+          "enrichment": 165.33237936772045,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.44,
+          "tie_averaged_enrichment": 165.33237936772045
+        }
+      },
+      "trapezoidal_pr_auc": 0.08949504482559084
+    },
+    "coadd_transfer_3_seed17": {
+      "n": 225829,
+      "hits": 601,
+      "hit_rate": 0.0026613056781901352,
+      "average_precision": 0.07343215939244627,
+      "roc_auc": 0.7462632947550106,
+      "brier_score": 0.007955649653083728,
+      "top_k": {
+        "20": {
+          "hits": 15,
+          "precision": 0.75,
+          "enrichment": 281.8165557404326,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.75,
+          "tie_averaged_enrichment": 281.8165557404326
+        },
+        "50": {
+          "hits": 34,
+          "precision": 0.68,
+          "enrichment": 255.5136772046589,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.68,
+          "tie_averaged_enrichment": 255.5136772046589
+        },
+        "100": {
+          "hits": 45,
+          "precision": 0.45,
+          "enrichment": 169.08993344425957,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.45,
+          "tie_averaged_enrichment": 169.08993344425957
+        }
+      },
+      "trapezoidal_pr_auc": 0.07222494694755136
+    },
+    "coadd_transfer_3_seed29": {
+      "n": 225829,
+      "hits": 601,
+      "hit_rate": 0.0026613056781901352,
+      "average_precision": 0.07629560061846699,
+      "roc_auc": 0.7735282896323037,
+      "brier_score": 0.0044885118163066106,
+      "top_k": {
+        "20": {
+          "hits": 17,
+          "precision": 0.85,
+          "enrichment": 319.3920965058236,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.85,
+          "tie_averaged_enrichment": 319.3920965058236
+        },
+        "50": {
+          "hits": 35,
+          "precision": 0.7,
+          "enrichment": 263.0287853577371,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.7,
+          "tie_averaged_enrichment": 263.0287853577371
+        },
+        "100": {
+          "hits": 43,
+          "precision": 0.43,
+          "enrichment": 161.57482529118136,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.43,
+          "tie_averaged_enrichment": 161.57482529118136
+        }
+      },
+      "trapezoidal_pr_auc": 0.075593720890043
+    },
+    "coadd_transfer_3_seed43": {
+      "n": 225829,
+      "hits": 601,
+      "hit_rate": 0.0026613056781901352,
+      "average_precision": 0.07733033779223748,
+      "roc_auc": 0.7616425080451661,
+      "brier_score": 0.008010489845142403,
+      "top_k": {
+        "20": {
+          "hits": 16,
+          "precision": 0.8,
+          "enrichment": 300.6043261231281,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.8,
+          "tie_averaged_enrichment": 300.6043261231281
+        },
+        "50": {
+          "hits": 35,
+          "precision": 0.7,
+          "enrichment": 263.0287853577371,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.7,
+          "tie_averaged_enrichment": 263.0287853577371
+        },
+        "100": {
+          "hits": 44,
+          "precision": 0.44,
+          "enrichment": 165.33237936772045,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.44,
+          "tie_averaged_enrichment": 165.33237936772045
+        }
+      },
+      "trapezoidal_pr_auc": 0.07678715530516143
+    },
+    "synthemol_transfer_3_seed17": {
+      "n": 225829,
+      "hits": 601,
+      "hit_rate": 0.0026613056781901352,
+      "average_precision": 0.0745715323184865,
+      "roc_auc": 0.7478038375725281,
+      "brier_score": 0.004930488596113073,
+      "top_k": {
+        "20": {
+          "hits": 18,
+          "precision": 0.9,
+          "enrichment": 338.17986688851914,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.9,
+          "tie_averaged_enrichment": 338.17986688851914
+        },
+        "50": {
+          "hits": 39,
+          "precision": 0.78,
+          "enrichment": 293.0892179700499,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.78,
+          "tie_averaged_enrichment": 293.0892179700499
+        },
+        "100": {
+          "hits": 44,
+          "precision": 0.44,
+          "enrichment": 165.33237936772045,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.44,
+          "tie_averaged_enrichment": 165.33237936772045
+        }
+      },
+      "trapezoidal_pr_auc": 0.07404421202943212
+    },
+    "synthemol_transfer_3_seed29": {
+      "n": 225829,
+      "hits": 601,
+      "hit_rate": 0.0026613056781901352,
+      "average_precision": 0.06461990376743058,
+      "roc_auc": 0.7544565821664552,
+      "brier_score": 0.008438553056113471,
+      "top_k": {
+        "20": {
+          "hits": 15,
+          "precision": 0.75,
+          "enrichment": 281.8165557404326,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.75,
+          "tie_averaged_enrichment": 281.8165557404326
+        },
+        "50": {
+          "hits": 33,
+          "precision": 0.66,
+          "enrichment": 247.9985690515807,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.66,
+          "tie_averaged_enrichment": 247.9985690515807
+        },
+        "100": {
+          "hits": 43,
+          "precision": 0.43,
+          "enrichment": 161.57482529118136,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.43,
+          "tie_averaged_enrichment": 161.57482529118136
+        }
+      },
+      "trapezoidal_pr_auc": 0.0634249835160601
+    },
+    "synthemol_transfer_3_seed43": {
+      "n": 225829,
+      "hits": 601,
+      "hit_rate": 0.0026613056781901352,
+      "average_precision": 0.07156028079037739,
+      "roc_auc": 0.7624427952571751,
+      "brier_score": 0.006604560410379896,
+      "top_k": {
+        "20": {
+          "hits": 17,
+          "precision": 0.85,
+          "enrichment": 319.3920965058236,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.85,
+          "tie_averaged_enrichment": 319.3920965058236
+        },
+        "50": {
+          "hits": 36,
+          "precision": 0.72,
+          "enrichment": 270.5438935108153,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.72,
+          "tie_averaged_enrichment": 270.5438935108153
+        },
+        "100": {
+          "hits": 45,
+          "precision": 0.45,
+          "enrichment": 169.08993344425957,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.45,
+          "tie_averaged_enrichment": 169.08993344425957
+        }
+      },
+      "trapezoidal_pr_auc": 0.07055905727540482
+    }
+  },
+  "paired_ap_difference_vs_scratch": {
+    "nearest_neighbour": {
+      "observed": -0.04930248391529415,
+      "percentile_95_interval": [
+        -0.07423286642795854,
+        -0.022250157636124736
+      ],
+      "valid_replicates": 2000
+    },
+    "coadd_transfer_3": {
+      "observed": -0.002999370562830117,
+      "percentile_95_interval": [
+        -0.010832451273970829,
+        0.005184709881975317
+      ],
+      "valid_replicates": 2000
+    },
+    "synthemol_transfer_3": {
+      "observed": -0.00495942903555234,
+      "percentile_95_interval": [
+        -0.010866103669354409,
+        0.0014937113900528615
+      ],
+      "valid_replicates": 2000
+    }
+  },
+  "runtime": {
+    "python": "3.12.1 (v3.12.1:2305ca5144, Dec  7 2023, 17:23:38) [Clang 13.0.0 (clang-1300.0.29.30)]",
+    "platform": "macOS-26.5-arm64-arm-64bit",
+    "architecture": "arm64",
+    "packages": {
+      "rdkit": "2025.9.6",
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "scikit-learn": "1.6.1",
+      "pyarrow": "19.0.1",
+      "torch": "2.14.0",
+      "chemprop": "2.2.1",
+      "lightning": "2.6.5",
+      "torchmetrics": "1.9.0"
+    },
+    "peak_rss_mib": 980.90625,
+    "torch_threads": 2,
+    "mps_available": true,
+    "accelerator_used": "cpu"
+  },
+  "predictions_sha256": "9a2d549f0cd4e75d664559adde52fb87687b55eb7e96b828afde867506c52f26",
+  "limits": [
+    "Fixed-model, scaffold-cluster conditional bootstrap, not training uncertainty.",
+    "Different assay; unknown concentrations; no actinomycete-specific or discovery claim.",
+    "Historical evaluation after this run; no adaptive tuning on these results."
+  ]
+}

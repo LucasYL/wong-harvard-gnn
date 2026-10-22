@@ -1,0 +1,22 @@
+{
+  "dataset": "data/processed/synthemol_dataset_v1",
+  "partition": "external",
+  "expected_compounds": 1107,
+  "model_groups": ["nearest_neighbour", "scratch_descriptors_3", "coadd_transfer_3", "synthemol_transfer_3"],
+  "seeds": [17, 29, 43],
+  "ensemble": "equal_mean_all_three_seeds",
+  "primary_metric": "average_precision",
+  "top_k": [20, 50, 100],
+  "tie_policy": "descending_score_then_ascending_compound_key; report_tie_averaged_precision",
+  "target": "published_SyntheMol_RN4220_50uM_16h_binary_assay_label",
+  "prediction_policy": "zero_shot_frozen_Wong_target_models; no_refitting_calibration_or_threshold_tuning",
+  "descriptor_policy": "same_fixed_200_RDKit_normalized_descriptors; preserve_existing_nonfinite_zero_imputation_with_audit",
+  "validation_inference_check": "64_Wong_validation_structures_selected_by_fixed_key_hash; reproduce_all_saved_member_and_NN_scores",
+  "prediction_tolerance": 0.000001,
+  "bootstrap": {"seed": 20260910, "iterations": 2000, "unit": "frozen_external_structural_component", "comparison": "paired_AP_differences_from_scratch_ensemble", "interpretation": "conditional_on_fixed_models; descriptive_intervals_not_retraining_uncertainty"},
+  "cpu_threads": 2,
+  "batch_size": 32,
+  "memory_budget_mib": 3072,
+  "future_use": "After scoring, external is a historical evaluation set and cannot remain an untouched test for adaptive model changes.",
+  "claim_boundary": "Cross-source ranking for a related but differently normalized assay. Not actinomycete-specific validation or antibiotic discovery."
+}

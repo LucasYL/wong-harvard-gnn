@@ -1,0 +1,12 @@
+{
+  "task": "wong2024_saureus_rn4220_50uM",
+  "split_seed": 20260908,
+  "split_fractions": {"train": 0.8, "validation": 0.1, "test": 0.1},
+  "fingerprint": {"radius": 2, "fpSize": 2048, "includeChirality": true},
+  "max_workers": 2,
+  "top_k": [20, 50, 100],
+  "nearest_neighbours": 5,
+  "rf": {"n_estimators": 200, "max_depth": 20, "min_samples_leaf": 2, "max_features": "sqrt", "class_weight": "balanced_subsample"},
+  "training_seeds": [17, 29, 43],
+  "final_test_evaluation": false
+}

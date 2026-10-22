@@ -1,0 +1,105 @@
+{
+  "source_records": 39312,
+  "eligible_compounds": 38823,
+  "eligible_hits": 484,
+  "eligible_records": 39073,
+  "excluded_records": 239,
+  "structure_flags": {
+    "same_inchikey_different_parent_smiles": 50,
+    "multiple_organic_fragments": 167,
+    "no_organic_fragment": 10,
+    "invalid_smiles": 1
+  },
+  "structure_changed_records": 895,
+  "conflicting_parent_groups": 6,
+  "conflicting_parent_records": 12,
+  "duplicate_eligible_records_collapsed": 250,
+  "ambiguous_inchikey_groups": 23,
+  "unique_scaffolds": 6747,
+  "acyclic_compounds": 516,
+  "max_heavy_atoms": 295,
+  "natural_product_annotation": "unknown; not inferred from structures or compound names",
+  "splits": {
+    "train": {
+      "compounds": 31058,
+      "hits": 382,
+      "scaffolds": 5202
+    },
+    "validation": {
+      "compounds": 3821,
+      "hits": 60,
+      "scaffolds": 785
+    },
+    "test": {
+      "compounds": 3944,
+      "hits": 42,
+      "scaffolds": 760
+    }
+  },
+  "config": {
+    "task": "wong2024_saureus_rn4220_50uM",
+    "split_seed": 20260908,
+    "split_fractions": {
+      "train": 0.8,
+      "validation": 0.1,
+      "test": 0.1
+    },
+    "fingerprint": {
+      "radius": 2,
+      "fpSize": 2048,
+      "includeChirality": true
+    },
+    "max_workers": 2,
+    "top_k": [
+      20,
+      50,
+      100
+    ],
+    "nearest_neighbours": 5,
+    "rf": {
+      "n_estimators": 200,
+      "max_depth": 20,
+      "min_samples_leaf": 2,
+      "max_features": "sqrt",
+      "class_weight": "balanced_subsample"
+    },
+    "training_seeds": [
+      17,
+      29,
+      43
+    ],
+    "final_test_evaluation": false
+  },
+  "measurement_source_sha256": "ceddb42266e349fff4424951cd6f41c4016e0249c0e7fe8596a78f846c06fa87",
+  "raw_manifest_sha256": "32105adc55437a162a614005c2eebbcf088432e2843dadf7c741241ef9a07042",
+  "source_code_hashes": {
+    "src/antibacterial/__init__.py": "2749552b0ec457b104b3f180ba42ed19289cd422e43f2e4601c57199b7631d44",
+    "src/antibacterial/baseline.py": "d3dfa7ad527722668352096bd4d5db8a5e187f06f395fdd2b61effd6a82e2496",
+    "src/antibacterial/chemistry.py": "69a29e4da064427cef0531b5ee5268e1153c7187bf2d76a53d2baa0cd5602517",
+    "src/antibacterial/common.py": "a1fe0fb0a8beda8d45e168742af41dc593761417d7fb9063e529306b0c9f854d",
+    "src/antibacterial/prepare.py": "143aa3e61604618ee0c9876f4e4d63767fa7763bdb9859bb2ec60b1ddf0b35f6",
+    "src/antibacterial/splitting.py": "4a9b490baeb7b42cbe8a337875b410a78e44c486d9702d6b2c7f6e52780bf23f"
+  },
+  "seconds": 65.60586795798736,
+  "runtime": {
+    "python": "3.12.1 (v3.12.1:2305ca5144, Dec  7 2023, 17:23:38) [Clang 13.0.0 (clang-1300.0.29.30)]",
+    "platform": "macOS-26.5-arm64-arm-64bit",
+    "architecture": "arm64",
+    "packages": {
+      "rdkit": "2025.9.6",
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "scikit-learn": "1.6.1",
+      "pyarrow": "19.0.1"
+    },
+    "peak_rss_mib": 341.75
+  },
+  "output_hashes": {
+    "measurements.parquet": "00b68d1abfbd92ba5b131c3aea4a379f56a5c06fd3ca814a4263d59d0bbc150f",
+    "review_records.jsonl": "2bd1fcd2d1390e20029f678023399ec7ae89d7b3475d801d4604253681e490e2",
+    "split_assignments.jsonl": "39effac298a03f8d85dc098e851982a8189cd9ca33b991c3be17c4723ee187b9",
+    "test.parquet": "8c301dcfde383311db8ff7b0e63ab9eae1cb800dc16733797fb9a1ed4a9513de",
+    "train.parquet": "a24dbccfc87296411e8fc826baceda9be1a4a66d7a7100d642a3d4c1e2ebcad1",
+    "validation.parquet": "7933d35d070cc4d7847699cc66896e847bba8cf04cc984bd66f955c434645bda"
+  }
+}

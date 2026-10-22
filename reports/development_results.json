@@ -1,0 +1,398 @@
+{
+  "run_id": "development-20260909-numeric-fix",
+  "pilot_only": false,
+  "created_at_utc": "2026-09-09T14:54:40.060159+00:00",
+  "evaluation_partition": "validation",
+  "final_test_evaluated": false,
+  "config": {
+    "task": "wong2024_saureus_rn4220_50uM",
+    "split_seed": 20260908,
+    "split_fractions": {
+      "train": 0.8,
+      "validation": 0.1,
+      "test": 0.1
+    },
+    "fingerprint": {
+      "radius": 2,
+      "fpSize": 2048,
+      "includeChirality": true
+    },
+    "max_workers": 2,
+    "top_k": [
+      20,
+      50,
+      100
+    ],
+    "nearest_neighbours": 5,
+    "rf": {
+      "n_estimators": 200,
+      "max_depth": 20,
+      "min_samples_leaf": 2,
+      "max_features": "sqrt",
+      "class_weight": "balanced_subsample"
+    },
+    "training_seeds": [
+      17,
+      29,
+      43
+    ],
+    "final_test_evaluation": false
+  },
+  "dataset_manifest_sha256": "fdd7bf1b26a245a8c11bffc8bcda1c39c94883875d2df223cfcb5e97074b3ee0",
+  "config_sha256": "9c35479c1e365d1c3c9b449209142daee9052b5a914d8448926d091a15fa882c",
+  "source_code_hashes": {
+    "src/antibacterial/__init__.py": "2749552b0ec457b104b3f180ba42ed19289cd422e43f2e4601c57199b7631d44",
+    "src/antibacterial/baseline.py": "6210fbc76051c6551bd00ee9d264d2f2bfdaa85b4792ecebc0962768d893483b",
+    "src/antibacterial/chemistry.py": "69a29e4da064427cef0531b5ee5268e1153c7187bf2d76a53d2baa0cd5602517",
+    "src/antibacterial/common.py": "a1fe0fb0a8beda8d45e168742af41dc593761417d7fb9063e529306b0c9f854d",
+    "src/antibacterial/prepare.py": "143aa3e61604618ee0c9876f4e4d63767fa7763bdb9859bb2ec60b1ddf0b35f6",
+    "src/antibacterial/splitting.py": "4a9b490baeb7b42cbe8a337875b410a78e44c486d9702d6b2c7f6e52780bf23f"
+  },
+  "training_compounds": 31058,
+  "validation_compounds": 3821,
+  "training_hits": 382,
+  "validation_hits": 60,
+  "fingerprint_array_mib": 68.123046875,
+  "fingerprint_seconds": 6.743117374950089,
+  "models": {
+    "nearest_neighbour": {
+      "seconds": 21.115044292004313,
+      "runtime": {
+        "python": "3.12.1 (v3.12.1:2305ca5144, Dec  7 2023, 17:23:38) [Clang 13.0.0 (clang-1300.0.29.30)]",
+        "platform": "macOS-26.5-arm64-arm-64bit",
+        "architecture": "arm64",
+        "packages": {
+          "rdkit": "2025.9.6",
+          "numpy": "2.2.6",
+          "scipy": "1.15.3",
+          "scikit-learn": "1.6.1",
+          "pyarrow": "19.0.1"
+        },
+        "peak_rss_mib": 311.46875
+      },
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.3210233919673089,
+        "roc_auc": 0.7584662766994593,
+        "brier_score": 0.01230563708153402,
+        "top_k": {
+          "20": {
+            "hits": 13,
+            "precision": 0.65,
+            "enrichment": 41.39416666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.65,
+            "tie_averaged_enrichment": 41.39416666666667
+          },
+          "50": {
+            "hits": 22,
+            "precision": 0.44,
+            "enrichment": 28.020666666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.44,
+            "tie_averaged_enrichment": 28.020666666666667
+          },
+          "100": {
+            "hits": 30,
+            "precision": 0.3,
+            "enrichment": 19.105,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.3,
+            "tie_averaged_enrichment": 19.105
+          }
+        }
+      },
+      "nearest_similarity_quantiles": {
+        "0": 0.19444444444444445,
+        "0.25": 0.6857142857142857,
+        "0.5": 0.8148148148148148,
+        "0.75": 0.8620689655172413,
+        "1": 1.0
+      }
+    },
+    "random_forest_seed17": {
+      "fit_seconds": 7.243030084006023,
+      "predict_seconds": 0.057385125022847205,
+      "parameters": {
+        "bootstrap": true,
+        "ccp_alpha": 0.0,
+        "class_weight": "balanced_subsample",
+        "criterion": "gini",
+        "max_depth": 20,
+        "max_features": "sqrt",
+        "max_leaf_nodes": null,
+        "max_samples": null,
+        "min_impurity_decrease": 0.0,
+        "min_samples_leaf": 2,
+        "min_samples_split": 2,
+        "min_weight_fraction_leaf": 0.0,
+        "monotonic_cst": null,
+        "n_estimators": 200,
+        "n_jobs": 2,
+        "oob_score": false,
+        "random_state": 17,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "runtime": {
+        "python": "3.12.1 (v3.12.1:2305ca5144, Dec  7 2023, 17:23:38) [Clang 13.0.0 (clang-1300.0.29.30)]",
+        "platform": "macOS-26.5-arm64-arm-64bit",
+        "architecture": "arm64",
+        "packages": {
+          "rdkit": "2025.9.6",
+          "numpy": "2.2.6",
+          "scipy": "1.15.3",
+          "scikit-learn": "1.6.1",
+          "pyarrow": "19.0.1"
+        },
+        "peak_rss_mib": 477.171875
+      },
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.30816221780618247,
+        "roc_auc": 0.872059735885846,
+        "brier_score": 0.04872148088725509,
+        "top_k": {
+          "20": {
+            "hits": 15,
+            "precision": 0.75,
+            "enrichment": 47.7625,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.75,
+            "tie_averaged_enrichment": 47.7625
+          },
+          "50": {
+            "hits": 19,
+            "precision": 0.38,
+            "enrichment": 24.19966666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.38,
+            "tie_averaged_enrichment": 24.19966666666667
+          },
+          "100": {
+            "hits": 23,
+            "precision": 0.23,
+            "enrichment": 14.647166666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.23,
+            "tie_averaged_enrichment": 14.647166666666667
+          }
+        }
+      },
+      "distance_subgroups": {
+        "less_than_0.3": {
+          "n": 81,
+          "hits": 4,
+          "average_precision": 0.03586870838734892
+        },
+        "0.3_to_0.5": {
+          "n": 468,
+          "hits": 7,
+          "average_precision": 0.043720471476288846
+        },
+        "at_least_0.5": {
+          "n": 3272,
+          "hits": 49,
+          "average_precision": 0.4042732094543131
+        }
+      }
+    },
+    "random_forest_seed29": {
+      "fit_seconds": 7.266154124983586,
+      "predict_seconds": 0.05874845903599635,
+      "parameters": {
+        "bootstrap": true,
+        "ccp_alpha": 0.0,
+        "class_weight": "balanced_subsample",
+        "criterion": "gini",
+        "max_depth": 20,
+        "max_features": "sqrt",
+        "max_leaf_nodes": null,
+        "max_samples": null,
+        "min_impurity_decrease": 0.0,
+        "min_samples_leaf": 2,
+        "min_samples_split": 2,
+        "min_weight_fraction_leaf": 0.0,
+        "monotonic_cst": null,
+        "n_estimators": 200,
+        "n_jobs": 2,
+        "oob_score": false,
+        "random_state": 29,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "runtime": {
+        "python": "3.12.1 (v3.12.1:2305ca5144, Dec  7 2023, 17:23:38) [Clang 13.0.0 (clang-1300.0.29.30)]",
+        "platform": "macOS-26.5-arm64-arm-64bit",
+        "architecture": "arm64",
+        "packages": {
+          "rdkit": "2025.9.6",
+          "numpy": "2.2.6",
+          "scipy": "1.15.3",
+          "scikit-learn": "1.6.1",
+          "pyarrow": "19.0.1"
+        },
+        "peak_rss_mib": 519.5
+      },
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.2997706551203712,
+        "roc_auc": 0.8731232828148542,
+        "brier_score": 0.04711831309879896,
+        "top_k": {
+          "20": {
+            "hits": 13,
+            "precision": 0.65,
+            "enrichment": 41.39416666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.65,
+            "tie_averaged_enrichment": 41.39416666666667
+          },
+          "50": {
+            "hits": 20,
+            "precision": 0.4,
+            "enrichment": 25.473333333333336,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.4,
+            "tie_averaged_enrichment": 25.473333333333336
+          },
+          "100": {
+            "hits": 24,
+            "precision": 0.24,
+            "enrichment": 15.284,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.24,
+            "tie_averaged_enrichment": 15.284
+          }
+        }
+      },
+      "distance_subgroups": {
+        "less_than_0.3": {
+          "n": 81,
+          "hits": 4,
+          "average_precision": 0.04122325887618648
+        },
+        "0.3_to_0.5": {
+          "n": 468,
+          "hits": 7,
+          "average_precision": 0.04740607308908586
+        },
+        "at_least_0.5": {
+          "n": 3272,
+          "hits": 49,
+          "average_precision": 0.3986133923450574
+        }
+      }
+    },
+    "random_forest_seed43": {
+      "fit_seconds": 7.234527792024892,
+      "predict_seconds": 0.055228292010724545,
+      "parameters": {
+        "bootstrap": true,
+        "ccp_alpha": 0.0,
+        "class_weight": "balanced_subsample",
+        "criterion": "gini",
+        "max_depth": 20,
+        "max_features": "sqrt",
+        "max_leaf_nodes": null,
+        "max_samples": null,
+        "min_impurity_decrease": 0.0,
+        "min_samples_leaf": 2,
+        "min_samples_split": 2,
+        "min_weight_fraction_leaf": 0.0,
+        "monotonic_cst": null,
+        "n_estimators": 200,
+        "n_jobs": 2,
+        "oob_score": false,
+        "random_state": 43,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "runtime": {
+        "python": "3.12.1 (v3.12.1:2305ca5144, Dec  7 2023, 17:23:38) [Clang 13.0.0 (clang-1300.0.29.30)]",
+        "platform": "macOS-26.5-arm64-arm-64bit",
+        "architecture": "arm64",
+        "packages": {
+          "rdkit": "2025.9.6",
+          "numpy": "2.2.6",
+          "scipy": "1.15.3",
+          "scikit-learn": "1.6.1",
+          "pyarrow": "19.0.1"
+        },
+        "peak_rss_mib": 519.5
+      },
+      "metrics": {
+        "n": 3821,
+        "hits": 60,
+        "hit_rate": 0.015702695629416383,
+        "average_precision": 0.30105895617793654,
+        "roc_auc": 0.8808428609412391,
+        "brier_score": 0.04890611871905545,
+        "top_k": {
+          "20": {
+            "hits": 12,
+            "precision": 0.6,
+            "enrichment": 38.21,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.6,
+            "tie_averaged_enrichment": 38.21
+          },
+          "50": {
+            "hits": 19,
+            "precision": 0.38,
+            "enrichment": 24.19966666666667,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.38,
+            "tie_averaged_enrichment": 24.19966666666667
+          },
+          "100": {
+            "hits": 28,
+            "precision": 0.28,
+            "enrichment": 17.831333333333337,
+            "cutoff_tie_size": 1,
+            "tie_averaged_precision": 0.28,
+            "tie_averaged_enrichment": 17.831333333333337
+          }
+        }
+      },
+      "distance_subgroups": {
+        "less_than_0.3": {
+          "n": 81,
+          "hits": 4,
+          "average_precision": 0.03641363910351252
+        },
+        "0.3_to_0.5": {
+          "n": 468,
+          "hits": 7,
+          "average_precision": 0.05172820742555819
+        },
+        "at_least_0.5": {
+          "n": 3272,
+          "hits": 49,
+          "average_precision": 0.41817488055936064
+        }
+      }
+    }
+  },
+  "complete": true,
+  "total_seconds": 50.30441866698675,
+  "runtime": {
+    "python": "3.12.1 (v3.12.1:2305ca5144, Dec  7 2023, 17:23:38) [Clang 13.0.0 (clang-1300.0.29.30)]",
+    "platform": "macOS-26.5-arm64-arm-64bit",
+    "architecture": "arm64",
+    "packages": {
+      "rdkit": "2025.9.6",
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "scikit-learn": "1.6.1",
+      "pyarrow": "19.0.1"
+    },
+    "peak_rss_mib": 519.5
+  }
+}

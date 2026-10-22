@@ -1,0 +1,223 @@
+{
+  "created_at_utc": "2026-09-11T16:19:31.751684+00:00",
+  "config": {
+    "n": 225829,
+    "hits": 601,
+    "chunk_size": 1024,
+    "batch_size": 32,
+    "cpu_threads": 2,
+    "memory_budget_mib": 3072,
+    "top_k": [
+      20,
+      50,
+      100
+    ],
+    "primary_metric": "average_precision",
+    "secondary": "Top-K hits, precision, enrichment; trapezoidal PR-AUC descriptive",
+    "model_groups": [
+      "nearest_neighbour",
+      "scratch_descriptors_3",
+      "coadd_transfer_3",
+      "synthemol_transfer_3"
+    ],
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "ensemble": "equal mean of the three fixed members",
+    "tie_policy": "descending score then ascending compound_key; also report cutoff-tie-averaged precision",
+    "bootstrap": {
+      "iterations": 2000,
+      "seed": 20260911,
+      "unit": "Murcko scaffold",
+      "comparison": "paired AP differences relative to scratch_descriptors_3"
+    },
+    "target": "AID1259311 deposited binary growth-screen labels, NOT Wong labels or MIC",
+    "claim_boundary": "Cross-assay retrospective ranking; concentration unknown; not actinomycete-specific or discovery validation",
+    "no_training_tuning_calibration": true,
+    "metrics_only_after_all_predictions_sealed": true,
+    "subsets": "Only the scaffold-unseen inventory; wider identity inventory is not evaluated",
+    "failure_policy": "Stop on invalid features or inference; do not silently drop compounds",
+    "post_evaluation": "Becomes historical evaluation; cannot be reused as untouched test for adaptive changes"
+  },
+  "models": {
+    "config": {
+      "dataset": "data/processed/synthemol_dataset_v1",
+      "partition": "external",
+      "expected_compounds": 1107,
+      "model_groups": [
+        "nearest_neighbour",
+        "scratch_descriptors_3",
+        "coadd_transfer_3",
+        "synthemol_transfer_3"
+      ],
+      "seeds": [
+        17,
+        29,
+        43
+      ],
+      "ensemble": "equal_mean_all_three_seeds",
+      "primary_metric": "average_precision",
+      "top_k": [
+        20,
+        50,
+        100
+      ],
+      "tie_policy": "descending_score_then_ascending_compound_key; report_tie_averaged_precision",
+      "target": "published_SyntheMol_RN4220_50uM_16h_binary_assay_label",
+      "prediction_policy": "zero_shot_frozen_Wong_target_models; no_refitting_calibration_or_threshold_tuning",
+      "descriptor_policy": "same_fixed_200_RDKit_normalized_descriptors; preserve_existing_nonfinite_zero_imputation_with_audit",
+      "validation_inference_check": "64_Wong_validation_structures_selected_by_fixed_key_hash; reproduce_all_saved_member_and_NN_scores",
+      "prediction_tolerance": 1e-06,
+      "bootstrap": {
+        "seed": 20260910,
+        "iterations": 2000,
+        "unit": "frozen_external_structural_component",
+        "comparison": "paired_AP_differences_from_scratch_ensemble",
+        "interpretation": "conditional_on_fixed_models; descriptive_intervals_not_retraining_uncertainty"
+      },
+      "cpu_threads": 2,
+      "batch_size": 32,
+      "memory_budget_mib": 3072,
+      "future_use": "After scoring, external is a historical evaluation set and cannot remain an untouched test for adaptive model changes.",
+      "claim_boundary": "Cross-source ranking for a related but differently normalized assay. Not actinomycete-specific validation or antibiotic discovery."
+    },
+    "models": [
+      {
+        "family": "scratch_descriptors_3",
+        "seed": 17,
+        "checkpoint": "outputs/chemprop-descriptors-v1-seed17/checkpoints/best-epoch=10.ckpt",
+        "validation_predictions": "outputs/chemprop-descriptors-v1-seed17/chemprop_validation.csv"
+      },
+      {
+        "family": "scratch_descriptors_3",
+        "seed": 29,
+        "checkpoint": "outputs/chemprop-descriptors-v1-seed29/checkpoints/best-epoch=13.ckpt",
+        "validation_predictions": "outputs/chemprop-descriptors-v1-seed29/chemprop_validation.csv"
+      },
+      {
+        "family": "scratch_descriptors_3",
+        "seed": 43,
+        "checkpoint": "outputs/chemprop-descriptors-v1-seed43/checkpoints/best-epoch=13.ckpt",
+        "validation_predictions": "outputs/chemprop-descriptors-v1-seed43/chemprop_validation.csv"
+      },
+      {
+        "family": "coadd_transfer_3",
+        "seed": 17,
+        "checkpoint": "outputs/coadd-transfer-v1-target17/checkpoints/best-epoch=09.ckpt",
+        "validation_predictions": "outputs/coadd-transfer-v1-target17/validation.csv"
+      },
+      {
+        "family": "coadd_transfer_3",
+        "seed": 29,
+        "checkpoint": "outputs/coadd-transfer-v1-target29/checkpoints/best-epoch=08.ckpt",
+        "validation_predictions": "outputs/coadd-transfer-v1-target29/validation.csv"
+      },
+      {
+        "family": "coadd_transfer_3",
+        "seed": 43,
+        "checkpoint": "outputs/coadd-transfer-v1-target43/checkpoints/best-epoch=10.ckpt",
+        "validation_predictions": "outputs/coadd-transfer-v1-target43/validation.csv"
+      },
+      {
+        "family": "synthemol_transfer_3",
+        "seed": 17,
+        "checkpoint": "outputs/synthemol-transfer-v1-target17/checkpoints/best-epoch=10.ckpt",
+        "validation_predictions": "outputs/synthemol-transfer-v1-target17/validation.csv"
+      },
+      {
+        "family": "synthemol_transfer_3",
+        "seed": 29,
+        "checkpoint": "outputs/synthemol-transfer-v1-target29/checkpoints/best-epoch=13.ckpt",
+        "validation_predictions": "outputs/synthemol-transfer-v1-target29/validation.csv"
+      },
+      {
+        "family": "synthemol_transfer_3",
+        "seed": 43,
+        "checkpoint": "outputs/synthemol-transfer-v1-target43/checkpoints/best-epoch=10.ckpt",
+        "validation_predictions": "outputs/synthemol-transfer-v1-target43/validation.csv"
+      }
+    ],
+    "input_hashes": {
+      "configs/chemprop_descriptors_v1.json": "9a70179551f2dea5c08913fb4e901634c7a94928b3e94b02c9ec02e3ee2fc40f",
+      "configs/external_synthemol_v1.json": "b2d2fc1f7bf8d253bb92473d0891832eb0527e3404925cab37395d27e07a25c5",
+      "configs/v0.json": "9c35479c1e365d1c3c9b449209142daee9052b5a914d8448926d091a15fa882c",
+      "data/processed/synthemol_dataset_v1/config.json": "407e92a02f7e85723ea8facbbf68ec9e76ab52da1ba6fb7cfd95aa05cc3c3678",
+      "data/processed/synthemol_dataset_v1/external.jsonl.gz": "ed886c3d9f072c1cea40ad202cf0f1897779de3f5e666edae5c4bba4e6624a6b",
+      "data/processed/synthemol_dataset_v1/manifest.json": "7ac57b671953906e662a972c6174d5c6bf24bfceca3cd7fed2493ca6254a977d",
+      "data/processed/synthemol_dataset_v1/review.jsonl.gz": "3c32108fac584ec512797224e8ad08aab319a6903c12d5670ed0aff27762b2d6",
+      "data/processed/synthemol_dataset_v1/train.jsonl.gz": "ee9c76480b54733a68c8862e3b27b1715bbf79e3be8d4ce61f17a59580637fad",
+      "data/processed/synthemol_dataset_v1/validation.jsonl.gz": "73141b19b7b6f1a2368ce6080c071a4831bc67af149da52f5d9ff6ace0aa5a09",
+      "data/processed/wong_descriptors_v1/manifest.json": "c8b9472b132baf905cbc31d4866b6c4e677a33d6ad69635d77a2fb7b3c94a362",
+      "data/processed/wong_v0/train.parquet": "a24dbccfc87296411e8fc826baceda9be1a4a66d7a7100d642a3d4c1e2ebcad1",
+      "data/processed/wong_v0/validation.parquet": "7933d35d070cc4d7847699cc66896e847bba8cf04cc984bd66f955c434645bda",
+      "outputs/chemprop-descriptors-v1-seed17/checkpoints/best-epoch=10.ckpt": "3e9f6505a3eaee9a9c5504ae72f46e951af55cfc58610bf27d7f708e9ac796fd",
+      "outputs/chemprop-descriptors-v1-seed17/chemprop_validation.csv": "879ea9984a5bbba0ddc6c64e63800222d22b4c78183b88460c9d39a87765b46b",
+      "outputs/chemprop-descriptors-v1-seed17/results.json": "c5605db8e63f437c14cd0253ce78f117e6d48aeeffc1048e94723dbfdb32da7f",
+      "outputs/chemprop-descriptors-v1-seed29/checkpoints/best-epoch=13.ckpt": "6d701853e1a21236a5d981ad3f32643a27f0a60f068b47acd8c7c6fae49c77cf",
+      "outputs/chemprop-descriptors-v1-seed29/chemprop_validation.csv": "b70e0986db0d60de04cffef84667a527b79585b88a434de4ee6a724f0411e758",
+      "outputs/chemprop-descriptors-v1-seed29/results.json": "d8f341ac8cea525469daac907b05d1809d142183e3238fa719bdaa00a553ad49",
+      "outputs/chemprop-descriptors-v1-seed43/checkpoints/best-epoch=13.ckpt": "c5b37740dc17b6fc7a570a30d760f8b714b82fe923b2022a19a59b7bb80c4587",
+      "outputs/chemprop-descriptors-v1-seed43/chemprop_validation.csv": "641c4cac35304f23638b5fe23fb4fc6bfd7adcb1a695858a0fedf1f721dcd2a9",
+      "outputs/chemprop-descriptors-v1-seed43/results.json": "64459fa90c3b2a93bfaf9d335732521b334fccc89c50b2ac2d5159f97a235847",
+      "outputs/coadd-transfer-v1-target17/checkpoints/best-epoch=09.ckpt": "7d818e388a656f8287c5d0a798851bb921623032646c21e74825884335c84f51",
+      "outputs/coadd-transfer-v1-target17/results.json": "5fc65acc5704c93be040ac20c19bb2ba32947688103675c6d898c60d80335017",
+      "outputs/coadd-transfer-v1-target17/validation.csv": "20406a64db348b0009d7cefb75adaf7d1fd2cdea220313a42f14f51c37b0975d",
+      "outputs/coadd-transfer-v1-target29/checkpoints/best-epoch=08.ckpt": "6b19f5e9cf44e103d60fccc6687b4334ce992131ac817f9bff133888091a8a03",
+      "outputs/coadd-transfer-v1-target29/results.json": "d80e59bb51bcc6fadb859c134296f51c85e5faed5aa5a117c12e50e1308a5847",
+      "outputs/coadd-transfer-v1-target29/validation.csv": "a74f7dc7e87061813a19cda8c81b3af423191448c69ba8a9b5e00f9ad1a0bb79",
+      "outputs/coadd-transfer-v1-target43/checkpoints/best-epoch=10.ckpt": "8e740052bd03a1251514acf97037540ae2cb7a112a8be5a9d8a22adec068ea39",
+      "outputs/coadd-transfer-v1-target43/results.json": "9f00ac6051260a432aeb0cd1543c1a9d4230b6ee45837f1f110d2a241b9c023a",
+      "outputs/coadd-transfer-v1-target43/validation.csv": "14c7284afbb37098fe8e57d124564ade92d8846e7ec59d1c3b9c9f2866feb142",
+      "outputs/development-20260909-numeric-fix/nearest_neighbour_validation.csv": "9174420a4b103eae831621f4a294d254f1bde99b0cafe20c71e4debed1f09063",
+      "outputs/synthemol-transfer-v1-target17/checkpoints/best-epoch=10.ckpt": "136c8b032220b56ed559d44ed4c2d3b7985674d995d8d857d4a1e233d77a5d8a",
+      "outputs/synthemol-transfer-v1-target17/results.json": "6c4fe074b7df69e792b506bcb29d7f75fe8d77dd2c97d3b4475b0afe6f57e3c4",
+      "outputs/synthemol-transfer-v1-target17/validation.csv": "131be7c273290e25f6daca714183f694e296ce4922de9f9fcf17b29a5803b656",
+      "outputs/synthemol-transfer-v1-target29/checkpoints/best-epoch=13.ckpt": "2c6a55ebc7ae2216289a79f0855efa11561eba24c9cc8c801e2bdf3469aba3f6",
+      "outputs/synthemol-transfer-v1-target29/results.json": "886643307e4fc7584d8aa8b99d164d543bef61d89b68f11128c25307aaaa2ad4",
+      "outputs/synthemol-transfer-v1-target29/validation.csv": "3457d172c7fe96808859ff053c248af82d00f1b799d763dfe613c79ec6038b52",
+      "outputs/synthemol-transfer-v1-target43/checkpoints/best-epoch=10.ckpt": "9f4651d6c2da596fef9c11c3caa400d44e018857e3cd5f558f45f80243ea4f3b",
+      "outputs/synthemol-transfer-v1-target43/results.json": "f94cdbdfc8d1483774c89230c4a5cd66945e4f919ac388e3ec8d24c5afe8691e",
+      "outputs/synthemol-transfer-v1-target43/validation.csv": "a3b4bff76cbfbd6bed53519c28331171a57c84c32a57a9ba918f711001e93365",
+      "scripts/evaluate_external_synthemol_v1.py": "3cd9362605e865c2cefa0e8f0a95f8cc88fc4884214c3aca1747af3bac1581a8"
+    },
+    "source_hashes": {
+      "src/antibacterial/__init__.py": "2749552b0ec457b104b3f180ba42ed19289cd422e43f2e4601c57199b7631d44",
+      "src/antibacterial/baseline.py": "6210fbc76051c6551bd00ee9d264d2f2bfdaa85b4792ecebc0962768d893483b",
+      "src/antibacterial/chemistry.py": "69a29e4da064427cef0531b5ee5268e1153c7187bf2d76a53d2baa0cd5602517",
+      "src/antibacterial/common.py": "a1fe0fb0a8beda8d45e168742af41dc593761417d7fb9063e529306b0c9f854d",
+      "src/antibacterial/compare.py": "5ce5e3c56e78f0b557e89b62c8aff7eb5f485f807da5dfab64afa2980b06db3c",
+      "src/antibacterial/descriptor_batch.py": "697c2c707848da55a254de4eacf810a9accb5e7eda610bc46283c009c3552544",
+      "src/antibacterial/descriptors.py": "b4b115a8aa25d3c0fd9f8c3fbab0d8214a2268ae23f5f3d6c84a76f0ef10c785",
+      "src/antibacterial/final_evaluation.py": "710aecb39a0d66109a3655d4dfa46ffd9350d2eae14aa70231c290087dc29ea3",
+      "src/antibacterial/frozen_encoder.py": "9340bc2f528ba5e9bd9c47f4a74b898d41e1df756df88050b55339758c715923",
+      "src/antibacterial/frozen_rf.py": "a14d81d76af356c5ae64b729afe471b781e7c122e28c86cb383dd87d744fdceb",
+      "src/antibacterial/neural.py": "da583cb4db78bed8e7be07a311b286406505b5cfef768f55962b640d6f136700",
+      "src/antibacterial/neural_descriptors.py": "de1799b0149b93d22b3c54238d0d4036990efd6475c5a406ea369cd816038a02",
+      "src/antibacterial/neural_metrics.py": "8ee0632d465c7dee0cf45671f08ba979973cb2de304e7c631b356f51de664776",
+      "src/antibacterial/prepare.py": "143aa3e61604618ee0c9876f4e4d63767fa7763bdb9859bb2ec60b1ddf0b35f6",
+      "src/antibacterial/pretraining_audit.py": "b7684cd15119303ade5e196a92658fde38485cc2de9839a6860052a964795d53",
+      "src/antibacterial/splitting.py": "4a9b490baeb7b42cbe8a337875b410a78e44c486d9702d6b2c7f6e52780bf23f"
+    },
+    "packages": {
+      "rdkit": "2025.9.6",
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "scikit-learn": "1.6.1",
+      "pyarrow": "19.0.1",
+      "torch": "2.14.0",
+      "chemprop": "2.2.1",
+      "lightning": "2.6.5",
+      "torchmetrics": "1.9.0"
+    }
+  },
+  "input_hashes": {
+    "data/processed/harvard_rn4220_external_v1/scaffold_unseen.jsonl.gz": "417e77dd8cc0ef69e0cfb57e1f42223806d99d89abdf309db4e0e6a9f6f1e547",
+    "data/processed/harvard_rn4220_external_v1/manifest.json": "7be0a58b1881472d8cca65b371d06ccf2b1a3eaf694c4561fb3a932d662171ac",
+    "reports/harvard_rn4220_inference_pilot_v1.json": "0ac6240f0ff80f242a492ff96c69c4731b2957d10c7effe367c2f29fd2b1d7a2",
+    "scripts/evaluate_harvard_rn4220_v1.py": "977fd2cc84ec4d4ad5a63c5da5a7d31df8b8d6fd4ca3bd87a41dcad90c4840eb",
+    "scripts/verify_rn4220_external_v1.py": "f2dec2b522211dcd80a42402d0a048bf8c55145b224b845fc408fce02b149201",
+    "reports/harvard_rn4220_external_verification_v1.json": "614e7fa2eecfa35794b0eac995a6230c1d6cdaf645b30a5a857c58ea1fe5f8db"
+  }
+}

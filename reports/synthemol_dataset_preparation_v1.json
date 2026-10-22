@@ -1,0 +1,89 @@
+{
+  "complete": true,
+  "source_author_rows": 10658,
+  "source_pre_coadd_validation_qc_candidates": 9727,
+  "accepted_compounds": 9589,
+  "excluded_by_first_reason": {
+    "structure_review": 139,
+    "duplicate_identity_quarantined": 209,
+    "wong_evaluation_overlap": 582,
+    "coadd_validation_overlap": 138,
+    "raw_measurement_mapping_missing": 1
+  },
+  "measurement_qc_flags_retained": {
+    "replicate_disagreement_retained": 41,
+    "borderline_mean_retained": 66
+  },
+  "components": 5886,
+  "components_with_prior_structure_exposure_assigned_train": 1237,
+  "partitions": {
+    "train": {
+      "compounds": 7897,
+      "author_hits": 793,
+      "components": 4467,
+      "replicate_disagreement_retained": 35
+    },
+    "validation": {
+      "compounds": 585,
+      "author_hits": 59,
+      "components": 491,
+      "replicate_disagreement_retained": 1
+    },
+    "external": {
+      "compounds": 1107,
+      "author_hits": 127,
+      "components": 928,
+      "replicate_disagreement_retained": 5
+    }
+  },
+  "training_records_by_assay": {
+    "wong": 31058,
+    "coadd": 69367,
+    "synthemol": 7897
+  },
+  "combined_training_inventory": {
+    "wong_plus_coadd": {
+      "compound_assay_records": 100425,
+      "unique_parent_inchikeys": 100269
+    },
+    "wong_plus_synthemol": {
+      "compound_assay_records": 38955,
+      "unique_parent_inchikeys": 38338
+    },
+    "wong_plus_coadd_plus_synthemol": {
+      "compound_assay_records": 108322,
+      "unique_parent_inchikeys": 107506
+    }
+  },
+  "new_unique_compounds_over_wong_coadd": 7237,
+  "overlap_checks_passed": true,
+  "old_wong_activity_labels_read": false,
+  "new_predictions_created": false,
+  "model_training_started": false,
+  "input_hashes": {
+    "configs/synthemol_dataset_v1.json": "407e92a02f7e85723ea8facbbf68ec9e76ab52da1ba6fb7cfd95aa05cc3c3678",
+    "data/processed/synthemol_rl_audit_v1/records.jsonl.gz": "2cdcc2fbce047d1d107d5d2e8144bfbec9f7d8a40340721c617ea687575a9043",
+    "data/raw/assay_discovery/synthemol_rl/raw_rows.jsonl": "56a31916ca164e47739d29c36269ec444349ba7e340d5d7f0c4d21f5dcd3874a",
+    "data/processed/wong_v0/train.parquet": "a24dbccfc87296411e8fc826baceda9be1a4a66d7a7100d642a3d4c1e2ebcad1",
+    "data/processed/wong_v0/validation.parquet": "7933d35d070cc4d7847699cc66896e847bba8cf04cc984bd66f955c434645bda",
+    "data/processed/wong_v0/test.parquet": "8c301dcfde383311db8ff7b0e63ab9eae1cb800dc16733797fb9a1ed4a9513de",
+    "data/processed/coadd_auxiliary_v1/train.jsonl.gz": "5439eca533ddcf64f1523bb4c242d34897b092e2b5f8fd41ed648f10a43fe44d",
+    "data/processed/coadd_auxiliary_v1/validation.jsonl.gz": "cf3e03d843ad4500b9f28220928c0c8cd1e568749d79cfcba1b78e7e8ed98d41"
+  },
+  "script_sha256": "8374d8e324e2aa6c1f9c47bac31a3f9528ddfade90a34fe74dc66d4f76a28320",
+  "output_hashes": {
+    "config.json": "407e92a02f7e85723ea8facbbf68ec9e76ab52da1ba6fb7cfd95aa05cc3c3678",
+    "review.jsonl.gz": "3c32108fac584ec512797224e8ad08aab319a6903c12d5670ed0aff27762b2d6",
+    "external.jsonl.gz": "ed886c3d9f072c1cea40ad202cf0f1897779de3f5e666edae5c4bba4e6624a6b",
+    "validation.jsonl.gz": "73141b19b7b6f1a2368ce6080c071a4831bc67af149da52f5d9ff6ace0aa5a09",
+    "train.jsonl.gz": "ee9c76480b54733a68c8862e3b27b1715bbf79e3be8d4ce61f17a59580637fad"
+  },
+  "seconds": 1.4316034999792464,
+  "limits": [
+    "Assay labels remain separate. CO-ADD continuous inhibition is not a binary Wong/SyntheMol activity label.",
+    "CO-ADD pretraining did not improve the prior comparison; the three-assay total is available inventory, not an adopted combined model.",
+    "External split is unexposed to declared Wong/CO-ADD inputs by these structural keys, not guaranteed unexposed to arbitrary pretraining corpora.",
+    "External assay has a distinct normalized endpoint and hit definition; no external performance measured.",
+    "Measurement checks validate released summaries; complete plate controls and IQM normalization were not reconstructed."
+  ]
+}

@@ -1,0 +1,373 @@
+{
+  "complete": true,
+  "design": "Post-hoc additional baseline after original Harvard outcomes were reviewed. RF weights were trained and saved before that evaluation.",
+  "n": 225829,
+  "hits": 601,
+  "rf_members_and_ensemble": {
+    "morgan_rf_seed17": {
+      "n": 225829,
+      "hits": 601,
+      "hit_rate": 0.0026613056781901352,
+      "average_precision": 0.07268832208296788,
+      "roc_auc": 0.6996102850941328,
+      "brier_score": 0.1569234348946164,
+      "top_k": {
+        "20": {
+          "hits": 16,
+          "precision": 0.8,
+          "enrichment": 300.6043261231281,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.8,
+          "tie_averaged_enrichment": 300.6043261231281
+        },
+        "50": {
+          "hits": 31,
+          "precision": 0.62,
+          "enrichment": 232.96835274542428,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.62,
+          "tie_averaged_enrichment": 232.96835274542428
+        },
+        "100": {
+          "hits": 43,
+          "precision": 0.43,
+          "enrichment": 161.57482529118136,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.43,
+          "tie_averaged_enrichment": 161.57482529118136
+        }
+      }
+    },
+    "morgan_rf_seed29": {
+      "n": 225829,
+      "hits": 601,
+      "hit_rate": 0.0026613056781901352,
+      "average_precision": 0.05788385098190691,
+      "roc_auc": 0.7047553505921174,
+      "brier_score": 0.15448827380873056,
+      "top_k": {
+        "20": {
+          "hits": 15,
+          "precision": 0.75,
+          "enrichment": 281.8165557404326,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.75,
+          "tie_averaged_enrichment": 281.8165557404326
+        },
+        "50": {
+          "hits": 27,
+          "precision": 0.54,
+          "enrichment": 202.90792013311147,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.54,
+          "tie_averaged_enrichment": 202.90792013311147
+        },
+        "100": {
+          "hits": 35,
+          "precision": 0.35,
+          "enrichment": 131.51439267886855,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.35,
+          "tie_averaged_enrichment": 131.51439267886855
+        }
+      }
+    },
+    "morgan_rf_seed43": {
+      "n": 225829,
+      "hits": 601,
+      "hit_rate": 0.0026613056781901352,
+      "average_precision": 0.057976622848665955,
+      "roc_auc": 0.6991355951020474,
+      "brier_score": 0.1561117672948899,
+      "top_k": {
+        "20": {
+          "hits": 16,
+          "precision": 0.8,
+          "enrichment": 300.6043261231281,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.8,
+          "tie_averaged_enrichment": 300.6043261231281
+        },
+        "50": {
+          "hits": 28,
+          "precision": 0.56,
+          "enrichment": 210.4230282861897,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.56,
+          "tie_averaged_enrichment": 210.4230282861897
+        },
+        "100": {
+          "hits": 33,
+          "precision": 0.33,
+          "enrichment": 123.99928452579034,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.33,
+          "tie_averaged_enrichment": 123.99928452579034
+        }
+      }
+    },
+    "morgan_rf_3": {
+      "n": 225829,
+      "hits": 601,
+      "hit_rate": 0.0026613056781901352,
+      "average_precision": 0.0656563573366555,
+      "roc_auc": 0.7039269979022478,
+      "brier_score": 0.15547335652467995,
+      "top_k": {
+        "20": {
+          "hits": 16,
+          "precision": 0.8,
+          "enrichment": 300.6043261231281,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.8,
+          "tie_averaged_enrichment": 300.6043261231281
+        },
+        "50": {
+          "hits": 30,
+          "precision": 0.6,
+          "enrichment": 225.45324459234607,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.6,
+          "tie_averaged_enrichment": 225.45324459234607
+        },
+        "100": {
+          "hits": 39,
+          "precision": 0.39,
+          "enrichment": 146.54460898502495,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.39,
+          "tie_averaged_enrichment": 146.54460898502495
+        }
+      }
+    }
+  },
+  "comparison_groups": {
+    "nearest_neighbour": {
+      "n": 225829,
+      "hits": 601,
+      "hit_rate": 0.0026613056781901352,
+      "average_precision": 0.037751890932430913,
+      "roc_auc": 0.619394476713957,
+      "brier_score": 0.006255913774007678,
+      "top_k": {
+        "20": {
+          "hits": 11,
+          "precision": 0.55,
+          "enrichment": 206.6654742096506,
+          "cutoff_tie_size": 23,
+          "tie_averaged_precision": 0.5217391304347826,
+          "tie_averaged_enrichment": 196.04629964551833
+        },
+        "50": {
+          "hits": 17,
+          "precision": 0.34,
+          "enrichment": 127.75683860232945,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.34,
+          "tie_averaged_enrichment": 127.75683860232945
+        },
+        "100": {
+          "hits": 34,
+          "precision": 0.34,
+          "enrichment": 127.75683860232945,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.34,
+          "tie_averaged_enrichment": 127.75683860232945
+        }
+      }
+    },
+    "scratch_descriptors_3": {
+      "n": 225829,
+      "hits": 601,
+      "hit_rate": 0.0026613056781901352,
+      "average_precision": 0.08705437484772506,
+      "roc_auc": 0.7555513278805192,
+      "brier_score": 0.005220038343742154,
+      "top_k": {
+        "20": {
+          "hits": 20,
+          "precision": 1.0,
+          "enrichment": 375.75540765391014,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 1.0,
+          "tie_averaged_enrichment": 375.75540765391014
+        },
+        "50": {
+          "hits": 38,
+          "precision": 0.76,
+          "enrichment": 285.5741098169717,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.76,
+          "tie_averaged_enrichment": 285.5741098169717
+        },
+        "100": {
+          "hits": 44,
+          "precision": 0.44,
+          "enrichment": 165.33237936772045,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.44,
+          "tie_averaged_enrichment": 165.33237936772045
+        }
+      }
+    },
+    "coadd_transfer_3": {
+      "n": 225829,
+      "hits": 601,
+      "hit_rate": 0.0026613056781901352,
+      "average_precision": 0.08405500428489494,
+      "roc_auc": 0.7617608462544606,
+      "brier_score": 0.006281378417140026,
+      "top_k": {
+        "20": {
+          "hits": 17,
+          "precision": 0.85,
+          "enrichment": 319.3920965058236,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.85,
+          "tie_averaged_enrichment": 319.3920965058236
+        },
+        "50": {
+          "hits": 37,
+          "precision": 0.74,
+          "enrichment": 278.05900166389347,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.74,
+          "tie_averaged_enrichment": 278.05900166389347
+        },
+        "100": {
+          "hits": 45,
+          "precision": 0.45,
+          "enrichment": 169.08993344425957,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.45,
+          "tie_averaged_enrichment": 169.08993344425957
+        }
+      }
+    },
+    "synthemol_transfer_3": {
+      "n": 225829,
+      "hits": 601,
+      "hit_rate": 0.0026613056781901352,
+      "average_precision": 0.08209494581217272,
+      "roc_auc": 0.7625201951022779,
+      "brier_score": 0.006239268866813613,
+      "top_k": {
+        "20": {
+          "hits": 18,
+          "precision": 0.9,
+          "enrichment": 338.17986688851914,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.9,
+          "tie_averaged_enrichment": 338.17986688851914
+        },
+        "50": {
+          "hits": 38,
+          "precision": 0.76,
+          "enrichment": 285.5741098169717,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.76,
+          "tie_averaged_enrichment": 285.5741098169717
+        },
+        "100": {
+          "hits": 44,
+          "precision": 0.44,
+          "enrichment": 165.33237936772045,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.44,
+          "tie_averaged_enrichment": 165.33237936772045
+        }
+      }
+    },
+    "morgan_rf_3": {
+      "n": 225829,
+      "hits": 601,
+      "hit_rate": 0.0026613056781901352,
+      "average_precision": 0.0656563573366555,
+      "roc_auc": 0.7039269979022478,
+      "brier_score": 0.15547335652467995,
+      "top_k": {
+        "20": {
+          "hits": 16,
+          "precision": 0.8,
+          "enrichment": 300.6043261231281,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.8,
+          "tie_averaged_enrichment": 300.6043261231281
+        },
+        "50": {
+          "hits": 30,
+          "precision": 0.6,
+          "enrichment": 225.45324459234607,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.6,
+          "tie_averaged_enrichment": 225.45324459234607
+        },
+        "100": {
+          "hits": 39,
+          "precision": 0.39,
+          "enrichment": 146.54460898502495,
+          "cutoff_tie_size": 1,
+          "tie_averaged_precision": 0.39,
+          "tie_averaged_enrichment": 146.54460898502495
+        }
+      }
+    }
+  },
+  "rf_ensemble_minus_comparator_AP": {
+    "nearest_neighbour": {
+      "observed": 0.02790446640422458,
+      "percentile_95_interval": [
+        0.00911989842442959,
+        0.04727669402395011
+      ],
+      "valid_replicates": 2000
+    },
+    "scratch_descriptors_3": {
+      "observed": -0.021398017511069567,
+      "percentile_95_interval": [
+        -0.03843609937129941,
+        -0.004571456334956404
+      ],
+      "valid_replicates": 2000
+    },
+    "coadd_transfer_3": {
+      "observed": -0.01839864694823945,
+      "percentile_95_interval": [
+        -0.03589005268329418,
+        -0.002752692756737334
+      ],
+      "valid_replicates": 2000
+    },
+    "synthemol_transfer_3": {
+      "observed": -0.016438588475517227,
+      "percentile_95_interval": [
+        -0.034170518047752056,
+        -0.00074224641248805
+      ],
+      "valid_replicates": 2000
+    }
+  },
+  "protocol_sha256": "bcffabd6633737859bbb110f8bc431439da8a8ae08e0d024f010a3f6d180e718",
+  "predictions_sha256": "e716dd613b5c940bcab0ea3c9cc361472029feaed1a27d7dd9c270fb7d673a19",
+  "prediction_seconds": 44.61407350003719,
+  "total_seconds": 89.88392570801079,
+  "runtime": {
+    "python": "3.12.1 (v3.12.1:2305ca5144, Dec  7 2023, 17:23:38) [Clang 13.0.0 (clang-1300.0.29.30)]",
+    "platform": "macOS-26.5-arm64-arm-64bit",
+    "architecture": "arm64",
+    "packages": {
+      "rdkit": "2025.9.6",
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "scikit-learn": "1.6.1",
+      "pyarrow": "19.0.1"
+    },
+    "peak_rss_mib": 1015.671875
+  },
+  "verification": "passed: source IDs/labels, sealed member arrays, saved scores, AP, Top-K, original comparators and weighted AP",
+  "limits": [
+    "Post-hoc comparator addition, not a new untouched test.",
+    "Fixed existing models; no RF hyperparameter search on Harvard.",
+    "Unknown assay concentration; not actinomycete-specific or new antibiotic discovery."
+  ]
+}

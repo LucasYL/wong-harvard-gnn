@@ -1,0 +1,21 @@
+{
+  "saved_records_sha256_verified": true,
+  "row_count": 10658,
+  "candidate_pools": {
+    "no_wong_validation_or_test_overlap": {
+      "count": 9728,
+      "unmapped": 1,
+      "traceable": 9727,
+      "traceable_hits": 987,
+      "unique_keys": 9728
+    },
+    "no_overlap_with_any_wong_split": {
+      "count": 6137,
+      "unmapped": 1,
+      "traceable": 6136,
+      "traceable_hits": 699,
+      "unique_keys": 6137
+    }
+  },
+  "original_report_sha256": "5751239078266f5fdea052cb129bb0f8f34cc73a8130318af74dc1ef23ccf4c1"
+}

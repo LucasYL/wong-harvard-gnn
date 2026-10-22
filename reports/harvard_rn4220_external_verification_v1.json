@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "source_records": 329176,
+  "checks": [
+    "file hashes",
+    "one-to-one SID and deposited labels",
+    "unique output parents",
+    "no flagged or conflicting-CID samples retained",
+    "consistent labels across duplicate samples",
+    "all eight protected partition exclusions",
+    "strict subset and counts"
+  ],
+  "limitations": "This verifies data processing; it does not resolve missing assay concentration or establish experimental validity."
+}

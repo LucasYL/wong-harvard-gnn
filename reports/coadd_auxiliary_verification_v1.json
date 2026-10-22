@@ -1,0 +1,13 @@
+{
+  "complete": true,
+  "accepted_compounds": 72495,
+  "all_output_hashes_match": true,
+  "no_internal_or_protected_wong_overlap_in": [
+    "compound_key",
+    "parent_smiles",
+    "connectivity_smiles",
+    "scaffold"
+  ],
+  "wong_label_columns_read": false,
+  "old_frozen_model_identity_unchanged": true
+}

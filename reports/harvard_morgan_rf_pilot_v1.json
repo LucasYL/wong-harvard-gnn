@@ -1,0 +1,30 @@
+{
+  "n": 1024,
+  "fingerprint_seconds": 0.24489033402642235,
+  "three_RF_seconds": 0.3645843340200372,
+  "reproduction_errors": [
+    2.220446049250313e-16,
+    2.220446049250313e-16,
+    1.6653345369377348e-16
+  ],
+  "runtime": {
+    "python": "3.12.1 (v3.12.1:2305ca5144, Dec  7 2023, 17:23:38) [Clang 13.0.0 (clang-1300.0.29.30)]",
+    "platform": "macOS-26.5-arm64-arm-64bit",
+    "architecture": "arm64",
+    "packages": {
+      "rdkit": "2025.9.6",
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "scikit-learn": "1.6.1",
+      "pyarrow": "19.0.1"
+    },
+    "peak_rss_mib": 232.75
+  },
+  "estimated_full_minutes": 2.2401864389691393,
+  "source": "old Wong validation only",
+  "model_hashes": {
+    "outputs/development-20260909-numeric-fix/random_forest_seed17.joblib": "8d8206e3e4b3cd2666ac10cb09b39e4626d9bc3d11c0ac5781a0c6c08e3aee31",
+    "outputs/development-20260909-numeric-fix/random_forest_seed29.joblib": "64846cfe823394307705b35c5b5c7bc53f40b8bad388b1ac84d4a02e460c9baa",
+    "outputs/development-20260909-numeric-fix/random_forest_seed43.joblib": "2047de5c154a6bc801de904210f958ca095f2543481db288da2a724ed9157f90"
+  }
+}

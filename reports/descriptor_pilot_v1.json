@@ -1,0 +1,33 @@
+{
+  "identity": {
+    "config_sha256": "9a70179551f2dea5c08913fb4e901634c7a94928b3e94b02c9ec02e3ee2fc40f",
+    "descriptor_code_sha256": "b4b115a8aa25d3c0fd9f8c3fbab0d8214a2268ae23f5f3d6c84a76f0ef10c785",
+    "dataset_manifest_sha256": "fdd7bf1b26a245a8c11bffc8bcda1c39c94883875d2df223cfcb5e97074b3ee0",
+    "packages": {
+      "descriptastorus": "2.8.0",
+      "rdkit": "2025.9.6",
+      "numpy": "2.2.6"
+    }
+  },
+  "n": 256,
+  "seconds": 3.5840471328119747,
+  "mean_seconds_per_molecule": 0.014000184112546776,
+  "max_seconds": 0.032087999978102744,
+  "missing_values": 0,
+  "runtime": {
+    "python": "3.12.1 (v3.12.1:2305ca5144, Dec  7 2023, 17:23:38) [Clang 13.0.0 (clang-1300.0.29.30)]",
+    "platform": "macOS-26.5-arm64-arm-64bit",
+    "architecture": "arm64",
+    "packages": {
+      "rdkit": "2025.9.6",
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "scikit-learn": "1.6.1",
+      "pyarrow": "19.0.1"
+    },
+    "peak_rss_mib": 240.015625
+  },
+  "estimated_full_minutes": 8.138540361025317,
+  "no_performance_metrics": true,
+  "final_test_read": false
+}

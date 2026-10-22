@@ -1,0 +1,49 @@
+{
+  "all_frozen_data_hashes_unchanged": {
+    "measurements.parquet": true,
+    "review_records.jsonl": true,
+    "split_assignments.jsonl": true,
+    "test.parquet": true,
+    "train.parquet": true,
+    "validation.parquet": true
+  },
+  "final_test_performance_evaluated": false,
+  "critical_training_source_hashes_identical_across_seeds": true,
+  "cpu_threads_per_run": 2,
+  "runs_executed_sequentially": true,
+  "total_model_run_seconds": 2592.069306790945,
+  "max_process_peak_rss_mib": 1031.625,
+  "epoch_seconds_range": [
+    48.390558457991574,
+    57.42856450000545
+  ],
+  "runs": [
+    {
+      "run_id": "chemprop-seed17-20260909",
+      "seed": 17,
+      "epochs_completed": 16,
+      "selected_epoch": 11,
+      "total_seconds": 876.0679998749983,
+      "peak_rss_mib": 1031.625,
+      "checkpoint_sha256": "10c30266e55960c2c828b8ab2d19800614521e7b9d01854eaba4a5141e8cde77"
+    },
+    {
+      "run_id": "chemprop-seed29-20260909",
+      "seed": 29,
+      "epochs_completed": 15,
+      "selected_epoch": 10,
+      "total_seconds": 794.7303159159492,
+      "peak_rss_mib": 968.046875,
+      "checkpoint_sha256": "6b7c60afc2df42de9d79659106f250db6c26b57666fc38b1443ec4eeac2ef4c6"
+    },
+    {
+      "run_id": "chemprop-seed43-20260909",
+      "seed": 43,
+      "epochs_completed": 18,
+      "selected_epoch": 13,
+      "total_seconds": 921.2709909999976,
+      "peak_rss_mib": 963.6875,
+      "checkpoint_sha256": "1044c2b7dc0cda2d5191bcfe29a22174fd0b04c87cc9943919019577a4c05884"
+    }
+  ]
+}

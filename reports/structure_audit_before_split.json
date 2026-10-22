@@ -1,0 +1,36 @@
+{
+  "source_records": 39312,
+  "eligible_compounds": 38823,
+  "eligible_hits": 484,
+  "eligible_records": 39073,
+  "excluded_records": 239,
+  "structure_flags": {
+    "same_inchikey_different_parent_smiles": 50,
+    "multiple_organic_fragments": 167,
+    "no_organic_fragment": 10,
+    "invalid_smiles": 1
+  },
+  "structure_changed_records": 895,
+  "conflicting_parent_groups": 6,
+  "conflicting_parent_records": 12,
+  "duplicate_eligible_records_collapsed": 250,
+  "ambiguous_inchikey_groups": 23,
+  "unique_scaffolds": 6747,
+  "acyclic_compounds": 516,
+  "max_heavy_atoms": 295,
+  "natural_product_annotation": "unknown; not inferred from structures or compound names",
+  "seconds": 64.75172266695881,
+  "runtime": {
+    "python": "3.12.1 (v3.12.1:2305ca5144, Dec  7 2023, 17:23:38) [Clang 13.0.0 (clang-1300.0.29.30)]",
+    "platform": "macOS-26.5-arm64-arm-64bit",
+    "architecture": "arm64",
+    "packages": {
+      "rdkit": "2025.9.6",
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "scikit-learn": "1.6.1",
+      "pyarrow": "19.0.1"
+    },
+    "peak_rss_mib": 255.03125
+  }
+}
