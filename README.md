@@ -1,138 +1,140 @@
 # Wong → Harvard: assay-aware antibacterial GNN
 
-基于 Wong 公开实验数据训练分子图神经网络，用 Harvard / PubChem **AID 1259311** 的另一套 *Staphylococcus aureus* RN4220 实验作外部回顾性排序评价。
+**English** | [简体中文](README.zh-CN.md)
 
-**English overview:** A research codebase for structure-based antibacterial ranking with Chemprop D-MPNNs, fixed molecular descriptors, Morgan-RF and nearest-neighbour controls. Models developed on the Wong RN4220 assay were evaluated on an audited external Harvard RN4220 screen. This repository preserves the completed experiment and provides a starting point for collaborative development; it is not an exact reproduction of the Wong paper.
+Molecular graph neural networks trained on public Wong experimental data and evaluated retrospectively on a separate *Staphylococcus aureus* RN4220 screen from Harvard / PubChem **AID 1259311**.
 
-**交接状态（2026-10-22）：** 原实验已完成；本仓库整理代码、冻结协议、报告及可下载的历史模型/数据。Harvard 的结果已经查看，后续不能再把它称为未见测试集。本次交接没有启动新训练。
+This research codebase compares Chemprop D-MPNNs, fixed molecular descriptors, Morgan random forests, and nearest-neighbour controls. It preserves the completed experiment and provides a starting point for collaborative development. It is not an exact reproduction of the Wong paper.
 
-## 目录导航
+**Handoff status (2026-10-22):** The original experiment is complete. This repository contains the code, frozen protocols, reports, and downloadable historical models and data. Harvard results have already been reviewed, so this dataset must be treated as a historical benchmark in future development. No new training was started during the handoff.
 
-- [研究问题与范围](#研究问题与范围)
-- [已有结果](#已有结果)
-- [数据、标签与划分](#数据标签与划分)
-- [模型与训练](#模型与训练)
-- [安装与快速开始](#安装与快速开始)
-- [下载历史模型与数据](#下载历史模型与数据)
-- [核验已经保存的结果](#核验已经保存的结果)
-- [重新开发与训练](#重新开发与训练)
-- [Harvard 评价流程](#harvard-评价流程)
-- [文件布局](#文件布局)
-- [协作与下一步](#协作与下一步)
-- [限制、来源与许可](#限制来源与许可)
+## Contents
 
-## 研究问题与范围
+- [Research question and scope](#research-question-and-scope)
+- [Existing results](#existing-results)
+- [Data, labels, and splits](#data-labels-and-splits)
+- [Models and training](#models-and-training)
+- [Installation and quick start](#installation-and-quick-start)
+- [Download historical models and data](#download-historical-models-and-data)
+- [Verify saved results](#verify-saved-results)
+- [New development and training](#new-development-and-training)
+- [Harvard evaluation workflow](#harvard-evaluation-workflow)
+- [Repository layout](#repository-layout)
+- [Collaboration and next steps](#collaboration-and-next-steps)
+- [Limitations, sources, and licensing](#limitations-sources-and-licensing)
 
-核心问题：只有一个分子的明确结构时，模型能否把在指定 whole-cell assay 中有活性的化合物排在前面，帮助安排有限的实验预算？
+## Research question and scope
 
-科学单位始终是 **compound + assay context → measurement**。同样是 RN4220，不同实验条件、浓度、读数归一化和标签规则仍可能对应不同任务。本项目输出的是排序分数，没有证明它是任意实验条件下已校准的活性概率。
+Given a compound with a known molecular structure, can a model rank compounds that are active in a specified whole-cell assay near the top, helping allocate a limited experimental budget?
 
-这一仓库覆盖：
+The scientific unit is **compound + assay context → measurement**. Even assays using the same RN4220 strain can define different tasks when conditions, concentrations, readout normalization, or labeling rules differ. Model outputs are ranking scores; they have not been established as calibrated probabilities of activity under arbitrary assay conditions.
 
-- Wong 数据下载、逐行实验数据提取、结构标准化、固定 scaffold 划分。
-- Morgan/Tanimoto 近邻、Morgan 指纹随机森林、轻量 Chemprop D-MPNN。
-- 加入 200 维固定归一化 RDKit 描述符及多 seed 等权集成。
-- CO-ADD 和 SyntheMol 的辅助迁移比较，以及相关数据审计。
-- Harvard RN4220 外部数据去重、暴露排查、冻结预测、AP/Top-K 和独立核验。
+This repository covers:
 
-保留了早期 CheMeleon 冻结 encoder 与 V0 final-test 的代码和摘要，作为历史上下文。主发布数据包围绕 Wong→Harvard 实验，**不包含 CheMeleon 权重/嵌入和全部早期 V0 输出**。后续四菌种训练、NPASS 汇总、天然产物候选筛选、演示材料不属于本仓库的交接范围。
+- Wong data downloads, extraction of individual experimental records, structure standardization, and a fixed scaffold split.
+- Morgan/Tanimoto nearest neighbours, Morgan random forests, and lightweight Chemprop D-MPNNs.
+- Addition of 200 fixed normalized RDKit descriptors and equal-weight ensembles across declared seeds.
+- Auxiliary transfer comparisons using CO-ADD and SyntheMol, with associated data audits.
+- Deduplication and exposure checks for the Harvard RN4220 screen, frozen predictions, AP/Top-K evaluation, and independent verification.
 
-## 已有结果
+Early CheMeleon frozen-encoder and V0 final-test code and summaries are retained as historical context. The main artifact release focuses on Wong→Harvard and **does not include CheMeleon weights/embeddings or all early V0 outputs**. Later four-species training, NPASS aggregation, natural-product candidate screening, and presentation materials are outside this handoff.
 
-### Harvard 外部历史评价
+## Existing results
 
-所有方法在同一份严格队列上计分：**225,829 个分子，601 个活性，活性率约 0.266%**。AP 为 sklearn 非插值 average precision。
+### Historical Harvard external evaluation
 
-- **近邻：** AP **0.037752**；Top-20/50/100 hits = **11 / 17 / 34**。
-- **Morgan-RF，3 个 seed 均值：** AP **0.065656**；Top-20/50/100 = **16 / 30 / 39**。
-- **Wong-only D-MPNN + descriptors，3 个 seed 均值：** AP **0.087054**；Top-20/50/100 = **20 / 38 / 44**。
-- **CO-ADD→Wong，3 个 seed 均值：** AP **0.084055**；Top-20/50/100 = **17 / 37 / 45**。
-- **SyntheMol→Wong，3 个 seed 均值：** AP **0.082095**；Top-20/50/100 = **18 / 38 / 44**。
+All methods were scored on the same strict cohort: **225,829 compounds, 601 actives, approximately 0.266% active prevalence**. AP means scikit-learn's non-interpolated average precision.
 
-主 GNN 的 Precision@50 = 38/50 = **76%**，找回全部 601 个活性中的约 **6.3%**。因此很靠前的一小批候选富集明显，但不代表模型找回了多数活性。AP 衡量完整排序；它不是准确率，也不是 76%。近邻 Top-20 的确定性排序有边界同分，按随机打破同分计算的期望 hits 为约 10.43；报告同时保存两种口径。
+- **Nearest neighbour:** AP **0.037752**; Top-20/50/100 hits = **11 / 17 / 34**.
+- **Morgan-RF, mean of 3 seeds:** AP **0.065656**; Top-20/50/100 = **16 / 30 / 39**.
+- **Wong-only D-MPNN + descriptors, mean of 3 seeds:** AP **0.087054**; Top-20/50/100 = **20 / 38 / 44**.
+- **CO-ADD→Wong, mean of 3 seeds:** AP **0.084055**; Top-20/50/100 = **17 / 37 / 45**.
+- **SyntheMol→Wong, mean of 3 seeds:** AP **0.082095**; Top-20/50/100 = **18 / 38 / 44**.
 
-不确定性采用 **2,000 次 Murcko scaffold 分组、配对 bootstrap**。主 GNN 减 RF 的 AP 差约 **+0.0214**，95% 区间 **[+0.0046, +0.0384]**。迁移模型相对 Wong-only GNN 的 AP 差区间均跨零，没有建立明确的迁移收益。这些区间条件于已固定模型，不包含重新训练的不确定性。
+The main GNN's Precision@50 is 38/50 = **76%**, recovering approximately **6.3%** of all 601 actives. The top-ranked candidates are enriched for activity, but most actives are not recovered in that small selection. AP evaluates the full ranking; it is not accuracy or Precision@50. The nearest-neighbour Top-20 ranking has a cutoff tie: randomly breaking that tie gives approximately 10.43 expected hits. The reports preserve both deterministic and tie-averaged results.
 
-**RF 是查看最初 Harvard 结果后补加的历史对照。** RF 权重在此前已经训练保存，没有用 Harvard 调参；这一比较仍应标为补充比较，不能包装成原先完全预定的盲测。
+Uncertainty was estimated with **2,000 paired bootstrap replicates grouped by Murcko scaffold**. The main GNN minus RF AP difference is approximately **+0.0214**, with a 95% interval of **[+0.0046, +0.0384]**. AP-difference intervals for both transfer models relative to the Wong-only GNN include zero, so a clear transfer benefit was not established. These intervals are conditional on the fixed models and do not capture retraining uncertainty.
 
-数字来源：
+**RF was added as a supplementary historical comparator after the initial Harvard results had been reviewed.** Its weights had already been trained and saved, and Harvard was not used to tune them. Nevertheless, this comparison must be identified as supplementary rather than presented as part of the original fully prespecified blind evaluation.
 
-- [原四组评价 JSON](reports/harvard_rn4220_model_comparison_v1.json)
-- [RF 补充比较 JSON](reports/harvard_morgan_rf_comparison_v1.json)
-- [中文结果解释](harvard_external_results_zh.md)
-- [RF 比较的设计边界](harvard_morgan_rf_comparison_zh.md)
+Result sources:
 
-### Wong 开发集与早期 test
+- [Original four-group evaluation JSON](reports/harvard_rn4220_model_comparison_v1.json)
+- [Supplementary RF comparison JSON](reports/harvard_morgan_rf_comparison_v1.json)
+- [Detailed results explanation, in Chinese](harvard_external_results_zh.md)
+- [RF comparison design and limitations, in Chinese](harvard_morgan_rf_comparison_zh.md)
 
-固定 Wong validation 有 **3,821 个分子、60 个 hits**。匹配的 3 个 seed 集成：不加描述符 AP **0.3713**，加入描述符 AP **0.4125**；两者 Top-50 都为 **22**。10 成员描述符集成 AP **0.4150**、Top-50 为 **20**，没有建立扩大集成对固定 Top-50 预算的收益。
+### Wong development results and earlier test
 
-这些 validation 结果参与了 checkpoint/方案选择，属于开发结果。Harvard 主比较固定使用 seeds **17、29、43**，并非事后从 10 个成员挑选。
+The fixed Wong validation set contains **3,821 compounds and 60 hits**. For ensembles using the same 3 seeds, AP was **0.3713** without descriptors and **0.4125** with descriptors; both recovered **22** hits in the Top-50. The 10-member descriptor ensemble achieved AP **0.4150** and **20** Top-50 hits. Increasing ensemble size did not establish a benefit for a fixed Top-50 budget.
 
-更早的 V0 test 有 **3,944 个分子、42 hits**，历史结果保存在 [V0 test 摘要](reports/final_test_comparison.json)。V0 与后来的描述符实验不是同一批模型；不能把 V0 scratch 指标当作描述符 GNN 的最终 test 成绩。V0 test 与 Harvard 都已查看，今后的重要结论需要新的锁定评价。
+These validation results informed checkpoint and method selection, so they are development results. The main Harvard comparison used the fixed seeds **17, 29, and 43**, rather than choosing members after reviewing results from the 10-member ensemble.
 
-## 数据、标签与划分
+The earlier V0 test contains **3,944 compounds and 42 hits**; its historical results are preserved in the [V0 test summary](reports/final_test_comparison.json). V0 and the later descriptor experiment used different models. V0 scratch-model metrics must not be presented as final-test results for the descriptor GNN. Both the V0 test and Harvard results have been reviewed; future major conclusions require a new locked evaluation.
 
-### Wong 训练任务
+## Data, labels, and splits
 
-来源为 Wong 等人的 *Discovery of a structural class of antibiotics with explainable deep learning*，以及作者 [antibioticsai 仓库](https://github.com/felixjwong/antibioticsai)。下载固定到 commit `83403d483def9aa6a90df850b3d0454b3030cf47`，原始文件 SHA-256 见 [source_manifest.json](reports/source_manifest.json)。
+### Wong training task
 
-作者输入表共有 **39,312** 条记录；本项目经结构和标签审计后形成 **38,823** 个可用母体化合物，共 **484** 个 hits：
+The source is Wong et al., *Discovery of a structural class of antibiotics with explainable deep learning*, and the authors' [antibioticsai repository](https://github.com/felixjwong/antibioticsai). Downloads are pinned to commit `83403d483def9aa6a90df850b3d0454b3030cf47`. Original-file SHA-256 hashes are recorded in [source_manifest.json](reports/source_manifest.json).
 
-- train：**31,058 / 382 hits**。
-- validation：**3,821 / 60 hits**。
-- historical test：**3,944 / 42 hits**。
+The authors' input table contains **39,312** records. After structure and label auditing, this project retained **38,823** eligible parent compounds with **484** hits:
 
-任务沿用作者的 RN4220 **50 μM** 标签：平均相对生长 **< 0.2** 为 hit。实验数值、重复测量、原始 SMILES、来源 sheet/行均保留；缺失/非法测量不会自动变成 inactive。阈值附近、重复测量跨越阈值的样本作标记，不擅自修改标签。
+- Training: **31,058 / 382 hits**.
+- Validation: **3,821 / 60 hits**.
+- Historical test: **3,944 / 42 hits**.
 
-结构处理：RDKit Cleanup → FragmentParent → Uncharger；保留立体化学，不额外做互变异构标准化。非法结构、多有机片段、同母体标签冲突和身份歧义进入审查，不能靠多数投票或静默删除掩盖冲突。
+The task follows the authors' RN4220 **50 μM** labels: mean relative growth **< 0.2** defines a hit. Experimental values, replicates, original SMILES, and source sheet/row references are retained. Missing or invalid measurements are not automatically labeled inactive. Near-threshold records and replicates on opposite sides of the threshold are flagged without changing the original labels.
 
-划分使用非立体 Bemis–Murcko scaffold 整组分配，split seed 为 **20260908**，目标比例 80/10/10。无环结构归入同一组；根据 seed 与 scaffold 的 SHA-256 排序确定分配，不按标签挑选 split。检查 parent identity、连接结构、InChIKey 与 scaffold 跨集合重叠。
+Structure processing uses RDKit Cleanup → FragmentParent → Uncharger. Stereochemistry is retained, with no additional tautomer standardization. Invalid structures, multiple organic fragments, conflicting labels for a parent compound, and ambiguous identities are set aside for review rather than resolved by majority voting or silent removal of conflicting evidence.
 
-### Harvard 外部任务
+Splits are assigned by non-stereochemical Bemis–Murcko scaffold groups, with split seed **20260908** and target fractions of 80/10/10. Acyclic compounds form one group. Assignment is determined by SHA-256 ordering of the seed and scaffold, without choosing splits based on activity labels. Cross-partition checks cover parent identity, connectivity, InChIKey, and scaffold overlap.
 
-“Harvard dataset” 在这里具体指 [PubChem BioAssay AID 1259311](https://pubchem.ncbi.nlm.nih.gov/bioassay/1259311)，不是 Wong 的保留 test。
+### Harvard external task
 
-- 原始审计记录 **329,176** 条。
-- 仅排除身份/连接重叠后的较宽清单为 **314,118** 个分子、**922** 个活性；它**没有**用于本次主评价。
-- 进一步排除 scaffold 重叠后的主评价队列为 **225,829** 个分子、**601** 个活性。
+Here, "Harvard dataset" specifically means [PubChem BioAssay AID 1259311](https://pubchem.ncbi.nlm.nih.gov/bioassay/1259311), a separate screen from the held-out Wong test.
 
-保护集合包含 Wong train/validation/test、CO-ADD train/validation、SyntheMol train/validation/external，共 **8 个分区**。这些排查只针对本项目声明的数据暴露，不能证明不存在任何外部预训练暴露。
+- **329,176** original records were audited.
+- The broader inventory after identity/connectivity exclusions contains **314,118** compounds and **922** actives. It was **not** used for the main evaluation.
+- After additional scaffold exclusions, the main evaluation cohort contains **225,829** compounds and **601** actives.
 
-沿用该 assay 的 deposited binary labels，并核查两个重复 OD600 读数及 plate Z-score 的原始 hit 规则。**最终化合物浓度未在已下载表中明确**；不能将它写成 Wong 50 μM 的复现，也不能把结果解释成 MIC 或杀菌性预测。完整审计见 [external audit](reports/harvard_rn4220_external_audit_v1.json)。
+The protected data comprise **8 partitions**: Wong train/validation/test, CO-ADD train/validation, and SyntheMol train/validation/external. These checks cover the project's declared data exposure; they do not establish absence from all external pretraining corpora.
 
-### 迁移数据
+The assay's deposited binary labels are retained, with checks against the original hit rule using duplicate OD600 measurements and plate Z-scores. **The final compound concentration is not explicit in the downloaded table.** This is not a reproduction of the Wong 50 μM assay, and its results must not be interpreted as MIC or bactericidal-activity predictions. See the complete [external audit](reports/harvard_rn4220_external_audit_v1.json).
 
-CO-ADD 是单独的 MRSA 测试背景，源任务使用连续抑制读数；SyntheMol 另有自己的结构去重、数据划分与实验标签。迁移后都在 Wong 目标任务上训练/选择，然后固定用于 Harvard。这里没有把不同 assay 的标签直接拼成一个通用“抗菌”标签。
+### Transfer datasets
 
-已保存的 SyntheMol external 结果可作历史参考，但源数据的其他分子参与过相关迁移训练，不能把整套来源都叫完全未见。参考 [CO-ADD 迁移说明](transfer_experiment.md)、[SyntheMol 迁移说明](synthemol_transfer_experiment.md)。
+CO-ADD represents a separate MRSA assay context, with continuous inhibition measurements used for the source task. SyntheMol has its own structure deduplication, partitions, and experimental labels. After auxiliary training, the models were trained/selected on the Wong target task and then fixed for Harvard evaluation. Labels from different assays were not pooled into a generic "antibacterial" target.
 
-## 模型与训练
+Saved SyntheMol external results provide historical context, but other compounds from the same source were used in related transfer training. The entire source therefore cannot be described as completely unseen. See the [CO-ADD transfer notes](transfer_experiment.md) and [SyntheMol transfer notes](synthemol_transfer_experiment.md), both in Chinese.
 
-主模型是 Chemprop **2.2.1** 的 directed message-passing neural network：
+## Models and training
 
-1. 标准化 SMILES 经 RDKit 构造成分子图。
-2. 有向键消息传递，hidden dimension **300**、depth **3**。
-3. mean pooling 得到分子表示。
-4. 拼接 `descriptastorus.RDKit2DNormalized` 的 **200 维**描述符。
-5. 一个隐藏层的 FFN 输出二分类排序分数。
+The main model uses Chemprop **2.2.1** directed message passing:
 
-描述符来自结构和库内固定参考归一化，不在本项目全数据上重新拟合 scaler。非有限值按冻结规则置 0 并逐项留痕；特征计算失败则停止。
+1. RDKit converts standardized SMILES into a molecular graph.
+2. Directed-bond message passing uses hidden dimension **300** and depth **3**.
+3. Mean pooling produces a molecular representation.
+4. The representation is concatenated with **200 descriptors** from `descriptastorus.RDKit2DNormalized`.
+5. An FFN with one hidden layer produces a binary-classification ranking score.
 
-训练使用不加类别权重的 BCE，dropout 0、batch size 32、最多 20 epochs、validation AP early stopping。默认 CPU 两线程；每个 seed 使用相同 split。seeds 反映初始化和训练顺序的变化，不代表换了一份独立数据集。主外部比较采用 17/29/43 的等权平均。
+Descriptors are calculated from structure using the library's fixed reference normalization. A new scaler is not fitted on the project's full dataset. Non-finite values are set to zero under the frozen policy and individually logged; descriptor-calculation failures stop execution.
 
-传统基线包括：
+Training uses unweighted BCE, dropout 0, batch size 32, at most 20 epochs, and early stopping on validation AP. The default is two CPU threads. Every seed uses the same data split: seed variation reflects initialization and training order, not independent datasets. The main external comparison equally averages seeds 17/29/43.
 
-- radius-2、2048-bit、保留手性的 Morgan 指纹。
-- Tanimoto 相似度加权的 5 近邻，第 5 名同分的邻居全部纳入。
-- RF：200 棵树，max depth 20，min samples leaf 2，`balanced_subsample`。
+Traditional baselines use:
 
-Top-K 按 score 降序、compound key 升序固定同分次序，并另外报告边界同分的期望 precision/enrichment。AP 与梯形 PR-AUC 分开命名，不能混为同一个数。
+- Radius-2, 2048-bit Morgan fingerprints with chirality.
+- Tanimoto-weighted 5-nearest-neighbour scores, including all neighbours tied with the fifth neighbour.
+- Random forests with 200 trees, maximum depth 20, minimum leaf size 2, and `balanced_subsample` class weights.
 
-本模型比 Wong 论文模型轻量；没有完整复现作者的超参数搜索、ensemble、解释算法、毒性模型或实验流程。不要直接用两个项目不同数据/协议上的指标宣称超过论文。
+Top-K ranking uses descending score and ascending compound key for deterministic ties, with separate cutoff-tie-averaged precision/enrichment. AP and trapezoidal PR-AUC are named and reported separately.
 
-## 安装与快速开始
+This model is lighter than the Wong paper's architecture. It does not reproduce the full hyperparameter search, ensemble, interpretation algorithms, toxicity models, or experimental workflow. Metrics from different datasets and protocols do not establish superiority over the paper.
 
-原环境为 **Python 3.12 / macOS Apple Silicon / CPU**。其他系统可以尝试，但没有完成跨平台或逐位一致验证。
+## Installation and quick start
+
+The original environment was **Python 3.12 / macOS Apple Silicon / CPU**. Other systems may work, but cross-platform and bitwise reproducibility have not been validated.
 
 ```bash
 git clone https://github.com/LucasYL/wong-harvard-gnn.git
@@ -142,7 +144,7 @@ python3.12 -m venv .venv
 PYTHONPATH=src .venv/bin/python -m pytest -q
 ```
 
-基础环境支持数据处理、传统基线及结果核验。神经网络使用独立环境：
+The base environment supports data processing, traditional baselines, and saved-result verification. Neural models use a separate environment:
 
 ```bash
 python3.12 -m venv .venv-neural
@@ -150,13 +152,13 @@ python3.12 -m venv .venv-neural
 PYTHONPATH=src .venv-neural/bin/python -m pytest -q
 ```
 
-`requirements*.txt` 是直接依赖，`requirements*.lock.txt` 保存原完整版本。描述符依赖 `descriptastorus==2.8.0` 已固定在 neural lock 中。不要为解决单个安装问题直接升级 RDKit、Chemprop 或指标库后覆盖原实验；先另建环境并记录变化。Jupyter 是可选工具，不是运行 CLI 的必要条件。
+`requirements*.txt` lists direct dependencies; `requirements*.lock.txt` preserves the original complete versions. The neural lock pins `descriptastorus==2.8.0`. When resolving installation issues, record dependency changes in a separate environment rather than upgrading RDKit, Chemprop, or metric libraries and overwriting the original experiment. Jupyter is optional and is not required to run the CLI.
 
-最短上手路径：安装基础环境 → 下载并恢复 release 数据包 → 校验文件哈希 → 重算已保存的 Harvard 指标。无需先训练模型。
+The shortest onboarding route is: install the base environment → download and restore the release artifacts → verify file hashes → recalculate the saved Harvard metrics. Training a new model is not required first.
 
-## 下载历史模型与数据
+## Download historical models and data
 
-大文件放在私有仓库的 [v1.0.0-harvard 发布页](https://github.com/LucasYL/wong-harvard-gnn/releases/tag/v1.0.0-harvard)，避免把权重和逐分子预测塞进 Git 历史。需要仓库访问权限及 GitHub CLI 登录。
+Large files are attached to the private repository's [v1.0.0-harvard release](https://github.com/LucasYL/wong-harvard-gnn/releases/tag/v1.0.0-harvard), keeping weights and per-compound predictions out of Git history. Repository access and an authenticated GitHub CLI session are required.
 
 ```bash
 gh auth login
@@ -171,47 +173,47 @@ python3 -m zipfile -e artifacts/wong-harvard-artifacts-v1.zip .
 python3 scripts/verify_release_artifacts.py
 ```
 
-**在干净 clone 中解压一次。** 解压命令会写入归档中的 `data/` 和 `outputs/`；如果已有自己的实验输出，先使用新的 clone，避免覆盖。
+**Extract once into a clean clone.** The extraction command writes the archived `data/` and `outputs/` paths. If you already have your own experimental outputs, use a fresh clone to avoid overwriting them.
 
-数据包包含：
+The bundle contains:
 
-- Wong 原始下载快照、提取记录、固定 train/validation/test 与描述符缓存。
-- Harvard 原始分批表、concise 表、审计记录、严格和较宽队列。
-- CO-ADD、SyntheMol 的相关源文件/处理结果和 8 个保护分区。
-- 主描述符 GNN、两组迁移模型的 checkpoint、训练记录和 validation 预测。
-- 近邻/RF、Harvard 全量成员及集成预测、分块和封存记录。
-- 与主实验有关的已有 SyntheMol external 输出。
+- Original Wong download snapshots, extracted records, fixed train/validation/test partitions, and descriptor caches.
+- Original Harvard batch tables, the concise table, audit records, and both strict and broader inventories.
+- Relevant CO-ADD and SyntheMol source/processed files and the 8 protected partitions.
+- Checkpoints, training records, and validation predictions for the main descriptor GNN and both transfer-model groups.
+- Nearest-neighbour/RF artifacts, complete Harvard member and ensemble predictions, chunks, and sealing receipts.
+- Existing SyntheMol external outputs relevant to the main experiment.
 
-精确内容和每个文件的 SHA-256 见 [artifact_manifest.json](docs/artifact_manifest.json)。`data/`、`outputs/`、环境、日志和下载包均不进入 Git。归档记录中的旧 PID/机器信息只是历史运行记录，不表示现在有任务在运行。
+The exact contents and individual SHA-256 hashes are listed in [artifact_manifest.json](docs/artifact_manifest.json). Data, outputs, environments, logs, and downloaded archives are excluded from Git. Old PIDs and machine details in archived records describe historical executions; they do not indicate a currently running process.
 
-## 核验已经保存的结果
+## Verify saved results
 
-先做无需科学依赖的逐文件完整性检查，再用基础环境独立重算 AP、ROC-AUC、13 组预测的 ensemble 均值、39 项 Top-K 和同分期望：
+First verify every artifact using the standard library, then use the base environment to independently recalculate AP, ROC-AUC, ensemble means across the 13 prediction columns, and 39 Top-K/tie checks:
 
 ```bash
 python3 scripts/verify_release_artifacts.py
 PYTHONPATH=src .venv/bin/python scripts/verify_harvard_evaluation_v1.py
 ```
 
-第二条会重写 `outputs/harvard-rn4220-evaluation-v1/verification.json` 为确定性核验回执，不训练、不重跑全量预测。保存的 RF 补充预测也可独立重算：
+The second command rewrites `outputs/harvard-rn4220-evaluation-v1/verification.json` with a deterministic verification receipt. It does not train models or repeat full inference. Saved supplementary RF predictions can also be independently checked:
 
 ```bash
 PYTHONPATH=src .venv/bin/python scripts/verify_harvard_rf_saved.py
 ```
 
-需要确认原九个 GNN checkpoint 仍能生成保存的分数时，在 neural 环境运行 **64 个旧 Wong validation 分子**的复核：
+To confirm that the original nine GNN checkpoints still reproduce saved scores, run the check on **64 old Wong validation compounds** in the neural environment:
 
 ```bash
 PYTHONPATH=src .venv-neural/bin/python scripts/reproduce_saved_validation.py
 ```
 
-它检查固定协议、重算描述符、九成员和近邻的旧 validation 分数；不读取 Harvard 标签做模型选择，也不启动训练。跨平台数值或依赖漂移可能触发冻结校验，应调查具体差异，不应删除断言掩盖。
+This checks the frozen protocol, recalculates descriptors, and reproduces the nine members' and nearest-neighbour validation scores. It does not use Harvard labels for model selection or start training. Cross-platform numerical or dependency drift may trigger frozen checks; investigate the differences rather than removing assertions to hide them.
 
-## 重新开发与训练
+## New development and training
 
-### 从公开 Wong 原始文件开始
+### Start from public Wong source files
 
-在**未恢复 release 数据包的干净 clone**中运行：
+Run these commands in a **clean clone without restored release artifacts**:
 
 ```bash
 .venv/bin/python scripts/download_wong.py
@@ -220,9 +222,9 @@ PYTHONPATH=src .venv/bin/python -m antibacterial.prepare --limit 1000
 PYTHONPATH=src .venv/bin/python -m antibacterial.prepare
 ```
 
-下载器验证固定源文件哈希，已有原文件只验证、不覆盖。重新准备数据的清单可能包含新的运行时间、环境信息，其哈希未必与历史清单相同；“从头构建新运行”和“核验原冻结运行”要分开记录。
+The downloader verifies pinned source hashes and checks existing originals without overwriting them. Newly generated preparation manifests can include new timings and environment metadata, so their hashes may differ from the historical manifests. Record rebuilding a new run separately from verifying an original frozen run.
 
-### 新的基线与轻量神经网络
+### New baselines and lightweight GNNs
 
 ```bash
 PYTHONPATH=src .venv/bin/python -m antibacterial.baseline \
@@ -235,11 +237,11 @@ PYTHONPATH=src .venv-neural/bin/python -m antibacterial.neural \
   --seed 17 --run-id local-gnn-seed17-001
 ```
 
-每次使用新的 run ID；先跑 pilot 并查看时间/内存，再决定完整运行。以上代码只计 Wong validation，不创建用于开发选择的 test loader。
+Use a new run ID each time. Run a pilot and inspect time/memory before committing to a complete run. These development commands evaluate Wong validation only and do not create a test loader for model selection.
 
-### 描述符 GNN
+### Descriptor GNNs
 
-在新准备数据的 clone 中，先建立描述符缓存：
+In a clone with newly prepared data, build the descriptor cache first:
 
 ```bash
 PYTHONPATH=src .venv-neural/bin/python -m antibacterial.descriptors --pilot
@@ -250,84 +252,87 @@ PYTHONPATH=src .venv-neural/bin/python -m antibacterial.neural_descriptors \
   --seed 17 --run-id local-descriptor-seed17-001
 ```
 
-29、43 使用不同 run ID 分别运行，等权平均，不看 test 选 seed。原三成员/十成员 batch 配置与恢复说明见 [descriptor_experiment.md](descriptor_experiment.md)。
+Run seeds 29 and 43 under separate run IDs and average them equally, without selecting seeds using test results. Original three-/ten-member batch configuration and recovery details are in [descriptor_experiment.md](descriptor_experiment.md), in Chinese.
 
-`descriptor_batch`、迁移 runner、旧 final-evaluation 和 Harvard 的 `freeze` 入口是原实验编排器，带有固定路径/哈希/拒绝覆盖规则。**不要把 README 中的新 run ID 当成已经替换了这些编排器的依赖。** 新一轮完整多模型比较应在新分支中设计版本化配置和输出前缀，再重新预声明协议。
+`descriptor_batch`, transfer runners, the old final-evaluation entry point, and Harvard's `freeze` entry point orchestrate the original experiment using fixed paths, hashes, and overwrite protections. **The new run IDs in this README do not automatically replace those orchestrators' dependencies.** For a new complete multi-model comparison, introduce versioned configurations and output prefixes on a new branch and prespecify the new protocol.
 
-### 成本和进度
+### Cost and monitoring
 
-历史 Apple Silicon 上，轻量 GNN 每个约 13–20 分钟，10 个描述符成员原队列约 137 分钟；Harvard 全量九成员推理原先预留约 1.5–2.5 小时。它们只是旧机器上的参考，不是新环境性能保证。默认两线程、batch 32、单进程预算 3 GiB；无需云资源。
+On the historical Apple Silicon machine, a lightweight GNN took approximately 13–20 minutes; the original 10-member descriptor queue took approximately 137 minutes. The original allowance for full nine-member Harvard inference was approximately 1.5–2.5 hours. These are reference timings, not performance guarantees for a new environment. Defaults are two CPU threads, batch size 32, and a 3 GiB per-process memory budget. Cloud resources are not required.
 
-epoch/checkpoint/`results.json` 位于 `outputs/<run-id>/`。查看进度应结合 PID、日志和文件更新时间；历史 status 文件不能证明任务正在运行。macOS 的 `caffeinate` 可防普通闲置睡眠，但不能保证合盖后继续计算。附带的 [GitHub Actions 模板](docs/ci/tests.yml)只跑小型测试。当前上传令牌缺少 `workflow` scope，因此没有启用云端 CI；需要具有该权限的维护者将模板放到 `.github/workflows/tests.yml` 后才能启用。模板不会启动完整训练或外部批量评价。
+Epoch records, checkpoints, and `results.json` are stored under `outputs/<run-id>/`. Check process IDs, logs, and modification times together when monitoring progress; historical status files do not prove that a job is running. On macOS, `caffeinate` can prevent ordinary idle sleep but does not guarantee continued computation with the lid closed.
 
-## Harvard 评价流程
+The supplied [GitHub Actions template](docs/ci/tests.yml) runs small tests only. Hosted CI is not enabled because the upload token lacks the `workflow` scope. A maintainer with the required permission can enable it by placing the template at `.github/workflows/tests.yml`. It does not start complete training or external batch evaluation.
 
-保存的流程依次是：
+## Harvard evaluation workflow
 
-1. 从 PubChem 提取明确 assay 和 source SID，保存原始分批记录及哈希。
-2. 核查原读数、作者标签、结构、重复记录和冲突；排除 8 个保护分区的重叠。
-3. 在旧 Wong validation 的固定小样本上复现已有分数、测资源。
-4. 固定队列、九个 checkpoint、指标、种子、bootstrap、同分规则和代码哈希。
-5. 只把 query 结构送入 forward，分块保存并封存所有预测。
-6. 封存后按稳定 compound key 连接已知实验标签并计分。
-7. 从保存 CSV 独立重算，再增加明确标注为 post-hoc 的已有 RF 对照。
+The preserved workflow was:
 
-主要入口为 `download_rn4220_external_v1.py` → `audit_rn4220_external_v1.py` → `verify_rn4220_external_v1.py` → `evaluate_harvard_rn4220_v1.py` → `verify_harvard_evaluation_v1.py`。下载器依赖归档中的原 concise SID 清单；只克隆代码还不能从它一键恢复完整 Harvard 原始快照。原始历史文件已经在 release 中保留。
+1. Retrieve the specified assay and source SIDs from PubChem; save original batch records and hashes.
+2. Audit measurements, deposited labels, structures, duplicates, and conflicts; exclude overlap with the 8 protected partitions.
+3. Reproduce existing scores and assess resources on a fixed small sample from old Wong validation data.
+4. Freeze the cohort, nine checkpoints, metrics, seeds, bootstrap procedure, tie policy, and code hashes.
+5. Pass query structures alone into model forward calls; save chunks and seal all predictions.
+6. After sealing, attach known experimental labels by stable compound key and calculate metrics.
+7. Independently recalculate metrics from saved CSVs, then add the existing RF models as an explicitly post-hoc supplementary comparison.
 
-原历史 `pilot`、`freeze`、`run` 入口会拒绝覆盖已经存在的结果。后续需要再运行推理时，先创建版本化路径和新协议；不要删除原结果来绕过保护。把新结果作为在已查看 benchmark 上的比较，另找未参与开发的新队列作最终证据。
+The main entry points are `download_rn4220_external_v1.py` → `audit_rn4220_external_v1.py` → `verify_rn4220_external_v1.py` → `evaluate_harvard_rn4220_v1.py` → `verify_harvard_evaluation_v1.py`. The downloader requires the original concise SID inventory included in the archive; cloning the code alone does not provide a one-command reconstruction of the complete Harvard source snapshot. Historical source files are preserved in the release.
 
-## 文件布局
+Historical `pilot`, `freeze`, and `run` entry points refuse to overwrite existing results. To repeat inference during future work, first introduce versioned paths and a new protocol rather than deleting the original results to bypass protections. Report new results as comparisons on an already reviewed benchmark and reserve a new cohort, unused in development, for final evidence.
+
+## Repository layout
 
 ```text
-README.md                         项目入口、结果与复现路线
-CONTRIBUTING.md                   分支、PR、实验记录和共同开发约定
-THIRD_PARTY_NOTICES.md             来源、引用和许可边界
-configs/                          固定模型配置与历史冻结协议
-src/antibacterial/                标准化、划分、基线、D-MPNN、描述符
-scripts/                          数据来源、迁移、外部评价和核验 CLI
-tests/                            化学身份、泄漏、指标和神经数据流契约
-reports/                          小型审计、比较和独立核验摘要
-docs/artifact_manifest.json        发布大文件清单及 SHA-256
-docs/export_manifest.json          从研究工作区导出的文件溯源
-docs/ROADMAP.md                    合作起点与尚未完成的工作
-.github/                          issue/PR 模板
-docs/ci/tests.yml                 尚未启用的轻量 GitHub Actions 模板
-data/                            通过 release 恢复；Git 忽略
-outputs/                         历史权重和预测；Git 忽略
-artifacts/                       下载 zip 与校验文件；Git 忽略
+README.md                         English overview, results, and reproduction guide
+README.zh-CN.md                   Complete Chinese version with a language switch
+CONTRIBUTING.md                   Branches, PRs, experiment records, and collaboration
+THIRD_PARTY_NOTICES.md            Sources, attribution, and licensing boundaries
+configs/                         Fixed model configurations and frozen protocols
+src/antibacterial/               Standardization, splits, baselines, D-MPNNs, descriptors
+scripts/                         Data, transfer, external evaluation, and verification CLIs
+tests/                           Identity, leakage, metric, and neural data-flow contracts
+reports/                         Small audit, comparison, and verification summaries
+docs/artifact_manifest.json       Release payload inventory and SHA-256 hashes
+docs/export_manifest.json         Provenance of files exported from the research workspace
+docs/ROADMAP.md                   Collaboration starting points and outstanding work
+.github/                         Issue and PR templates
+docs/ci/tests.yml                Optional lightweight GitHub Actions template; not enabled
+data/                            Restored from the release; excluded from Git
+outputs/                         Historical weights and predictions; excluded from Git
+artifacts/                       Downloaded archive and checksums; excluded from Git
 ```
 
-`link_npass_domain_v1.py` 随仓库保留，是因为 Harvard 审计调用其中 `protected_sets()` 读取 8 个分区；其独立 NPASS 主流程不属于本次数据包。旧 CheMeleon/V0 入口需要其额外权重或输出，不能仅凭主包宣称全部历史分支均可运行。
+`link_npass_domain_v1.py` is retained because the Harvard audit calls its `protected_sets()` function to read the 8 partitions. Its standalone NPASS workflow is outside this bundle. Old CheMeleon/V0 entry points need additional weights or outputs; the main bundle does not make every historical branch runnable.
 
-## 协作与下一步
+## Collaboration and next steps
 
-`LucasYL` 与受邀协作者 `andyyyyaa` 使用同一私有仓库。收到邀请后，先接受 GitHub repository invitation，再克隆、下载 release、运行上面的核验。邀请未接受前，私有链接可能显示 404。
+`LucasYL` and invited collaborator `andyyyyaa` share the private repository. Accept the GitHub repository invitation before cloning, downloading the release, and running verification. Private links may return 404 until the invitation has been accepted.
 
-建议从这些小任务开始：
+Suggested starting tasks:
 
-1. 在协作者机器上验证安装、数据包和保存结果，记录平台差异。
-2. 把固定路径的历史编排器逐步改造成显式 config/run-id 的新版本，保留原文件。
-3. 在查看新结果前定义下一份独立队列、assay 可比性、暴露排查及固定 Top-K。
-4. 讨论需要优化 AP、固定预算 Top-K，还是不同 assay 的可迁移性；先确定目标再改模型。
+1. Verify installation, release artifacts, and saved results on the collaborator's machine, recording platform differences.
+2. Introduce explicit config/run-ID inputs for the historically fixed-path orchestrators while preserving the original files.
+3. Define a new independent cohort, assay comparability, exposure checks, and fixed Top-K before inspecting new results.
+4. Agree on whether to prioritize AP, fixed-budget Top-K, or transfer between assay contexts before changing the model.
 
-详见 [贡献指南](CONTRIBUTING.md) 和 [合作路线](docs/ROADMAP.md)。改动通过分支和 PR；涉及实验结论要一并附配置、数据角色、代码 commit、指标来源和未解决的限制。不要把 proposed/running/completed/verified 写成同一种状态。
+See the [contribution guide](CONTRIBUTING.md) and [roadmap](docs/ROADMAP.md), currently in Chinese. Use branches and PRs. Changes affecting scientific conclusions should include the configuration, data roles, code commit, metric provenance, and unresolved limitations. Distinguish proposed, running, completed, and verified work.
 
-## 限制、来源与许可
+## Limitations, sources, and licensing
 
-- 这是结构已知纯化合物的计算排序，不能直接用于未知结构、提取物、菌株或 BGC 的活性判断。
-- scaffold 排重不等于低相似度，更不等于新化学类别或新作用机制。
-- Harvard 浓度仍不明确，来源中的天然产物/放线菌身份不应从名字或高分猜测。
-- 结果不是 MIC、临床效果、毒性安全性、广谱活性或新抗生素发现的证据。
-- 不同任务的 AP 受样本组成和活性率影响，不能把 Wong AP 与 Harvard AP 直接比较成退步/进步。
-- 归档用于私人研究协作；没有为第三方数据另行授予再分发许可。公开发布前需要逐来源确认条款。本仓库原创代码目前也未另行选择开源许可证。
+- This is computational ranking of purified compounds with known structures. It does not directly assess unknown structures, extracts, producing strains, or biosynthetic gene clusters.
+- Scaffold exclusions do not guarantee low similarity, new chemical classes, or new mechanisms of action.
+- Harvard's final concentration remains unclear. Natural-product or actinomycete provenance must not be inferred from names or high model scores.
+- Results do not establish MIC, clinical efficacy, toxicity safety, broad-spectrum activity, or discovery of a new antibiotic.
+- AP depends on cohort composition and active prevalence. Wong and Harvard AP values cannot be directly compared as evidence of improvement or deterioration.
+- The archive supports private research collaboration and does not grant new redistribution rights for third-party data. Review each source's terms before public release. An open-source license has not yet been selected for the project's original code.
 
-主要来源：
+Primary sources:
 
 - [Wong et al., Nature, DOI: 10.1038/s41586-023-06887-8](https://doi.org/10.1038/s41586-023-06887-8)
-- [Wong 作者代码与公开数据](https://github.com/felixjwong/antibioticsai)
+- [Wong authors' code and public data](https://github.com/felixjwong/antibioticsai)
 - [Harvard / PubChem BioAssay AID 1259311](https://pubchem.ncbi.nlm.nih.gov/bioassay/1259311)
 - [Chemprop](https://github.com/chemprop/chemprop)
 - [descriptastorus](https://github.com/bp-kelley/descriptastorus)
 - [CO-ADD](https://www.co-add.org/)
 
-研究数据保持各自来源和使用条件；详细说明与保留的 Wong 上游 MIT 文本见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。引用本仓库时，请记录 commit、release tag，并同时引用使用的数据源和方法。
+Research data retain their original provenance and applicable terms. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for details and the preserved upstream Wong MIT license. When citing this repository, record the commit and release tag and cite the underlying data sources and methods.
