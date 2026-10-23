@@ -10,9 +10,6 @@
 4. 需要操作 GNN 时，再装 neural 环境并运行小样本 validation 复现。
 5. 在 issue 中记录操作系统、Python、依赖、命令和结果；不要上传 token 或环境凭据。
 
-## 分支与 PR
-
-从最新 `main` 建工作分支，例如 `research/new-evaluation-plan` 或 `fix/configurable-output-paths`。提交前至少运行基础测试；涉及神经数据流时跑 neural 测试。用 PR 说明具体问题、最终行为、验证和剩余限制，请另一位参与者查看。
 
 不要在同一个 PR 里同时改变标签、split、架构、指标与对照定义。如果需要多个变化，把各自的解释和匹配对照写清楚。
 
